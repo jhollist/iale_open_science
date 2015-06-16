@@ -6,15 +6,18 @@ highlighter:      pygments
 
 # Permalinks
 permalink:            pretty
-paginate_path:        /introR/page:num
+paginate_path:        /iale_open_science/page:num
 relative_permalinks:  true
 
 # Setup
-title:            'Introduction to R'
+title:            'An Open Science and Reproducible Research Primer for Landscape
+                  Ecologists.'
 tagline:          ''
-description:      'This material was developed for two (maybe more) of US EPA, ORDs ecology labs, GED and AED.  Goal is to introduce R through a typical data analysis workflow.'
-url:              http://usepa.github.io/introR
-baseurl:          /introR
+description:      'This material was presented as a workshop at the 2015 IALE
+                  World Congress in Portland, OR, July 2015.  Covers the basics
+                  of Open Science and Reproducible Research in R.'
+url:              http://jwhollister.com/iale_open_science
+baseurl:          /iale_open_science
 
 author:
   name:           'Jeffrey W. Hollister'
