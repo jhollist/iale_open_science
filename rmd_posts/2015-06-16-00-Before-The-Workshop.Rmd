@@ -37,20 +37,20 @@ version$version.string
 
 ## It should say...
 
-```{r version, echo=FALSE}
+```{r version2, echo=FALSE}
 version$version.string
 ```
 
 ## And Check on Git 
 Lastly, let's make sure Git is running.  Can also do this from R with:
 
-```{r version, eval=FALSE}
+```{r git_version, eval=FALSE}
 system("git --version")
 ```
 
 ## Which should looking something like...
 
-```{r version, echo=FALSE}
+```{r git_version2, echo=FALSE}
 system("git --version")
 ```
 

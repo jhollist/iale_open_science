@@ -14,33 +14,19 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ##Tentative Schedule
 
-### 01 - Introduction (8:30 am - 10:00 am)
-- Getting R and RStudio going
-- Using packages
-- Using functions
-- Help!
+### 01 - Introduction to Open Science 
 
-#### Break (10:00 am - 10:15 am)
+### 02 - R, R Scripting, and R Studio 
 
-### 02 - Get (10:15 am - 12:00 pm)
-- Working in the console
-- Useful functions
-- Data types and structures in R
-- Reading data into R
+### 03 - Spatial Data in R with `sp`, `rgdal`, `rgeos`, and `raster`
 
-#### Lunch (12:00 pm - 1:00 pm)
+### 04 - Git and Github
 
-### 03 - Clean (1:00 pm - 2:45 pm)
-- `dplyr` 
-- Subset
-- Reshape
-- Modify
-- Pipes
+### 05 - Reproducible Research with RStudio and Markdown
 
-#### Break (2:45 pm - 3:00 pm)
+### 06 - Species Occurrence Data on the Web with `spocc`
 
-### 04 - Explore (3:00 pm - 4:30 pm)
-- Exploratory data analysis
-- Summary Statistics
-- Exploratory plots with base R
+
+
+
 
