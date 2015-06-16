@@ -1,9 +1,10 @@
-introR
+iale_open_science
 ====
-Introductory R Training materials for workshop given Jan 14-15,2015 at USEPA Gulf Ecology Division and Jan 7-8, 2015 and Jan 22-23, 2105 at USEPA Atlantic Ecology Division.
+Open science and reproducible research materials for workshop given July 5,2015 
+at IALE World Congress, Portland, OR.
 
-Author: Jeffrey W. Hollister
-URL: http://usepa.github.io/introR
+Authors: Jeffrey W. Hollister, Betty Kreakie, Bryan Milstead, and Scott Chamberlain
+URL: http://jwhollister.com/iale_open_science
 
 Theme for website based off of the [Green Tea Theme](http://jekyllthemes.org/themes/green-tea/) by [Richard Bray](http://richbray.me/frap/).  
 
