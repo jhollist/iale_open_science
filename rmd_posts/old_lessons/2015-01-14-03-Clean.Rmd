@@ -1,0 +1,226 @@
+---
+title: "03 - Clean: Base R"
+author: Jeffrey W. Hollister
+layout: post_page
+---
+In this third lesson we are going to start working on maninpulating and cleaning up our data frames.  We are spending some time on this because, in my experience, most data analysis and statistics classes seem to assume that 95% of the time spent working with data is on the analysis and interpretation of that analysis and little time is spent getting data ready to analyze.  However, in reality, I'd argue, the time spent is flipped with most time spent on cleaning up data and significantly less time on the analysis. We will just be scratching the surface of the many ways you can work with data in base R and with `dplyr` ([Next Lesson](introR/2015/01/14/04-Clean/)). Before we jump into the lesson, quick links and lesson goals are:
+
+##Quick Links to Exercises and R code
+- [Lesson 3 R Code](/gedr/rmd_posts/2015-01-14-03-Clean.R): All the code from this post in an R Script.
+- [Exercise 1](#exercise-1): Subsetting the NLA data
+- [Exercise 2](#exercise-2): Merge two NLA data files together
+- [Exercise 3](#exercise-3): Reshaping and modifying to get NLA summary stats
+
+##Lesson Goals
+- Understand and use various subsetting methods (indexing and `subset()`).
+- Be able to merge data frames by simply combining rows and columns
+- Use `merge()` to combine data frames by a common key.
+- Do some basic reshaping and summarizing data frames.
+
+##Subset
+Cleaning data (or data munging, data jujitsu, data wrangling) often happens at two points.  The first stage is getting raw data files ready to be read in by the computer.  This can be quite the challenge.  For the purposes of this workshop we are not going to focus on that side too much.  The data files we are using are in a clean enough format to be read in directly.  If you want to learn more about some best practices in maintaining good clean data files, I'd point you to two places.  First is some materials from [Data Carpentry on working with spreadsheets](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/excel/ecology_spreadsheets.md) and second is [Hadley Wickham's Tidy Data paper](http://www.jstatsoft.org/v59/i10/paper).
+
+The second point where you need to clean data is to get it ready for specific analysis and that is what this lesson will focus on.  Lets start exploring this with using indexing to subset both observations (the rows) and variables (the columns).  Some of the commands we know already, like `head()` and `tail()` kind of do this, but we need more control than that.  We get that with indexing.  In short indexing allows you to specify individual (or ranges) of rows and columns.  We can index data frames and vectors (and lists and matrices, but we aren't going to go into that).  Let's start with a vector example and build from there.
+
+```{r indexing_examp}
+#Create a vector
+x<-c(10:19)
+x
+#Postive indexing returns just the value in the ith place
+x[7]
+#Negative indexing returns all values except the value in the ith place
+x[-3]
+#Ranges work too
+x[8:10]
+#A vector can be used to index
+#Can be numeric
+x[c(2,6,10)]
+#Can be boolean - will repeat the pattern 
+x[c(TRUE,FALSE)]
+#Can even get fancy
+x[x%%2==0]
+```
+ 
+So that's kinda handy.  In practice you wouldn't likely just be asking for that information to be returned to the screen, you'd probably save the output to a new object, kind of like `evens<-x[x%%2==0]`.  Let's move on now and look at indexing data frames.
+
+Since a data frame has two dimensions, you need to specify an index for both the row and the column.  You can specify both and get a single value like `data_frame[row,column`],specify just the row and the get the whole row back like `data_frame[row,]` or get just the column with `data_frame[,column]`.  Let's work some examples.
+
+```{r data_frame_index}
+#Let's use one of the stock data frames in R, iris
+head(iris)
+#And grab a specific value
+iris[1,1]
+#A whole column
+petal_len<-iris[,3]
+petal_len
+#A row
+obs15<-iris[15,]
+obs15
+#Many rows
+obs3to7<-iris[3:7,]
+obs3to7
+```
+
+So that's the basics.  Still in the arena of kinda useful, but not really... Remember though that we can index vectors with other vectors and a data frame is just a collection of vectors (kinda) and that starts to get interesting.  Also remember that data frames have column names.  We can use those too.  Let's try it.
+
+```{r more_data_frame_index}
+#First, there are a couple of ways to use the column names
+iris$Petal.Length
+head(iris["Petal.Length"])
+#Multiple colums
+head(iris[c("Petal.Length","Species")])
+#Now we can combine what we have seen to do some more complex queries
+#Lets get all the data for Species with a petal length greater than 6
+big_iris<-iris[iris$Petal.Length>=6,]
+head(big_iris)
+#Or maybe we want just the sepal widths of the virginica species
+virginica_iris<-iris$Sepal.Width[iris$Species=="virginica"]
+head(virginica_iris)
+```
+
+Got it?!  Probably sort of!?  I will admit that the syntax for subsetting data this way is a bit obtuse.  I did want to make sure you all saw it though becuase it comes up often in other peoples code and helps you get a better understanding, I think, of what you are doing.  That being said there are other options.  In base, `subset()` and also in `dplyr` which will be the next lesson.
+
+```{r subset_examp}
+#And redo what we did above
+big_iris_subset<-subset(iris,subset=Petal.Length>=6)
+head(big_iris_subset)
+virginica_iris_subset<-subset(iris,subset=Species=="virginica",select=Sepal.Width)
+head(virginica_iris_subset)
+```
+
+So, I think that is a big improvement in the syntax over the raw indexing and certainly lends itself to more understandable code.
+
+```{r Exercise1, echo=FALSE}
+```
+
+##Exercise 1
+This exercise is going to focus on using what we just covered on indexing and subsetting to start to clean up the National Lakes Assessment data files.  Remember to use the stickies: green when your done, red if you have a problem.
+
+1. If it isn't already open, make sure you have the script we created, "nla_analysis.R" opened up.
+2. Start a new section of code in this script by simply putting in a line or two of comments indicating what it is this set of code does.
+3. Our goal for this is to create two new data frames that represent a subset of the observations as well as a subset of the data. 
+4. First, from the  `nla_sites` data frame we want a new data frame that has only the following columns: SITE_ID, LON_DD, LAT_DD, STATE_NAME, WSA_ECO9, NUT_REG, NUTREG_NAME, LAKE_ORIGIN, and RT_NLA.  Name the new data frame `nla_sites_subset`.
+5. Next, lets subset the water quality data from `nla_wq`.  The columns we want for this are: SITE_ID, VISIT_NO, SITE_TYPE, TURB, NTL, PTL, CHLA, and SECMEAN. Call this `nla_wq_subset`.
+6. Last thing we are going to need to do is get a subset of the observations from `nla_wq_subset`.  We need only the lakes that with VISIT_NO equal to 1 and SITE_TYPE equal to "PROB_Lake".  Keep the same name, `nla_wq_subset`, for this data frame.
+
+##Merging Data
+Another very common clean-up/data managment task is to be able to merge data into a single data frame.  We are going to talk about several different ways to do this.  First, is adding a new column or existing vector to a data frame with `cbind()`,`data.frame()`,or`$`. 
+
+```{r cbind_examp}
+#Create a new vector to add to the iris data frame
+categories<-sample(1:3,nrow(iris),replace=T)
+iris_cbind<-cbind(iris,categories)
+head(iris_cbind)
+#Can also use data.frame again for this
+iris_cbind_df<-data.frame
+head(iris_cbind_df)
+#Direct assignment
+iris_cbind_dollar<-iris
+iris_cbind_dollar$categories<-sample(1:3,nrow(iris),replace=T)
+head(iris_cbind_dollar)
+```
+
+These are all handy to know, but you need to be very careful with it.  First, the data in the vector you are adding needs to be in the same order as the observations in the data frame.  Also it needs to have the same number of rows (or divisible by that number of rows).  
+
+The next thing we might want to do is add some new rows to a data frame.  This is very handy as you might have data collected and entered at one time, and then additional observations made later that need to be added.  So with `rbind()` we can stack two data frames with the same columns to store more observations.  
+
+```{r rbind_examp}
+#Let's first create a new small example data.frame
+rbind_df<-data.frame(a=1:3,b=c("a","b","c"),c=c(T,T,F),d=rnorm(3))
+#Now an example df to add
+rbind_df2<-data.frame(a=10:12,b=c("x","y","z"),c=c(F,F,F),d=rnorm(3))
+rbind_df<-rbind(rbind_df, rbind_df2)
+rbind_df
+```
+
+Now something to think about.  Could you add a vector as a new row?  Why/Why not? When/When not?
+
+Let's go back to the columns now.  What we can currently do is add columns that need to be same length, or length that is divisible by number of rows in the original, and need to be in the same order.  But it is very common to have to datasets that are in different orders and have differing numbers of rows.  What we want to do in that case is going to be more of a database type function and join two tables based on a common column.  A common way to do that in base R is with `merge()`.   So let's contrive another example by creating a dataset to merge to `rbind_df` that we created above.
+
+```{r merge_example}
+# Contrived data frame
+rbind_df_merge_me<-data.frame(a=c(1,3,10,11,14,6,23),x=rnorm(7),names=c("bob","joe","sue",NA,NA,"jeff",NA))
+# Create merge of matches
+rbind_df_merge_match<-merge(rbind_df,rbind_df_merge_me,by="a")
+rbind_df_merge_match
+# Create merge of matches and all of the first data frame
+rbind_df_merge_allx<-merge(rbind_df,rbind_df_merge_me,by="a",all.x=TRUE)
+rbind_df_merge_allx
+```
+
+```{r Exercise2, echo=FALSE}
+```
+
+##Exercise 2
+In this exercise we are going to practice merging our NLA data.  You will remember that we have two datasets, one on water quality and one on site information.  We selected some info out of the water quality data that we didn't select out of the site info so we have two data frames, with differing numbers of rows and unknown order.  Use your stickies!
+
+1. This is the only task we have for this exercise.  Add to your script a line (or more if you need it) to create a new data frame, `nla_data`, that is a merge of `nla_site_subset` and `nla_wq_subset`, but with all lines in `nla_wq_subset` preserved in the output.
+2. If that goes quickly, feel free to explore `rbind()` some.
+
+##Modify and Summarize
+So we now have a data frame that is set up pretty well to facilitate some future analysis.  That being said, different analyses and visualizations are probably going to require some additional monekying around with our data.  This requires us to modify, aggregate, or split up our dataset.  There are many ways to do this and a lot depends on the format of the original data.  We will focus on a couple: transposing and aggregation.  There is a lot more you can do.  Again, the best source for packages and examples on this is Hadley Wickham.  In particular I would look at the `reshape` package and the associated links:
+
+- [`rehsape` pakcage](http://had.co.nz/reshape/)
+- [JSS paper](http://www.jstatsoft.org/v21/i12/paper)
+
+To transpose a data frame all we need is the `t()` function. 
+
+```{r transpose_example}
+#Look at are contrived example again
+rbind_df_merge_match
+#And the transpose of this
+t(rbind_df_merge_match)
+```
+
+I find that I don't use transpose a lot, but when I do it is usually in combination with other summary and aggregation methods.  It can also be useful with data in a long form where each row does not represent a single observation and the observation id is duplicated.  Getting that to work with base R takes some work. The `reshape()` function can be used for that, but to be honest, I have never used it.  Also the `reshape` package can be very powerful for dealing with these types of transformations.
+
+Let's now look at some aggregation commands.  We will focus on the wrapper functions `aggregate()` and `by()`.  These provide a more convenient way to access the `apply` family of functions.  I will introduce those, but not go into too much detail.  There are many apply functions and they include: `apply()`, `lapply()`, `sapply()`, `mapply()`, `tapply()`,  and `eapply()` (I think that is all of them...).  There are also two convenience function `aggregate()`, and `by()` that are good to know.  
+
+I have never found the apply functions or their helper to be very intuitive and each seems to have it's quirks with the data structures the like as input or return as output.  Often we simply want to input a data frame, summarize or split based on a column in that data frame and get a data frame returned.  This is what `dplyr` does and what we will focus on in the next lesson.  That being said, some of the base R function do work well.  We will look specifically at `apply()`, `tapply()`, and `aggregate()`
+
+`apply()` allows you to run a function by row or by columns. It looks for a data frame as input and returns a vector.  For instance, you could have multiple columns that you wanted get an average across.  Perhaps each row is a site where we measured weekly temperature.  To get an average monthly temperature we could do:
+
+```{r apply_examp}
+temp_df<-data.frame(id=1:100,week1=runif(100,20,25), week2=runif(100,19,24), 
+                    week3=runif(100,18,26), week4=runif(100,17,23))
+head(temp_df)
+apply(temp_df,1,mean)
+temp_df$month_mean_temp <- apply(temp_df,1,mean)
+head(temp_df)
+```
+
+This is useful, but lets think a bit about the constraints.  Since the only grouping that is done is by row or column, the function you apply to each row or to each column needs to make sense for the data types that are stored in the rows and columns.  For instance, if you ask for a mean across all the rows and one of your rows contains character values, that is going to cause problems. 
+
+Our next command is `tapply()` which works with vectors.  You input a vector, supply factors of the same length as your input, and then a function to apply.  We can go back to the `iris` data and play with this.
+
+```{r tapply_examp}
+sepal_len<-iris$Sepal.Length
+tapply(sepal_len,iris$Species,mean)
+#What if we need to use function arguments?
+sepal_len[10]<-NA
+mean(sepal_len)
+mean(sepal_len, na.rm=TRUE)
+tapply(sepal_len,iris$Species,mean)
+tapply(sepal_len,iris$Species,function(x) mean(x, na.rm=T))
+```
+
+So that is useful, but what we really want is to do this these things across multiple groups and multiple columns.  The last base R command that we are going to discuss, `aggregate()`,  does this.  This function will accept a data frame as input, requires a list of your grouping variables, and then the function to apply.  Back to `iris`...
+
+```{r aggregate_examp}
+aggregate(iris,iris$Species,mean)
+aggregate(iris,list(iris$Species),mean)
+aggregate(iris[,-5],list(iris$Species),mean)
+species_means<-aggregate(iris[,-5],list(iris$Species),mean)
+species_means
+```
+
+```{r Exercise3, echo=FALSE}
+```
+
+##Exercise 3
+This exercise will let you practice at using some of the reshaping commands, in particular the summary commands. 
+
+1. We have an interest in man-made vs natural lakes and how they might have differing water quality.  At this point we have a single data frame `nla_data` that should make answering that question fairly straightforward. Set up a final section in your script to look at this.
+2. Add some lines to your script to calculate the mean by `LAKE_ORIGIN`, for `TURB`, `NTL`, `PTL`,`CHLA`, and `SECMEAN` (hint: columns 4 through 8). Save to a data frame named `origin_mean_wq`.
+3. Repeat the same analysis but for the `WSA_ECO9` ecoregions.  Save this to a data frame named `ecoregion_mean_wq`.
+4. It might be interesting to compare the grouped means to the means of each value for the entire dataset.  Using `apply()`, calculate the mean wq for all lakes.  Save this as `nla_mean_wq`.

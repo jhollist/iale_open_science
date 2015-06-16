@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title> Introduction to R </title>
+		<!-- For responsive site
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="author" href="humans.txt">
+		<meta name="description" content="Description Goes Here">
+		<link rel="stylesheet" href="/introR/css/style.css">
+		<!--[if IE 7]>
+			<html class="ie7"> 
+			<link rel="stylesheet" type="text/css" href="/introR/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!--[if IE 8]><html class="ie8"> <![endif]-->		
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/introR/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/introR/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/introR/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="/introR/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="/introR/ico/favicon.png">	    
+	
+   <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43969710-4', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+	</head>
+	<body>
+	<!-- Header
+	    ================================================== -->
+	<header>
+
+	</header>
+
+	<!-- Content
+    ================================================== -->
+  <div class="content">
+    <main class="container">
+    	<div class="row-fluid">
+    		<section class="content">
+    		  <h1>Introduction to R</h1>
+          <div class="sub-title"></div>
+    		</section>
+    		<ul class="entries">
+    		
+    		  <li>
+    		    <a href="/introR/2014/11/12/Proposed-Outline/">
+    		        <h3>Intro R Workshop Outline</h3>
+                <time>12 November 2014</time>
+                <div><p>The workshop is designed around my own idea of what a common data analysis workflow would entail: get -&gt; clean -&gt; explore -&gt; visualize -&gt; analyze. </p> <p>I hope this...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/14/00-Before-The-Workshop/">
+    		        <h3>00 - Before The Workshop</h3>
+                <time>14 January 2015</time>
+                <div><p>Prior to the start of the workshop everyone will need to have had the software installed and tested. Install of R, RStudio and Strawberry Perl does not require a open...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/14/01-Introduction/">
+    		        <h3>01 - Introduction to R: The basics</h3>
+                <time>14 January 2015</time>
+                <div><p>Over the course of the next two days we are going to walk through a typical data analysis workflow in R. But, with this first lesson we are going to...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/14/02-Get/">
+    		        <h3>02 - Get</h3>
+                <time>14 January 2015</time>
+                <div><p>The second lesson is going to start to lay the foundation for working with data in R. We will cover some of the very basics of R first, then move...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/14/03-Clean/">
+    		        <h3>03 - Clean</h3>
+                <time>14 January 2015</time>
+                <div><p>In this third lesson we are going to start working on maninpulating and cleaning up our data frames. We are spending some time on this because, in my experience, most...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/14/04-Explore/">
+    		        <h3>04 - Explore</h3>
+                <time>14 January 2015</time>
+                <div><p>Our next three lessons (Explore, Analyze, and Visualize) don’t actually split neatly into groups. That being said, I will try my best, but there will be overlap. For this lesson...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/15/05-Analyze/">
+    		        <h3>05 - Analyze: Base</h3>
+                <time>15 January 2015</time>
+                <div><p>The focus of this workshop hasn’t really been statistics, its been more about R, the language. But, it is pretty much impossible to talk a lot about R without getting...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/15/06-Analyze/">
+    		        <h3>06 - Analyze: Packages</h3>
+                <time>15 January 2015</time>
+                <div><p>The second section will run through a quick example of using a package, <code>randomForest</code> for some analysis. I’ve included this section just to show how (relatively) trivial it is to...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/15/07-Visualize/">
+    		        <h3>07 - Visualize</h3>
+                <time>15 January 2015</time>
+                <div><p>One of the frequently touted strong points of R is data visualization. We saw some of that with our use of base graphics, but those plots were, frankly, a bit...</div>
+    		    </a>
+    		  </li>
+    		
+    		  <li>
+    		    <a href="/introR/2015/01/15/08-Repeat-Reproduce/">
+    		        <h3>08 - Repeat and Reproduce</h3>
+                <time>15 January 2015</time>
+                <div><p>In theory, you now have a basic understanding of how to conduct a typical data analysis workflow in R. All that is left is to be able to write it...</div>
+    		    </a>
+    		  </li>
+    		
+    		</ul>
+    	</div>
+      
+      <div id="post-pagination">
+        
+<!--         <p class="prev disabled">
+          <span>Previous</span>
+        </p> -->
+        
+
+        <ul class="pages">
+          <li class="page">
+            
+<!--             <span class="current-page">1</span> -->
+            
+          </li>
+
+          
+        </ul>
+
+        
+<!--         <p class="next disabled">
+          <span>Next</span>
+        </p> -->
+        
+      </div>
+
+    </main>
+  </div>
+
+
+
+	<footer>
+		<div class="container">
+			
+		</div>
+	</footer>
+
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts 
+	    ================================================= -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/custom.js"></script>
+
+    <!-- Analytics
+    ================================================== -->
+    <script>
+		// analytics code
+    </script>	
+	</body>
+</html>

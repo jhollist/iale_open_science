@@ -1,0 +1,97 @@
+---
+title: "05 - Analyze: Base"
+author: Jeffrey W. Hollister
+layout: post_page
+---
+```{r setup, echo=FALSE, warning=FALSE, purl=FALSE, message=FALSE}
+options(repos="http://cran.rstudio.com/")
+if(!require("ggplot2")){
+  install.packages("ggplot2")
+}
+if(!require("dplyr")){
+  install.packages("dplyr")
+}
+if(!require("randomForest")){
+  install.packages("randomForest")
+}
+library("ggplot2")
+library("dplyr")
+```
+
+The focus of this workshop hasn't really been statistics, its been more about R, the language.  But, it is pretty much impossible to talk a lot about R without getting into stats, as that is what draws most people to R in the first place.  So, we will spend a little bit of time on it.  In this lesson we will touch on some very simple stats that we can do with base R as well as provide a quick (i.e. top of my head as I write this) list of what can be done in base R.  
+
+##Quick Links to Exercises and R code
+- [Lesson 5 R Code](/introR/rmd_posts/2015-01-15-05-Analyze.R): All the code from this post in an R Script.
+- [Exercise 1](#exercise-1): Run some basic statistical test and build a simple model with the NLA data
+
+##Lesson Goals
+- Conduct basic statistical analyses with base R
+- Get a taste of wide array of analyses in base R
+
+##Base statistics
+The capabilities that come out of the box with R are actually quite good and used to (i.e. before R) cost you quite a bit to access.  Now it all comes for free!  Some of the things you can do with R without any additional packages inlcude: logistic regression (and all manner of generalized linear models), correlation, principle components analysis, chi-squared tests, clustering, loess, ANOVA, MANOVA, ...  In short, we can do a lot without moving out of base r and `stats`.
+
+We will talk about a few analyses just to show the tip of the iceberg of what is available.
+
+### t-tests
+A t-test is done simply with `t.test()` and you control the specifics (paired, two-sided, etc.) with options.  For the simple case of comparing the difference of two means we can use all of the defaults:
+
+```{r ttest_examp }
+x<-rnorm(30,mean=3,sd=2)
+y<-rnorm(30,mean=10,sd=5)
+xy_tt<-t.test(x,y)
+xy_tt
+```
+
+`t.test()` can also take a formula specification as input. I mentioned this briefly in the previous lesson.  At it's simplest a formula takes the form of `y ~ x`.  The tilde is used in place of the equals sign.  For a t-test that is all we need to know.  
+
+```{r ttest_formula_examp}
+#Lets pick another dataset, ToothGrowth.
+#Looking at diff in tooth length by groups specified in supp
+rbind(head(ToothGrowth),tail(ToothGrowth))
+t.test(ToothGrowth$len~ToothGrowth$supp)
+```
+There's a lot more you can do with `t.test()`, but you'll have to rely on `?t.test` for more info.
+
+### Correlation
+Next let's take a look at correlations.  Little inspiration is striking, so `iris` it is.
+
+```{r corr_examp,message=FALSE,warning=FALSE}
+#A simple correlation
+cor(iris$Petal.Width,iris$Petal.Length)
+#And a test of that correlation
+cor.test(iris$Petal.Width,iris$Petal.Length)
+#A data frame as input returns a correlation matrix
+cor(iris)
+#Oops, non-numeric data.  Lets use dplyr to get what we want and pipe to cor
+library(dplyr)
+select(iris,-Species) %>% 
+  cor()
+```
+
+If you look at the help for `cor()`, you'll see two main optional arguments.  First is the `use` argument which allows you to use the entire dataset or select complete cases which is useful when you have `NA` values.  There are several options.  Also, the default correlation method is for Pearson's.  If you would like to us non-parametric correlations (e.g. rank), you specify that here.
+
+### Linear Regression
+Next let's take a look at linear regression.  One of the common ways of accessing linear regressions is with `lm()`.  We have already seen the formula object so there isn't too much that is new here.  Some of the options though are new and useful.  Let's take a look:
+
+```{r lm_examp}
+lm(Ozone~Temp,data=airquality)
+#Not much info, so save to object and use summary
+lm_aq1<-lm(Ozone~Temp,data=airquality)
+summary(lm_aq1)
+#And now a multiple linear regression
+lm_aq2<-lm(Ozone~Temp+Wind+Solar.R,data=airquality)
+summary(lm_aq2)
+```
+
+All of your standard modelling approaches (and then some) are available in R including typical variable selection techniques (e.g. stepwise with AIC) and logistic regression, which is implemented with the rest of the generalized linear models in `glm()`.  Interaction terms can be specified directly in the model, but there are several ways to do so (x*y, x:y, x^y).  Lastly, if you are interested in more involved or newer approaches these will be implemented (most likely) with additional packages and will not be available in base R or `stats`.
+
+```{r Exercise1, echo=FALSE}
+```
+
+##Excercise 1
+For this exercise, let's start to look at some of the statistical tests and relationships in the NLA data.
+
+1. First, lets take a look at the man made and natural lakes.  Add a section to your script that tests for a difference in the mean value of TURB, NTL, PTL, CHLA, and SECMEAN between man made and natural lakes.  For this we will have the script save each test to a new object and print the results to the screen.
+
+2. Next, lets build some linear models that build a linear model to be used to predict CHLA.  Again save your model to an object and print the summary of that model to the screen

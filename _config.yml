@@ -1,0 +1,40 @@
+# Dependencies
+markdown:         kramdown
+kramdown:
+  parse_block_html: true 
+highlighter:      pygments
+
+# Permalinks
+permalink:            pretty
+paginate_path:        /introR/page:num
+relative_permalinks:  true
+
+# Setup
+title:            'Introduction to R'
+tagline:          ''
+description:      'This material was developed for two (maybe more) of US EPA, ORDs ecology labs, GED and AED.  Goal is to introduce R through a typical data analysis workflow.'
+url:              http://usepa.github.io/introR
+baseurl:          /introR
+
+author:
+  name:           'Jeffrey W. Hollister'
+  url:            https://twitter.com/jhollist
+
+paginate:         15
+
+timezone:         America/New_York
+
+#Plugins
+gems:
+- jekyll-mentions
+- jemoji
+- jekyll-redirect-from
+- jekyll-sitemap
+
+
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+auto: true # automatically update your jekyll
+server: true # runs a local server
+exclude: ["Gemfile", "Gemfile.lock", "README.md", 'sass', 'watch.sh', 'style.scss'] # files to exclude
+
