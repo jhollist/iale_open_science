@@ -1,6 +1,6 @@
 ---
-title: "Intro R Workshop Outline"
-author: Jeffrey W. Hollister
+title: "Open Science and Reproducible Research Workshop"
+author: "Jeffrey W. Hollister, Betty Kreakie, Bryan Milstead, and Scott Chamberlain""
 layout: post_page
 ---
 
@@ -13,8 +13,6 @@ This outline and way of thinking about teaching R is greatly influenced by both 
 For each of the lessons there is a blog post that describes what we are doing, provides some examples and also provides some hands-on exercises.  I have written these as blog posts for use after the workshop.  Additionally, all of the code for each lesson is available as a stand alone R script.  During the workshop we will work mostly from the script.  
 
 ##Tentative Schedule
-
-## Day 1
 
 ### 01 - Introduction (8:30 am - 10:00 am)
 - Getting R and RStudio going
@@ -46,27 +44,3 @@ For each of the lessons there is a blog post that describes what we are doing, p
 - Summary Statistics
 - Exploratory plots with base R
 
-## Day 2
-
-### 05 - Analyze: Base (8:30 am - 9:30 am)
-- Base statistics
-
-### 06 - Analyze: Contributed Package (9:30 am - 10:45 am)
-- Contributed Packages - Example with Random Forest
-
-#### Break (10:45 am - 11:00 am)
-
-### 07 - Visualize: Part 1 (11:00 pm - 12:00 pm)
-- `ggplot2`
-
-#### Lunch (12:00 pm - 1:00 pm)
-
-### 07 - Visualize: Part 2 (1:00 pm - 2:30 pm)
-- `ggplot2`
-
-#### Break (2:30 pm - 2:45 pm)
-
-### 08 - Repeat (2:45 pm - 4:30 pm)
-- Programing with R
-- Functions
-- Reproducible Research with Rstudio 
