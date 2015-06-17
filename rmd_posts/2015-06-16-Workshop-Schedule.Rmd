@@ -24,7 +24,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 05 - Reproducible Research with RStudio and Markdown
 
-### 06 - Species Occurrence Data on the Web with `spocc`
+### 06 - Using Open Data in R
 
 
 
