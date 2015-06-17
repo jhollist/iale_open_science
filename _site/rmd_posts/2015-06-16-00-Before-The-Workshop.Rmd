@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<title> IALE Open Science Primer </title>
+		<title> 00 - Before The Workshop </title>
 		<!-- For responsive site
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		-->
@@ -33,63 +33,83 @@
 
 	</header>
 
-	<!-- Content
-    ================================================== -->
-  <div class="content">
-    <main class="container">
+	<main class="content">
+    <section class="container">
     	<div class="row-fluid">
-    		<section class="content">
-    		  <h1>An Open Science and Reproducible Research Primer for Landscape Ecologists.</h1>
-          <div class="sub-title"></div>
-    		</section>
-    		<ul class="entries">
-    		
-    		  <li>
-    		    <a href="/iale_open_science/2015/06/16/00-Before-The-Workshop/">
-    		        <h3>00 - Before The Workshop</h3>
-                <time>16 June 2015</time>
-                <div><p>Prior to the start of the workshop everyone will need to have the software installed and tested. You will need to have R, RStudio, and Git installed. Get the latest...</div>
-    		    </a>
-    		  </li>
-    		
-    		  <li>
-    		    <a href="/iale_open_science/2015/06/16/Workshop-Schedule/">
-    		        <h3>Workshop Schedule</h3>
-                <time>16 June 2015</time>
-                <div><p>The workshop is designed around my own idea of what a common data analysis workflow would entail: get -&gt; clean -&gt; explore -&gt; visualize -&gt; analyze -&gt; repeat. </p> <p>I...</div>
-    		    </a>
-    		  </li>
-    		
-    		</ul>
-    	</div>
-      
-      <div id="post-pagination">
-        
-<!--         <p class="prev disabled">
-          <span>Previous</span>
-        </p> -->
-        
+    		<article class="home-icon">
+				<a href="http://jwhollister.com/iale_open_science">
+					<i class="icon-home"></i> 
+				</a>
+			</article>
+			<article class="post">
+				<h1 class="content">00 - Before The Workshop</h1>
+				<h5></h5>
+				<section>
+					Prior to the start of the workshop everyone will need to have the software 
+installed and tested.  You will need to have R, RStudio, and Git installed.  Get the latest versions of each and install using the defaults.  
 
-        <ul class="pages">
-          <li class="page">
-            
-<!--             <span class="current-page">1</span> -->
-            
-          </li>
+1. **R:** 
+    - [General Info](http://cran.r-project.org/)
+    - [Windows](http://cran.r-project.org/bin/windows/base/R-3.2.0-win.exe)
+    - [Mac](http://cran.r-project.org/bin/macosx/R-3.2.0.pkg)
+2. **RStudio:** 
+    - [General Info](http://www.rstudio.com/products/rstudio/download/)
+    - [Windows](http://download1.rstudio.org/RStudio-0.99.446.exe)
+    - [Mac](http://download1.rstudio.org/RStudio-0.99.446.dmg)
+3. **Git:** 
+    - [General Info](https://git-scm.com/downloads)
+    - [Windows](https://git-scm.com/download/win)
+    - [Mac](https://git-scm.com/download/mac)
+  
+Once everything is installed, follow the instructions below to test your installation.
 
-          
-        </ul>
+## Open RStudio
+Once installed, RStudio should be accessible from the start menu.  Start up RStudio.  Once running it should look something like:
 
-        
-<!--         <p class="next disabled">
-          <span>Next</span>
-        </p> -->
-        
-      </div>
+![RStudio Window](/iale_open_science/figure/rstudio.png)
 
-    </main>
-  </div>
+## Find "Console" window
+By default the console window will be on the left side of RStudio.  Find that window.  It will looking something like:  
 
+![RStudio Console](/iale_open_science/figure/rstudio_console.png)
+
+## Copy and paste the code
+Click in the window and paste in the code from below:
+
+```{r version, eval=FALSE}
+version$version.string
+```
+
+## It should say...
+
+```{r version2, echo=FALSE}
+version$version.string
+```
+
+## And Check on Git 
+Lastly, let's make sure Git is running.  Can also do this from R with:
+
+```{r git_version, eval=FALSE}
+system("git --version")
+```
+
+## Which should looking something like...
+
+```{r git_version2, echo=FALSE}
+system("git --version")
+```
+
+
+					<hr>
+				</section>
+				<section style="margin-bottom: 2em;">
+					
+						
+				</section>
+			</article>
+		</div>
+	</section>
+</main>
 
 
 	<footer>

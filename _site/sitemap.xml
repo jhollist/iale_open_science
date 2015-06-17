@@ -3,159 +3,39 @@
   
   
   <url>
-    <loc>http://usepa.github.io/introR/2015/01/15/08-Repeat-Reproduce/</loc>
+    <loc>http://jwhollister.com/iale_open_science/2015/06/16/Workshop-Schedule/</loc>
     
-    <lastmod>2015-01-15T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/15/07-Visualize/</loc>
-    
-    <lastmod>2015-01-15T00:00:00-05:00</lastmod>
+    <lastmod>2015-06-16T00:00:00-04:00</lastmod>
     
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>http://usepa.github.io/introR/2015/01/15/06-Analyze/</loc>
+    <loc>http://jwhollister.com/iale_open_science/2015/06/16/00-Before-The-Workshop/</loc>
     
-    <lastmod>2015-01-15T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/15/05-Analyze/</loc>
-    
-    <lastmod>2015-01-15T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/14/04-Explore/</loc>
-    
-    <lastmod>2015-01-14T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/14/03-Clean/</loc>
-    
-    <lastmod>2015-01-14T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/14/02-Get/</loc>
-    
-    <lastmod>2015-01-14T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/14/01-Introduction/</loc>
-    
-    <lastmod>2015-01-14T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2015/01/14/00-Before-The-Workshop/</loc>
-    
-    <lastmod>2015-01-14T00:00:00-05:00</lastmod>
-    
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/2014/11/12/Proposed-Outline/</loc>
-    
-    <lastmod>2014-11-12T00:00:00-05:00</lastmod>
+    <lastmod>2015-06-16T00:00:00-04:00</lastmod>
     
     <priority>0.8</priority>
   </url>
   
   
   <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2014-11-12-Proposed-Outline/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
+    <loc>http://jwhollister.com/iale_open_science/rmd_posts/2015-06-16-00-Before-The-Workshop/</loc>
+    <lastmod>2015-06-17T10:29:35-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-14-00-Before-The-Workshop/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
+    <loc>http://jwhollister.com/iale_open_science/rmd_posts/2015-06-16-Workshop-Schedule/</loc>
+    <lastmod>2015-06-17T10:29:35-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-14-01-Introduction/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-14-02-Get/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-14-03-Clean/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-14-04-Explore/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-15-05-Analyze/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-15-06-Analyze/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-15-07-Visualize/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/rmd_posts/2015-01-15-08-Repeat-Reproduce/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://usepa.github.io/introR/</loc>
-    <lastmod>2015-01-12T12:51:35-05:00</lastmod>
+    <loc>http://jwhollister.com/iale_open_science/</loc>
+    <lastmod>2015-06-17T10:29:35-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
