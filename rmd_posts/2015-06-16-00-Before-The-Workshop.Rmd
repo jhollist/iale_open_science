@@ -5,17 +5,26 @@ layout: post_page
 ---
 
 Prior to the start of the workshop everyone will need to have the software 
-installed and tested.  You will need to have the following installed (links are 
-provided for Windows and Mac):
+installed and tested.  You will need to have R, RStudio, and Git installed.  Get the latest versions of each and install using the defaults.  
 
-1. **R:** Get the latest versions and install using the default settings.
- - [Windows](http://cran.r-project.org/bin/windows/base/)
- - [Mac]()
-2. **RStudio:** Get the latest download and install using the default settings.
- - [Windows](http://www.rstudio.com/products/rstudio/download/)
- - [Mac](http://www.rstudio.com/products/rstudio/download/)
+1. **R:** 
+
+  - [General Info](http://cran.r-project.org/)
+  - [Windows](http://cran.r-project.org/bin/windows/base/R-3.2.0-win.exe)
+  - [Mac](http://cran.r-project.org/bin/macosx/R-3.2.0.pkg)
+  
+2. **RStudio:** 
+
+  - [General Info](http://www.rstudio.com/products/rstudio/download/)
+  - [Windows](http://download1.rstudio.org/RStudio-0.99.446.exe)
+  - [Mac](http://download1.rstudio.org/RStudio-0.99.446.dmg)
+  
 3. **Git:** 
 
+  - [General Info](https://git-scm.com/downloads)
+  - [Windows](https://git-scm.com/download/win)
+  - [Mac](https://git-scm.com/download/mac)
+  
 Once everything is installed, follow the instructions below to test your installation.
 
 ## Open RStudio
