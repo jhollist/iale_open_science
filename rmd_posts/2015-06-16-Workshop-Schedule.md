@@ -1,6 +1,6 @@
 ---
 title: "Open Science and Reproducible Research Workshop"
-author: "Jeffrey W. Hollister, Betty Kreakie, Bryan Milstead, and Scott Chamberlain""
+author: "Jeffrey W. Hollister, Betty Kreakie, Bryan Milstead, and Scott Chamberlain"
 layout: post_page
 ---
 

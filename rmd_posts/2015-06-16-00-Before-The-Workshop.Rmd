@@ -11,7 +11,7 @@ installed and tested.  You will need to have R, RStudio, and Git installed.  Get
     - [General Info](http://cran.r-project.org/)
     - [Windows](http://cran.r-project.org/bin/windows/base/R-3.2.0-win.exe)
     - [Mac](http://cran.r-project.org/bin/macosx/R-3.2.0.pkg)
-        - *Note:* Mac users will need to make sure they have XQuartz installed.  It is not a requirement for all usage of R, is for some.  You can check to see if you have it by looking in the directory `Applications/Utilities`.  If you need to install it, [follow this link](http://xquartz.macosforge.org/landing/).
+        - *Note:* Mac users will need to make sure they have XQuartz installed. You can check to see if you have it by looking in the directory `Applications/Utilities`.  If you need to install it, [follow this link](http://xquartz.macosforge.org/landing/).
 2. **RStudio:** 
     - [General Info](http://www.rstudio.com/products/rstudio/download/)
     - [Windows](http://download1.rstudio.org/RStudio-0.99.446.exe)
