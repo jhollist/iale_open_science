@@ -55,9 +55,12 @@ Lastly, let's make sure Git is running.  Can also do this from R with:
 system("git --version")
 {% endhighlight %}
 
-## Which should looking something like...
+## Which looks like...
 
 
+{% highlight text %}
+## [1] "git version 1.9.0"
+{% endhighlight %}
 
 
 

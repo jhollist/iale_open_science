@@ -7,6 +7,6 @@ version$version.string
 ## ----git_version, eval=FALSE---------------------------------------------
 ## system("git --version")
 
-## ----git_version2, echo=FALSE--------------------------------------------
-system("git --version")
+## ----git_version2, echo=FALSE, eval=TRUE---------------------------------
+system("git --version", intern = TRUE)
 

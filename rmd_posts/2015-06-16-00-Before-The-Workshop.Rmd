@@ -52,10 +52,10 @@ Lastly, let's make sure Git is running.  Can also do this from R with:
 system("git --version")
 ```
 
-## Which should looking something like...
+## Which looks like...
 
-```{r git_version2, echo=FALSE}
-system("git --version")
+```{r git_version2, echo=FALSE, eval=TRUE}
+system("git --version", intern = TRUE)
 ```
 
 
