@@ -40,7 +40,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 10:45 am - 12:00 pm:
 
-**Lesson 03 - Spatial Data in R **
+**Lesson 03 - Spatial Data in R**
 
   - Important packages
   - Reading in spatial data
@@ -49,7 +49,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 12:00 pm - 1:00 pm: 
 
-**Lunch **
+**Lunch**
 
 ### 1:00 pm - 2:00 pm: 
 
@@ -62,7 +62,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 2:00 pm - 3:00 pm: 
 
-**Lesson 05 - Reproducible Research with RStudio and Markdown **
+**Lesson 05 - Reproducible Research with RStudio and Markdown**
 
   - Markdown
   - Reproducible research presentations in RStudio
@@ -84,7 +84,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 4:00 pm - 5:00 pm: 
 
-**Lesson 07 - Hands-on: Build Your Own! **
+**Lesson 07 - Hands-on: Build Your Own!**
 
   - Start with a skeleton of a reproducible document
   - Get data, add analysis, create figures and tables
