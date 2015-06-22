@@ -10,12 +10,16 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ##Tentative Schedule
 
-### 9:00am - 9:15am: Introductions and Workshop Logistics
+### 9:00am - 9:15am: 
+
+#### Introductions and Workshop Logistics
 
   - Brief Introductions
   - Discuss Logistitcs
 
-### 9:15 am - 9:30 am: Lesson 01 - Introduction to Open Science 
+### 9:15 am - 9:30 am: 
+
+#### Lesson 01 - Introduction to Open Science 
 
   - What is open science?
   - What is reproducible research?
