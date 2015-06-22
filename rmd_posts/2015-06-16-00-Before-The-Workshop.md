@@ -20,6 +20,10 @@ installed and tested.  You will need to have R, RStudio, and Git installed.  Get
     - [General Info](https://git-scm.com/downloads)
     - [Windows](https://git-scm.com/download/win)
     - [Mac](https://git-scm.com/download/mac)
+4. **LaTeX:**
+    - [General Info](http://latex-project.org/ftp.html)
+    - [Windows](http://www.tug.org/protext/)
+    - [Mac](http://www.tug.org/mactex/)
   
 Once everything is installed, follow the instructions below to test your installation.
 
@@ -63,5 +67,29 @@ system("git --version")
 ## [1] "git version 1.9.0"
 {% endhighlight %}
 
+## And LaTeX
+
+
+{% highlight r %}
+system("latex --version")
+{% endhighlight %}
+
+## Which looks (something) like...
+
+
+{% highlight text %}
+##  [1] "pdfTeX 3.1415926-2.5-1.40.14 (TeX Live 2013)"                                
+##  [2] "kpathsea version 6.1.1"                                                      
+##  [3] "Copyright 2013 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX)."           
+##  [4] "There is NO warranty.  Redistribution of this software is"                   
+##  [5] "covered by the terms of both the pdfTeX copyright and"                       
+##  [6] "the Lesser GNU General Public License."                                      
+##  [7] "For more information about these matters, see the file"                      
+##  [8] "named COPYING and the pdfTeX source."                                        
+##  [9] "Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX)."
+## [10] "Compiled with libpng 1.5.16; using libpng 1.5.16"                            
+## [11] "Compiled with zlib 1.2.7; using zlib 1.2.7"                                  
+## [12] "Compiled with xpdf version 3.03"
+{% endhighlight %}
 
 

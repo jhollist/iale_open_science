@@ -10,3 +10,9 @@ version$version.string
 ## ----git_version2, echo=FALSE, eval=TRUE---------------------------------
 system("git --version", intern = TRUE)
 
+## ----latex_version, eval=FALSE-------------------------------------------
+## system("latex --version")
+
+## ----latex_version2, echo=FALSE, eval=TRUE-------------------------------
+system("latex --version", intern = TRUE)
+

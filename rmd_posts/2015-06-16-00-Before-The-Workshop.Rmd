@@ -20,6 +20,10 @@ installed and tested.  You will need to have R, RStudio, and Git installed.  Get
     - [General Info](https://git-scm.com/downloads)
     - [Windows](https://git-scm.com/download/win)
     - [Mac](https://git-scm.com/download/mac)
+4. **LaTeX:**
+    - [General Info](http://latex-project.org/ftp.html)
+    - [Windows](http://www.tug.org/protext/)
+    - [Mac](http://www.tug.org/mactex/)
   
 Once everything is installed, follow the instructions below to test your installation.
 
@@ -59,5 +63,16 @@ system("git --version")
 system("git --version", intern = TRUE)
 ```
 
+## And LaTeX
+
+```{r latex_version, eval=FALSE}
+system("latex --version")
+```
+
+## Which looks (something) like...
+
+```{r latex_version2, echo=FALSE, eval=TRUE}
+system("latex --version", intern = TRUE)
+```
 
 
