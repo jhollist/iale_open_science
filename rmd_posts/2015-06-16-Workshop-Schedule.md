@@ -10,7 +10,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ##Tentative Schedule
 
-### 9:00am - 9:15am: 
+### 9:00 am - 9:15 am: 
 
 **Introductions and Workshop Logistics**
 
@@ -25,48 +25,66 @@ For each of the lessons there is a blog post that describes what we are doing, p
   - What is reproducible research?
   - What are the goals of this workshop?
 
-### 9:30 am - 10:30 am: Lesson 02 - Introduction to R and R Studio (if necessary) 
+### 9:30 am - 10:30 am: 
+
+**Lesson 02 - Introduction to R and R Studio (if necessary)** 
 
   - Basics of R and RStudio
   - Packages
   - Functions
   - Help!
 
-### 10:30 am - 10:45 am: Break
+### 10:30 am - 10:45 am: 
 
-### 10:45 am - 12:00 pm Lesson 03 - Spatial Data in R 
+**Break**
+
+### 10:45 am - 12:00 pm:
+
+**Lesson 03 - Spatial Data in R **
 
   - Important packages
   - Reading in spatial data
   - Analyzing spatial data
   - Visualizing spatial data
 
-### 12:00 pm - 1:00 pm: Lunch 
+### 12:00 pm - 1:00 pm: 
 
-### 1:00 pm - 2:00 pm: Lesson 04 - Using Open Species Occurrence Data in R
+**Lunch **
+
+### 1:00 pm - 2:00 pm: 
+
+**Lesson 04 - Using Open Species Occurrence Data in R**
 
   - Intro to Open Data via APIs
   - using `spocc` to access species occurence data
   - using `taxize` to access and parse taxonomic information
   - Coverting `spocc` output to `sp`
 
-### 2:00 pm - 3:00 pm: Lesson 05 - Reproducible Research with RStudio and Markdown 
+### 2:00 pm - 3:00 pm: 
+
+**Lesson 05 - Reproducible Research with RStudio and Markdown **
 
   - Markdown
   - Reproducible research presentations in RStudio
   - Reproducible research documents in RStudio
   - Rendering to pdf, HTML, and Word
 
-### 3:00 pm - 3:15 pm: Break
+### 3:00 pm - 3:15 pm: 
 
-### 3:15 pm - 4:00 pm: Lesson 06 - Bare Bones Git and GitHub
+**Break**
+
+### 3:15 pm - 4:00 pm: 
+
+**Lesson 06 - Bare Bones Git and GitHub**
 
   - What are Git and GitHub?
   - Git basics
   - GitHub basics
   - Git from RStudio
 
-### 4:00 pm - 5:00 pm: Lesson 07 - Hands-on: Build Your Own! 
+### 4:00 pm - 5:00 pm: 
+
+**Lesson 07 - Hands-on: Build Your Own! **
 
   - Start with a skeleton of a reproducible document
   - Get data, add analysis, create figures and tables
