@@ -27,12 +27,10 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 9:30 am - 10:30 am: 
 
-**Lesson 02 - Introduction to R and R Studio (if necessary)** 
+**Lesson 02 - Tidy Data and Data Manipulation in R**
 
-  - Basics of R and RStudio
-  - Packages
-  - Functions
-  - Help!
+  - What is tidy data?
+  - Data manipulation with `tidyr` and `dplyr`
 
 ### 10:30 am - 10:45 am: 
 
@@ -73,16 +71,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 **Break**
 
-### 3:15 pm - 4:00 pm: 
-
-**Lesson 06 - Bare Bones Git and GitHub**
-
-  - What are Git and GitHub?
-  - Git basics
-  - GitHub basics
-  - Git from RStudio
-
-### 4:00 pm - 5:00 pm: 
+### 3:15 pm - 5:00 pm: 
 
 **Lesson 07 - Hands-on: Build Your Own!**
 
