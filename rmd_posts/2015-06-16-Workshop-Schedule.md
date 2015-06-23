@@ -71,7 +71,16 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 **Break**
 
-### 3:15 pm - 5:00 pm: 
+### 3:15 pm - 4::00pm:
+
+**Lesson 08 - Barebones Git and GitHub**
+
+  - What are Git and GitHub
+  - GitHub specifics
+  - Basic Git from the shell
+  - Git from RStudio
+
+### 4:00 pm - 5:00 pm: 
 
 **Lesson 07 - Hands-on: Build Your Own!**
 
