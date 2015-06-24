@@ -19,15 +19,23 @@ Collaboration is essential to science, and requires understanding both the socia
 - [Exercise 3](#exercise-3): Use Git from shell to push initial changes
 - [Exercise 4](#exercise-4): Use RStudio with your GitHub repository
 
-##Git and Github
+##Git and GitHub
+
+Git and GitHub are two releated, but separate entities.  Git could exisit without GitHub, but GitHub probably couldn't.  
 
 ###What is Git?
 
+Git is version control software, nothing more.  It was originally built to manage the development of the Linux Kernel.  Since then it has taken off and is, arguably, the most widely used software for managing versions of code (and really any text).  It is designed to work in a distributed fashion.  What this means, is that we can each have our version of the code (or text), then, if we want, combine those together into a centralized, master version.  Since it is distributed, it deals with multiple changes, from multiple people and it  provides mechanisms to combine those changes together.  In essence, think of it as "track-changes" on steroids.  We'll get into more details in a bit.
+
 ###What is GitHub?
 
-###How do they relate?
+GitHub is a website that facilitates sharing and colloborating on coding (and text) projects.  It serves as a cenralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel,jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
+
+##Basics of Git
+
+##Exercise 1
 
 ##Basics of Github
 
-##Exercise 1
+##Exercise 2
 

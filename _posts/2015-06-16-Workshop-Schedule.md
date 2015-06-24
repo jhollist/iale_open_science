@@ -12,14 +12,14 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 9:00 am - 9:15 am: 
 
-**Introductions and Workshop Logistics**
+**Introductions and Workshop Logistics:** Jeff
 
   - Brief Introductions
   - Discuss Logistitcs
 
 ### 9:15 am - 9:30 am: 
 
-**Lesson 01 - Introduction to Open Science** 
+**Lesson 01 - Introduction to Open Science:** Jeff 
 
   - What is open science?
   - What is reproducible research?
@@ -27,7 +27,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 9:30 am - 10:30 am: 
 
-**Lesson 02 - Tidy Data and Data Manipulation in R**
+**Lesson 02 - Tidy Data and Data Manipulation in R:** Betty
 
   - What is tidy data?
   - Data manipulation with `tidyr` and `dplyr`
@@ -38,7 +38,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 10:45 am - 12:00 pm:
 
-**Lesson 03 - Spatial Data in R**
+**Lesson 03 - Spatial Data in R:** Bryan
 
   - Important packages
   - Reading in spatial data
@@ -51,7 +51,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 1:00 pm - 2:00 pm: 
 
-**Lesson 04 - Using Open Species Occurrence Data in R**
+**Lesson 04 - Using Open Species Occurrence Data in R:** Scott
 
   - Intro to Open Data via APIs
   - using `spocc` to access species occurence data
@@ -60,7 +60,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 2:00 pm - 3:00 pm: 
 
-**Lesson 05 - Reproducible Research with RStudio and Markdown**
+**Lesson 05 - Reproducible Research with RStudio and Markdown:** Jeff
 
   - Markdown
   - Reproducible research presentations in RStudio
@@ -73,7 +73,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 3:15 pm - 4::00pm:
 
-**Lesson 08 - Barebones Git and GitHub**
+**Lesson 08 - Barebones Git and GitHub:** Jeff
 
   - What are Git and GitHub
   - GitHub specifics
@@ -82,7 +82,7 @@ For each of the lessons there is a blog post that describes what we are doing, p
 
 ### 4:00 pm - 5:00 pm: 
 
-**Lesson 07 - Hands-on: Build Your Own!**
+**Lesson 07 - Hands-on: Build Your Own!:** All
 
   - Start with a skeleton of a reproducible document
   - Get data, add analysis, create figures and tables

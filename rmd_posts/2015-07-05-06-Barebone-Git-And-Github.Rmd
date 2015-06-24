@@ -38,11 +38,13 @@ Git is version control software, nothing more.  It was originally built to manag
 
 ###What is GitHub?
 
-GitHub is...
+GitHub is a website that facilitates sharing and colloborating on coding (and text) projects.  It serves as a cenralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel,jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
 
-###How do they relate?
+##Basics of Git
+
+##Exercise 1
 
 ##Basics of Github
 
-##Exercise 1
+##Exercise 2
 
