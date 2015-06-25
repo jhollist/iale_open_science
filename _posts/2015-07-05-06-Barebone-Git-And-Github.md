@@ -14,10 +14,11 @@ Collaboration is essential to science, and requires understanding both the socia
 - Be able to use RSutdio's Git interface
 
 ##Quick Links to Exercises and R code
-- [Exercise 1](#exercise-1): Set-up global configuration on local machine
-- [Exercise 2](#exercise-2): Use Git from shell to push initial changes
-- [Exercise 3](#exercise-3): Create a repository on GitHub
-- [Exercise 4](#exercise-4): Use RStudio with your GitHub repository
+- [Exercise 1](#exercise-1): Create a repository on GitHub
+- [Exercise 2](#exercise-2): Use RStudio with your GitHub repository
+- [Exercise 3](#exercise-3): Set-up global configuration on local machine
+- [Exercise 4](#exercise-4): Use Git from shell to push initial changes
+
 
 ##Git and GitHub
 
@@ -30,6 +31,32 @@ Git is version control software.  It was originally built to manage the developm
 ###What is GitHub?
 
 GitHub is a website that facilitates sharing and colloborating on coding (and text) projects.  It serves as a cenralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel,jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
+
+##Basics of Github
+There are a lot of great features built into GitHub.  We will only talk about the those needed to work with repositories locally with RStudio and only use GitHub a little to get an example up and running.
+
+The GitHub concepts/features that, in my experience, tend to get the most use are:
+
+  - Forks
+  - Pull Requests
+  - Issues
+  - Creating new Repos
+  - Other cool things
+      - Social Stuff
+      - Free Web Hosting
+      - Outside Services
+
+### Forks
+
+### Pull Requests
+
+### Issues
+
+### New Repositories
+
+### Other Cool Things
+
+##Exercise 1
 
 ##Basics of Git
 
@@ -53,9 +80,7 @@ Git is huge.  It currently has 154 commands and each command has a number of pos
 ## [14] "    --refresh             don't add, only refresh the index"                          
 ## [15] "    --ignore-errors       just skip files which cannot be added because of errors"    
 ## [16] "    --ignore-missing      check if - even missing - files are ignored in dry run"     
-## [17] ""                                                                                     
-## attr(,"status")
-## [1] 129
+## [17] ""
 {% endhighlight %}
 
 So with 154 time whatever number of options it can get dense, quickly.  Luckily for us, we don't need to worry so much about everything that Git can do.  We just need the bare minimum.  This inlcudes:
@@ -97,9 +122,13 @@ git config --global -l
 ## [4] "core.autocrlf=true"
 {% endhighlight %}
 
-##Exercise 1
+##Exercise 3
+For this exercise, we are going to get your global config set up with your use name and email.
 
-##Basics of Github
+1. Open a shell window
+2. Set you user name
+3. Set your user email
+4. List that to the screen
 
-##Exercise 2
+
 
