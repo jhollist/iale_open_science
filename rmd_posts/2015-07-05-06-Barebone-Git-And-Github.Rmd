@@ -44,7 +44,7 @@ GitHub is a website that facilitates sharing and colloborating on coding (and te
 
 Git is huge.  It currently has 154 commands and each command has a number of possible of options.  For example, the command `git add` has these options availble:
 
-```{r git_example, echo=FALSE}
+```{r git_example, echo=FALSE, warning=FALSE}
 system("git add -h",intern=T)
 ```
 
@@ -68,7 +68,6 @@ So from your shell you can type the following to set your user name:
 ```
 git config --global user.name "Your Name"
 ```
-
 To set your email:
 
 ```

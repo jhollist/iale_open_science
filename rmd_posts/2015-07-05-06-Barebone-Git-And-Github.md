@@ -37,12 +37,6 @@ Git is huge.  It currently has 154 commands and each command has a number of pos
 
 
 {% highlight text %}
-## Warning: running command 'git add -h' had status 129
-{% endhighlight %}
-
-
-
-{% highlight text %}
 ##  [1] "usage: git add [options] [--] <pathspec>..."                                          
 ##  [2] ""                                                                                     
 ##  [3] "    -n, --dry-run         dry run"                                                    
@@ -84,7 +78,6 @@ So from your shell you can type the following to set your user name:
 ```
 git config --global user.name "Your Name"
 ```
-
 To set your email:
 
 ```
