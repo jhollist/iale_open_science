@@ -25,8 +25,8 @@ Collaboration is essential to science, and requires understanding both the socia
 ##Quick Links to Exercises and R code
   - [Exercise 1](#exercise-1): Create a repository on GitHub
   - [Exercise 2](#exercise-2): Set-up global configuration on local machine
-  - [Exercise 3](#exercise-3): Use RStudio with your GitHub repository
-  - [Exercise 4](#exercise-4): Use Git from shell to push initial changes
+  - [Exercise 3](#exercise-3): Use Git from shell to push initial changes
+  - [Exercise 4](#exercise-4): Use RStudio with your GitHub repository
 
 ##Git and GitHub
 
@@ -131,6 +131,8 @@ git config --global -l
 system("git config --global -l",intern = TRUE)
 ```
 
+We will get to the other concepts in a bit.  First, lets try to get our config set up.
+
 ##Exercise 2
 For this exercise, we are going to get your global config set up with your use name and email.
 
@@ -139,7 +141,36 @@ For this exercise, we are going to get your global config set up with your use n
 3. Set your user email
 4. List that to the screen
 
+##More Git Basics
+
+
+##Exercise 3
+
 ##Git and GitHub integration with RStudio
 Now that you know of all the great things that GitHub has to offer (I am not getting kickbacks, I swear) and you have an understanding of the key concepts of Git, next thing we want to be able to do is work with your new repo locally and via RStudio.  Our first step is to make sure RStudio knows where Git lives on your machine.  This will be OS specific.  What I have provided below are the steps for windows.
+
+First thing is to make sure Git is installed.  It can be downloaded from the main [git page](https://git-scm.com/).  Once Git is installed, we just need to make sure that RStudio knows where to find it.  On windows that is most likely going to be in `C:/Program Files (x86)/Git/bin/git.exe`.  In RStudio, go to Tools:Global Options from the menu bar.  Click on Git/SVN down at the bottom left.  The window you get should look like:
+
+![rstudio options](/iale_open_science/figure/rstudio_options.png)
+
+Just make sure you have the right path in the "Git exectuable" box.  If you want, you can also click on the checkbox to use Git Bash as you shell.
+
+If you had to make changes to location of the executable, shut down and restart RStudio and you should be all set.
+
+Next we need to link up an RStudio project with a GitHub repo.  The steps to do this are File:New Project.  The window you get should like:
+
+![new project 1](/iale_open_science/figure/rstudio_proj1.png)
+
+From there, select "Version Control", which sends you to:
+
+![new project 2](/iale_open_science/figure/rstudio_proj2.png)
+
+And there, select Git, which finally gets you to:
+
+![new project 3](/iale_open_science/figure/rstudio_proj3.png)
+
+In the Repository URL all we have to do is point it to our GitHub repo.  The URL of that is going to be something like `https://github.com/username/reponame`.  Once you get that in and hit "Create Project" it will create the project and clone the repository.  You are now ready to add files, make edits, and push those changes up to GitHub.
+
+##Exercise 4
 
 
