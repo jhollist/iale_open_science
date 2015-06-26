@@ -37,26 +37,58 @@ There are a lot of great features built into GitHub.  We will only talk about th
 
 The GitHub concepts/features that, in my experience, tend to get the most use are:
 
+  - Repositories
   - Forks
   - Pull Requests
   - Issues
-  - Creating new Repos
   - Other cool things
       - Social Stuff
       - Free Web Hosting
       - Outside Services
 
+### Repositories
+I already mentioned these briefly, but they require mentioning again as a Repository (aka, a "repo") is the basic unit of both Git and GitHub.  Any stand along project, be it code, a website, a manuscript, a presentation ... can be housed as a GitHub repository (and thus tracked via Git).  Creating a new repository on GitHub is easy.  First, go to [GitHub](https://github.com) and log in.  You screen will look like:
+
+![github](/iale_open_science/figure/gh1.png)
+
+What you need to do, is find the plus sign in the upper right:
+
+![github2](/iale_open_science/figure/gh2.png)
+
+Click on that and you will see:
+
+![github3](/iale_open_science/figure/gh3.png)
+
+Which takes you to the new repository page:
+
+![github4](/iale_open_science/figure/gh4.png)
+
+On this page you should fill out (at a minimum) the repository name.  A brief description is probably a good idea too.  With that done, click on "create repository."  With that done, you have a new repository and are ready to start adding elegant code or fantastic prose desribing your soon to be Nobel prize winning work.
+
 ### Forks
+Forks are simply copies of other GitHub repositories.  If you are working with others on a project it is possible that a repository exists, but that you do not have write access to.  In this case, you "fork" that repository.  GitHub will make a copy of that repository to your account.  You can now make whatever changes you like to your copied version (aka, your "fork") of that original repository.
 
 ### Pull Requests
+Given the situation above, there is a project/repository that you would like to contribute to, but you don't have push rights.  How do you do this?  Well that is done via a "pull request".  This is always (at least I think so) done from a forked repository.  You make your changes, send them to your forked repo, then you ask the maintainers of the repository you forked from to pull in your changes.  Pull requests can also be used when you are wokring with others on a repo that you all have write access to.  In either case, all of the changes you made are highlighted and others are given the chance to review your work prior to adding in to repo.
 
 ### Issues
-
-### New Repositories
+Issues are GitHubs way of keeping track of bugs, to-do lists, discussions about new features, etc. (e.g. [the `lawn` issues](https://github.com/ropensci/lawn/issues)).  Whether you are working on code or on a manuscript that is stored on GitHub, the issues can be a better mechanism for discussing the project than email as it keeps the correspondence with the project itself.  
 
 ### Other Cool Things
+In addition the more basic functions, GitHub has some other bells and whistles worth mentioning.  First, GitHub has a lot of "social" functionality built in.  You can follow people, star repos, watch repos, etc.  Taking advantage of this will help you find interesting projects and build a network of people working on similar things.  One of the biggest benefits I have gotten out of this is to watch other repositories and see how more experienced users are using GitHub.  Can get you up-to-speed pretty quickly on using issues, working with pull requests, etc.
+
+One of the greatest things, in my opinion, that GitHub provides is free web hosting from repos (my personal page and these workshop materials are hosted there).  There is a lot more info [here](https://pages.github.com/).  We will talk a bit more about this as we go through the exercises.
+
+Lastly, there a number of other companies that are building cool tools off of github.  SOme of these are examining testing coverage in your code (ie. [coveralls.io](https://coveralls.io/)) and continuous integration (ie. [Travis CI](https://travis-ci.org/)).  This is a bit beyond the scope of this workshop, but just be aware that there is a lot of cool, techy stuff going on both at GitHub and elsewhere that may have benefit for your work.
 
 ##Exercise 1
+With this exercise we are going to get you set up with the bare minimum: an account and your first repo.  
+
+1. If you do not already have one, go to [GitHub](https://github.com) and create a new account.  
+2. Set up a new repo.  Use the following for the name of this repo: username.github.io.  Repos with this naming convention are used by GitHub to host your user web page.  We will be adding some to this in the later exercises.
+
+##Git and GitHub integration with RStudio
+
 
 ##Basics of Git
 
@@ -116,10 +148,9 @@ git config --global -l
 
 
 {% highlight text %}
-## [1] "user.name=Jeffrey W. Hollister"            
-## [2] "user.email=jeff.w.hollister@gmail.com"     
-## [3] "credential.helper=cache --timeout=10000000"
-## [4] "core.autocrlf=true"
+## [1] "user.email=jeff.w.hollister@gmail.com"    
+## [2] "user.name=Jeff Hollister"                 
+## [3] "credential.helper=cache --timeout=3600000"
 {% endhighlight %}
 
 ##Exercise 3
