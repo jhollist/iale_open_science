@@ -9,16 +9,15 @@ layout: post_page
 Collaboration is essential to science, and requires understanding both the social side to collaboration as well as the logistical, nuts-and-bolts, technical side.  In spite of its importance, we get very little training in how to do this.  In this lesson we are going to start to focus on the technical side of collaboration.  Given the limited time we have, we are going to show you the bare bones of [GitHub](https://github.com) and the underlying version control technology, [Git](https://git-scm.com/).  The purpose of this lesson is to give you the basic skills in Git that will allow you to start working and collaborating with GitHub. 
 
 ##Lesson Goals
-- Understand Git and GitHub and how they work together
-- Be able to use basic Git commands from the shell
-- Be able to use RSutdio's Git interface
+  - Understand Git and GitHub and how they work together
+  - Be able to use basic Git commands from the shell
+  - Be able to use RSutdio's Git interface
 
 ##Quick Links to Exercises and R code
-- [Exercise 1](#exercise-1): Create a repository on GitHub
-- [Exercise 2](#exercise-2): Use RStudio with your GitHub repository
-- [Exercise 3](#exercise-3): Set-up global configuration on local machine
-- [Exercise 4](#exercise-4): Use Git from shell to push initial changes
-
+  - [Exercise 1](#exercise-1): Create a repository on GitHub
+  - [Exercise 2](#exercise-2): Set-up global configuration on local machine
+  - [Exercise 3](#exercise-3): Use RStudio with your GitHub repository
+  - [Exercise 4](#exercise-4): Use Git from shell to push initial changes
 
 ##Git and GitHub
 
@@ -82,40 +81,13 @@ One of the greatest things, in my opinion, that GitHub provides is free web host
 Lastly, there a number of other companies that are building cool tools off of github.  SOme of these are examining testing coverage in your code (ie. [coveralls.io](https://coveralls.io/)) and continuous integration (ie. [Travis CI](https://travis-ci.org/)).  This is a bit beyond the scope of this workshop, but just be aware that there is a lot of cool, techy stuff going on both at GitHub and elsewhere that may have benefit for your work.
 
 ##Exercise 1
-With this exercise we are going to get you set up with the bare minimum: an account and your first repo.  
+With this exercise we are going to get you set up with the minimum: an account and your first repo.  
 
 1. If you do not already have one, go to [GitHub](https://github.com) and create a new account.  
 2. Set up a new repo.  Use the following for the name of this repo: username.github.io.  Repos with this naming convention are used by GitHub to host your user web page.  We will be adding some to this in the later exercises.
 
-##Git and GitHub integration with RStudio
-
-
 ##Basics of Git
-
-Git is huge.  It currently has 154 commands and each command has a number of possible of options.  For example, the command `git add` has these options availble:
-
-
-{% highlight text %}
-##  [1] "usage: git add [options] [--] <pathspec>..."                                          
-##  [2] ""                                                                                     
-##  [3] "    -n, --dry-run         dry run"                                                    
-##  [4] "    -v, --verbose         be verbose"                                                 
-##  [5] ""                                                                                     
-##  [6] "    -i, --interactive     interactive picking"                                        
-##  [7] "    -p, --patch           select hunks interactively"                                 
-##  [8] "    -e, --edit            edit current diff and apply"                                
-##  [9] "    -f, --force           allow adding otherwise ignored files"                       
-## [10] "    -u, --update          update tracked files"                                       
-## [11] "    -N, --intent-to-add   record only the fact that the path will be added later"     
-## [12] "    -A, --all             add changes from all tracked and untracked files"           
-## [13] "    --ignore-removal      ignore paths removed in the working tree (same as --no-all)"
-## [14] "    --refresh             don't add, only refresh the index"                          
-## [15] "    --ignore-errors       just skip files which cannot be added because of errors"    
-## [16] "    --ignore-missing      check if - even missing - files are ignored in dry run"     
-## [17] ""
-{% endhighlight %}
-
-So with 154 time whatever number of options it can get dense, quickly.  Luckily for us, we don't need to worry so much about everything that Git can do.  We just need the bare minimum.  This inlcudes:
+Git is huge.  It currently has 154 commands and each command has a number of possible of options.  For example, the command `git add` has 13 options availble.  So with 154 time whatever number of options it can get dense, quickly.  Luckily for us, we don't need to worry so much about everything that Git can do.  We just need the bare minimum.  This inlcudes:
 
   - config
   - remote
@@ -153,7 +125,7 @@ git config --global -l
 ## [3] "credential.helper=cache --timeout=3600000"
 {% endhighlight %}
 
-##Exercise 3
+##Exercise 2
 For this exercise, we are going to get your global config set up with your use name and email.
 
 1. Open a shell window
@@ -161,5 +133,7 @@ For this exercise, we are going to get your global config set up with your use n
 3. Set your user email
 4. List that to the screen
 
+##Git and GitHub integration with RStudio
+Now that you know of all the great things that GitHub has to offer (I am not getting kickbacks, I swear) and you have an understanding of the key concepts of Git, next thing we want to be able to do is work with your new repo locally and via RStudio.  Our first step is to make sure RStudio knows where Git lives on your machine.  This will be OS specific.  What I have provided below are the steps for windows.
 
 
