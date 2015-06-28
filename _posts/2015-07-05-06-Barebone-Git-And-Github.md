@@ -120,15 +120,9 @@ git config --global -l
 
 
 {% highlight text %}
-## Warning: running command 'git config --global -l' had status 128
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] "fatal: unable to read config file 'C:/Users/JHollist/Documents/.gitconfig': No such file or directory"
-## attr(,"status")
-## [1] 128
+## [1] "user.email=jeff.w.hollister@gmail.com"     
+## [2] "user.name=Jeff Hollister"                  
+## [3] "credential.helper=cache --timeout=10000000"
 {% endhighlight %}
 
 We will get to the other concepts in a bit.  First, lets try to get our config set up.
@@ -141,8 +135,24 @@ For this exercise, we are going to get your global config set up with your use n
 3. Set your user email
 4. List that to the screen
 
+
 ##More Git Basics
 
+### Remote
+Git is distributed version contorl system.  This essentially means that we have repositories that are local (e.g., the copy of your repo that lives on your hard drive) or remote (e.g, the GitHub repo).  While we won't be doing much with remotes in these exercises, it is good to know about this.  One command that is useful is being able to list the remote info.  This can be done with:
+
+```
+git remote -v
+```
+
+
+{% highlight text %}
+## [1] "origin\thttps://github.com/jhollist/iale_open_science (fetch)"
+## [2] "origin\thttps://github.com/jhollist/iale_open_science (push)"
+{% endhighlight %}
+
+### Git Workflow
+The rest of the concepts we are going to cover make up a general Git workflow.
 
 ##Exercise 3
 
