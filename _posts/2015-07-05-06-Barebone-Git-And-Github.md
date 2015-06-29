@@ -152,7 +152,15 @@ git remote -v
 {% endhighlight %}
 
 ### Git Workflow
-The rest of the concepts we are going to cover make up a general Git workflow.
+The rest of the concepts we are going to cover make up a general Git workflow and this workflow has four main parts, 1)pulling, from your remote, any changes, 2) adding locally changed files to a "staging area", 3) committing the changes to the version control history, and 4) pushing those changes up to your remote repo.  We will look at each of these a bit more closely.
+
+**Pull**
+
+**Add**
+
+**Commit**
+
+**Push**
 
 ##Exercise 3
 
