@@ -1,5 +1,5 @@
 ---
-title: "06 - Bare bones Git and GitHub"
+title: "05 - Bare bones Git and GitHub"
 author: Jeffrey W. Hollister
 layout: post_page
 ---
