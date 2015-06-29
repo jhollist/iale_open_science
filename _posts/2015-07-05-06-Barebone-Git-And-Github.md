@@ -164,11 +164,6 @@ So, to do this pull you need to do:
 ```
 git pull
 ```
-
-{% highlight text %}
-## [1] "Already up-to-date."
-{% endhighlight %}
-
 Based on what we just learned about `remote` we know that it already has a URL and a name for `pull` (it was labled as "fetch"). Thus, `git pull` looks at this URL, compares that to what you have locally and pulls down any changes.  After updating your local version with `pull` you can now edit away.
 
 A quick note:  If you only ever work from one machine and do not have any collaborators on a project, `git pull` won't really do anything, as the GitHub version will never have changes that you don't already have locally.  Yet, I'd suggest still doing a `pull`.  Good practice.
@@ -213,11 +208,6 @@ So, to add a single file:
 ```
 git add 2015-07-05-06-Barebone-Git-And-Github.Rmd
 ```
-
-{% highlight text %}
-## character(0)
-{% endhighlight %}
-
 If you have many files that have changed and you are certain you want to commit ALL of those changes you can use:
 
 ``` 
@@ -253,10 +243,6 @@ We have reached the final stage in our Git workflow.  We want to add our changes
 git push origin master
 ```
 
-{% highlight text %}
-## character(0)
-{% endhighlight %}
-
 The last two part of this command 1) tell git which remote to push to, "origin" in this case (and almost every case you will encounter early on) and 2) which branch to push.  We won't have time to go into branches.  Suffice it to say we have only been working on a single branch, "master".  This is the branch we are pushing.  If you want to read more about branches, a good place to start is [GitHub's Workflow](https://guides.github.com/introduction/flow/).  There is actually a lot of good stuff in there if you want to dig a bit deeper.
 
 ##Git and GitHub integration with RStudio
@@ -286,15 +272,15 @@ In the Repository URL all we have to do is point it to our GitHub repo.  The URL
 
 To do this, go to the "Git" tab in RStudio.  It should look something like:
 
-![rstudio_git1](iale_open_science/figure/rstudio_git1.png)
+![rstudio_git1](/iale_open_science/figure/rstudio_git1.png)
 
 Next, click on the boxes under "staged."  This is equivalent to a `git add`.
 
-![rstudio_git2](iale_open_science/figure/rstudio_git2.png)
+![rstudio_git2](/iale_open_science/figure/rstudio_git2.png)
 
 With that finished, click on hte "Commit" button.  That will bring up a new window that looks like:
 
-![rstudio_git3](iale_open_science/figure/rstudio_git3.png)
+![rstudio_git3](/iale_open_science/figure/rstudio_git3.png)
 
 In there you can 1) add your commit message and when done, 2) click on commit, and then 3) click on "Push."  In theory all of your changes are now up on GitHub.  You have now complete your first, of many, git commits and pushes.
 
