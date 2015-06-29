@@ -25,8 +25,7 @@ Collaboration is essential to science, and requires understanding both the socia
 ##Quick Links to Exercises and R code
   - [Exercise 1](#exercise-1): Create a repository on GitHub
   - [Exercise 2](#exercise-2): Set-up global configuration on local machine
-  - [Exercise 3](#exercise-3): Use Git from shell to push initial changes
-  - [Exercise 4](#exercise-4): Use RStudio with your GitHub repository
+  - [Exercise 3](#exercise-3): Use RStudio with your GitHub repository
 
 ##Git and GitHub
 
@@ -87,7 +86,7 @@ In addition the more basic functions, GitHub has some other bells and whistles w
 
 One of the greatest things, in my opinion, that GitHub provides is free web hosting from repos (my personal page and these workshop materials are hosted there).  There is a lot more info [here](https://pages.github.com/).  We will talk a bit more about this as we go through the exercises.
 
-Lastly, there a number of other companies that are building cool tools off of github.  SOme of these are examining testing coverage in your code (ie. [coveralls.io](https://coveralls.io/)) and continuous integration (ie. [Travis CI](https://travis-ci.org/)).  This is a bit beyond the scope of this workshop, but just be aware that there is a lot of cool, techy stuff going on both at GitHub and elsewhere that may have benefit for your work.
+Lastly, there a number of other companies that are building cool tools off of github.  Some of these are examining testing coverage in your code (ie. [coveralls.io](https://coveralls.io/)) and continuous integration (ie. [Travis CI](https://travis-ci.org/)).  This is a bit beyond the scope of this workshop, but just be aware that there is a lot of cool, techy stuff going on both at GitHub and elsewhere that may have benefit for your work.
 
 ##Exercise 1
 With this exercise we are going to get you set up with the minimum: an account and your first repo.  
@@ -100,6 +99,7 @@ Git is huge.  It currently has 154 commands and each command has a number of pos
 
   - config
   - remote
+  - status
   - add
   - commit
   - push
@@ -159,6 +159,7 @@ system("git remote -v",intern = TRUE)
 The rest of the concepts we are going to cover make up a general Git workflow and this workflow has four main parts, 1)pulling, from your remote, any changes, 2) adding locally changed files to a "staging area", 3) committing the changes to the version control history, and 4) pushing those changes up to your remote repo.  We will look at each of these a bit more closely.
 
 **Pull**
+
 The first thing I always do when starting in on a project is pull any changes down to my local repo from my GitHub repo.  By doing this first thing (i.e. before you have made any edits to local files), you can save your self some headaches later on, most notably, you can avoid merge conflicts.  A merge conflict is two separate changes, to the same line of code.  Git does not know what to do in this case and requires manual intervention.  This isn't a bad thing, but can be a pain the first few times you see it.  On small projects best to try and avoid by pulling first.
 
 So, to do this pull you need to do:
@@ -166,17 +167,74 @@ So, to do this pull you need to do:
 ```
 git pull
 ```
+```{r git_pull, echo=FALSE}
+system("git pull",intern = TRUE)
+```
 
-**Add**
+Based on what we just learned about `remote` we know that it already has a URL and a name for `pull` (it was labled as "fetch"). Thus, `git pull` looks at this URL, compares that to what you have locally and pulls down any changes.  After updating your local version with `pull` you can now edit away.
+
+A quick note:  If you only ever work from one machine and do not have any collaborators on a project, `git pull` won't really do anything, as the GitHub version will never have changes that you don't already have locally.  Yet, I'd suggest still doing a `pull`.  Good practice.
+
+**Status and Add**
+
+After you have made some fantastic edits and saved those, we need to tell Git what to do with them.  First thing though, we can ask Git have it thinks our current status is.  We do this with:
+
+```
+git status
+```
+```{r git_status, echo=FALSE, cache=TRUE}
+system("git status",intern = TRUE)
+```
+
+Now, if we've made changes and saved them, Git tells us what to do.  We can see that, perhaps, some files were added, others modified, or deleted and that these files have not been "staged for commit."  This is what `add` will do for us.
+
+So, to add a single file:
+
+```
+git add 2015-07-05-06-Barebone-Git-And-Github.Rmd
+```
+```{r git_add, echo=FALSE, cache=TRUE}
+system("git add 2015-07-05-06-Barebone-Git-And-Github.Rmd",intern = TRUE)
+```
+
+If you have many files that have changed and you are certain you want to commit ALL of those changes you can use:
+
+``` 
+git add -A
+```
+
+This can cause some problems if you have made changes that you don't want to keep, so use it judiciously.
+
+With either of these commands, we should now have all of our changes in the staging area and waiting to be committed.
 
 **Commit**
 
+Now that we have some edited files with changes in the staging area we need to commit those changes to the repo history.  This will add an identifier (a SHA-1) to those changes and now allows us to look at all the changes associated with that commit, get back to the files at that point in time.  To commit our changes:
+
+```
+git commit -m "My Changes"
+```
+```{r git_commit, echo=FALSE, cache=TRUE}
+system("git commit -m 'My Changes'",intern = TRUE)
+```
+
+The `-m` flag indicates that you will include a commit message on the command line.  If you do not use this flag, a text editor, which is set with `git config`, will open for the message.  For our purposes, we will use the `-m` flag.  It is good practice to keeps these messages relatively short, but meaningful.  It can help when trying to track down prior versions.  So, in the example above, that is not a good message!  For some thoughts on writing good messages look at this [post](http://chris.beams.io/posts/git-commit/) and for a more amusing view of the emotion embeded in commit messages look [here](http://geeksta.net/geeklog/exploring-expressions-emotions-github-commit-messages/).
+
 **Push**
 
-##Exercise 3
+We have reached the final stage in our Git workflow.  We want to add our changes to our remote repo.  To do this we need to "push" our changes.  We can do this with:
+
+```
+git push origin master
+```
+```{r git_push, echo=FALSE, cache=TRUE}
+system("git push origin master",intern = TRUE)
+```
+
+The last two part of this command 1) tell git which remote to push to, "origin" in this case (and almost every case you will encounter early on) and 2) which branch to push.  We won't have time to go into branches.  Suffice it to say we have only been working on a single branch, "master".  This is the branch we are pushing.  If you want to read more about branches, a good place to start is [GitHub's Workflow](https://guides.github.com/introduction/flow/).  There is actually a lot of good stuff in there if you want to dig a bit deeper.
 
 ##Git and GitHub integration with RStudio
-Now that you know of all the great things that GitHub has to offer (I am not getting kickbacks, I swear) and you have an understanding of the key concepts of Git, next thing we want to be able to do is work with your new repo locally and via RStudio.  Our first step is to make sure RStudio knows where Git lives on your machine.  This will be OS specific.  What I have provided below are the steps for windows.
+Now that you know of all the great things that Git and GitHub have to offer (I am not getting kickbacks, I swear) and you have an understanding of the key concepts of Git, next thing we want to be able to do is work with your new repo locally and via RStudio.  Our first step is to make sure RStudio knows where Git lives on your machine.  This will be OS specific.  What I have provided below are the steps for windows.
 
 First thing is to make sure Git is installed.  It can be downloaded from the main [git page](https://git-scm.com/).  Once Git is installed, we just need to make sure that RStudio knows where to find it.  On windows that is most likely going to be in `C:/Program Files (x86)/Git/bin/git.exe`.  In RStudio, go to Tools:Global Options from the menu bar.  Click on Git/SVN down at the bottom left.  The window you get should look like:
 
@@ -198,8 +256,29 @@ And there, select Git, which finally gets you to:
 
 ![new project 3](/iale_open_science/figure/rstudio_proj3.png)
 
-In the Repository URL all we have to do is point it to our GitHub repo.  The URL of that is going to be something like `https://github.com/username/reponame`.  Once you get that in and hit "Create Project" it will create the project and clone the repository.  You are now ready to add files, make edits, and push those changes up to GitHub.
+In the Repository URL all we have to do is point it to our GitHub repo.  The URL of that is going to be something like `https://github.com/username/reponame`.  Once you get that in and hit "Create Project" it will create the project and clone the repository.  You are now ready to add files, make edits, and push those changes up to GitHub.  We can do this via the command line (as we saw above) or we can use the Git integrations tools in RStudio.
+
+To do this, go to the "Git" tab in RStudio.  It should look something like:
+
+![rstudio_git1](iale_open_science/figure/rstudio_git1.png)
+
+Next, click on the boxes under "staged."  This is equivalent to a `git add`.
+
+![rstudio_git2](iale_open_science/figure/rstudio_git2.png)
+
+With that finished, click on hte "Commit" button.  That will bring up a new window that looks like:
+
+![rstudio_git3](iale_open_science/figure/rstudio_git3.png)
+
+In there you can 1) add your commit message and when done, 2) click on commit, and then 3) click on "Push."  In theory all of your changes are now up on GitHub.  You have now complete your first, of many, git commits and pushes.
 
 ##Exercise 4
+We will now practice getting our GitHub repo talking with RStudio, making changes to a file, committing those changes and sending them up to github.
+
+1.) Start a new RStudio project from your existing GitHub repo.
+2.) Create a new file in the root of your project and save it as `index.html`.
+3.) Add some text to this file.  If you speak `html` feel free to embelish a bit.  If not, plain texy will work fine.
+4.) With your edits saved, use either the command line or RStudio to add, commit, and push your changes to your GitHub repo.
+5.) When you have your changes pushed, in a broswer go to http://yourusername.github.io.  You should now see what you saved in your file.  Free Web Hosting!!
 
 
