@@ -67,7 +67,7 @@ system("git --version")
 
 
 {% highlight text %}
-## [1] "git version 1.9.0"
+## [1] "git version 1.9.0.msysgit.0"
 {% endhighlight %}
 
 ## And LaTeX
@@ -81,18 +81,9 @@ system("latex --version")
 
 
 {% highlight text %}
-##  [1] "pdfTeX 3.1415926-2.5-1.40.14 (TeX Live 2013)"                                
-##  [2] "kpathsea version 6.1.1"                                                      
-##  [3] "Copyright 2013 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX)."           
-##  [4] "There is NO warranty.  Redistribution of this software is"                   
-##  [5] "covered by the terms of both the pdfTeX copyright and"                       
-##  [6] "the Lesser GNU General Public License."                                      
-##  [7] "For more information about these matters, see the file"                      
-##  [8] "named COPYING and the pdfTeX source."                                        
-##  [9] "Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX)."
-## [10] "Compiled with libpng 1.5.16; using libpng 1.5.16"                            
-## [11] "Compiled with zlib 1.2.7; using zlib 1.2.7"                                  
-## [12] "Compiled with xpdf version 3.03"
+## [1] "MiKTeX-pdfTeX 2.9.4902 (1.40.14) (MiKTeX 2.9)"              
+## [2] "Copyright (C) 1982 D. E. Knuth, (C) 1996-2012 Han The Thanh"
+## [3] "TeX is a trademark of the American Mathematical Society."
 {% endhighlight %}
 
 
