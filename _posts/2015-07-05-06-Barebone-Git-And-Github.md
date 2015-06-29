@@ -120,9 +120,10 @@ git config --global -l
 
 
 {% highlight text %}
-## [1] "user.email=jeff.w.hollister@gmail.com"     
-## [2] "user.name=Jeff Hollister"                  
+## [1] "user.name=Jeffrey W. Hollister"            
+## [2] "user.email=jeff.w.hollister@gmail.com"     
 ## [3] "credential.helper=cache --timeout=10000000"
+## [4] "core.autocrlf=true"
 {% endhighlight %}
 
 We will get to the other concepts in a bit.  First, lets try to get our config set up.
@@ -155,6 +156,13 @@ git remote -v
 The rest of the concepts we are going to cover make up a general Git workflow and this workflow has four main parts, 1)pulling, from your remote, any changes, 2) adding locally changed files to a "staging area", 3) committing the changes to the version control history, and 4) pushing those changes up to your remote repo.  We will look at each of these a bit more closely.
 
 **Pull**
+The first thing I always do when starting in on a project is pull any changes down to my local repo from my GitHub repo.  By doing this first thing (i.e. before you have made any edits to local files), you can save your self some headaches later on, most notably, you can avoid merge conflicts.  A merge conflict is two separate changes, to the same line of code.  Git does not know what to do in this case and requires manual intervention.  This isn't a bad thing, but can be a pain the first few times you see it.  On small projects best to try and avoid by pulling first.
+
+So, to do this pull you need to do:
+
+```
+git pull
+```
 
 **Add**
 
