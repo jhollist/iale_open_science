@@ -270,7 +270,7 @@ And there, select Git, which finally gets you to:
 
 In the Repository URL all we have to do is point it to our GitHub repo.  The URL of that is going to be something like `https://github.com/username/reponame`.  Once you get that in and hit "Create Project" it will create the project and clone the repository.  You are now ready to add files, make edits, and push those changes up to GitHub.  We can do this via the command line (as we saw above) or we can use the Git integrations tools in RStudio.
 
-To do this, go to the "Git" tab in RStudio.  It should look something like:
+To do this, go to the "Git" tab in RStudio.  It is most likely in the upper right pane:
 
 ![rstudio_git1](/iale_open_science/figure/rstudio_git1.png)
 
@@ -287,10 +287,10 @@ In there you can 1) add your commit message and when done, 2) click on commit, a
 ##Exercise 4
 We will now practice getting our GitHub repo talking with RStudio, making changes to a file, committing those changes and sending them up to github.
 
-1.) Start a new RStudio project from your existing GitHub repo.
-2.) Create a new file in the root of your project and save it as `index.html`.
-3.) Add some text to this file.  If you speak `html` feel free to embelish a bit.  If not, plain texy will work fine.
-4.) With your edits saved, use either the command line or RStudio to add, commit, and push your changes to your GitHub repo.
-5.) When you have your changes pushed, in a broswer go to http://yourusername.github.io.  You should now see what you saved in your file.  Free Web Hosting!!
+1. Start a new RStudio project from your existing GitHub repo.
+2. Create a new file in the root of your project and save it as `index.html`.
+3. Add some text to this file.  If you speak `html` feel free to embelish a bit.  If not, plain texy will work fine.
+4. With your edits saved, use either the command line or RStudio to add, commit, and push your changes to your GitHub repo.
+5. When you have your changes pushed, in a broswer go to http://yourusername.github.io.  You should now see what you saved in your file.  Free Web Hosting!!
 
 
