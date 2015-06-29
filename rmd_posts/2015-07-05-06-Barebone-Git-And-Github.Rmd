@@ -1,5 +1,5 @@
 ---
-title: "06 - Barebones Git and GitHub"
+title: "06 - Bare bones Git and GitHub"
 author: Jeffrey W. Hollister
 layout: post_page
 ---
@@ -20,7 +20,7 @@ Collaboration is essential to science, and requires understanding both the socia
 ##Lesson Goals
   - Understand Git and GitHub and how they work together
   - Be able to use basic Git commands from the shell
-  - Be able to use RSutdio's Git interface
+  - Be able to use RStudio's Git interface
 
 ##Quick Links to Exercises and R code
   - [Exercise 1](#exercise-1): Create a repository on GitHub
@@ -29,7 +29,7 @@ Collaboration is essential to science, and requires understanding both the socia
 
 ##Git and GitHub
 
-Git and GitHub are two releated, but separate entities.  Git could exisit without GitHub, but GitHub probably couldn't.  Both Git and GitHub are built around the idea of a repository.  At it's simplest, a repository is nothing more than a folder with another folder, `.git`, inside of it.  All of the Git magic occurs within that folder.  So, when we talk about repositories, either locally or on GitHub all we mean is a folder that holds a group of related files and folders.  Those repositories can represent software (e.g. an R Package), a mansucript, or even a website.  Each of these things is just files, folders, and text (and binary too, but they are dealt with a bit differently).
+Git and GitHub are two related, but separate entities.  Git could exist without GitHub, but GitHub probably couldn't.  Both Git and GitHub are built around the idea of a repository.  At it's simplest, a repository is nothing more than a folder with another folder, `.git`, inside of it.  All of the Git magic occurs within that folder.  So, when we talk about repositories, either locally or on GitHub all we mean is a folder that holds a group of related files and folders.  Those repositories can represent software (e.g. an R Package), a manuscript, or even a website.  Each of these things is just files, folders, and text (and binary too, but they are dealt with a bit differently).
 
 ###What is Git?
 
@@ -37,7 +37,7 @@ Git is version control software.  It was originally built to manage the developm
 
 ###What is GitHub?
 
-GitHub is a website that facilitates sharing and colloborating on coding (and text) projects.  It serves as a cenralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel,jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
+GitHub is a website that facilitates sharing and collaborating on coding (and text) projects.  It serves as a centralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel,jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
 
 ##Basics of Github
 There are a lot of great features built into GitHub.  We will only talk about the those needed to work with repositories locally with RStudio and only use GitHub a little to get an example up and running.
@@ -70,13 +70,13 @@ Which takes you to the new repository page:
 
 ![github4](/iale_open_science/figure/gh4.png)
 
-On this page you should fill out (at a minimum) the repository name.  A brief description is probably a good idea too.  With that done, click on "create repository."  With that done, you have a new repository and are ready to start adding elegant code or fantastic prose desribing your soon to be Nobel prize winning work.
+On this page you should fill out (at a minimum) the repository name.  A brief description is probably a good idea too.  With that done, click on "create repository."  With that done, you have a new repository and are ready to start adding elegant code or fantastic prose describing your soon to be Nobel prize winning work.
 
 ### Forks
 Forks are simply copies of other GitHub repositories.  If you are working with others on a project it is possible that a repository exists, but that you do not have write access to.  In this case, you "fork" that repository.  GitHub will make a copy of that repository to your account.  You can now make whatever changes you like to your copied version (aka, your "fork") of that original repository.
 
 ### Pull Requests
-Given the situation above, there is a project/repository that you would like to contribute to, but you don't have push rights.  How do you do this?  Well that is done via a "pull request".  This is always (at least I think so) done from a forked repository.  You make your changes, send them to your forked repo, then you ask the maintainers of the repository you forked from to pull in your changes.  Pull requests can also be used when you are wokring with others on a repo that you all have write access to.  In either case, all of the changes you made are highlighted and others are given the chance to review your work prior to adding in to repo.
+Given the situation above, there is a project/repository that you would like to contribute to, but you don't have push rights.  How do you do this?  Well that is done via a "pull request".  This is always (at least I think so) done from a forked repository.  You make your changes, send them to your forked repo, then you ask the maintainers of the repository you forked from to pull in your changes.  Pull requests can also be used when you are working with others on a repo that you all have write access to.  In either case, all of the changes you made are highlighted and others are given the chance to review your work prior to adding in to repo.
 
 ### Issues
 Issues are GitHubs way of keeping track of bugs, to-do lists, discussions about new features, etc. (e.g. [the `lawn` issues](https://github.com/ropensci/lawn/issues)).  Whether you are working on code or on a manuscript that is stored on GitHub, the issues can be a better mechanism for discussing the project than email as it keeps the correspondence with the project itself.  
@@ -86,7 +86,7 @@ In addition the more basic functions, GitHub has some other bells and whistles w
 
 One of the greatest things, in my opinion, that GitHub provides is free web hosting from repos (my personal page and these workshop materials are hosted there).  There is a lot more info [here](https://pages.github.com/).  We will talk a bit more about this as we go through the exercises.
 
-Lastly, there a number of other companies that are building cool tools off of github.  Some of these are examining testing coverage in your code (ie. [coveralls.io](https://coveralls.io/)) and continuous integration (ie. [Travis CI](https://travis-ci.org/)).  This is a bit beyond the scope of this workshop, but just be aware that there is a lot of cool, techy stuff going on both at GitHub and elsewhere that may have benefit for your work.
+Lastly, there a number of other companies that are building cool tools off of github.  Some of these are examining testing coverage in your code (i.e.. [coveralls.io](https://coveralls.io/)) and continuous integration (ie. [Travis CI](https://travis-ci.org/)).  This is a bit beyond the scope of this workshop, but just be aware that there is a lot of cool, techy stuff going on both at GitHub and elsewhere that may have benefit for your work.
 
 ##Exercise 1
 With this exercise we are going to get you set up with the minimum: an account and your first repo.  
@@ -95,7 +95,7 @@ With this exercise we are going to get you set up with the minimum: an account a
 2. Set up a new repo.  Use the following for the name of this repo: username.github.io.  Repos with this naming convention are used by GitHub to host your user web page.  We will be adding some to this in the later exercises.
 
 ##Basics of Git
-Git is huge.  It currently has 154 commands and each command has a number of possible of options.  For example, the command `git add` has 13 options availble.  So with 154 time whatever number of options it can get dense, quickly.  Luckily for us, we don't need to worry so much about everything that Git can do.  We just need the bare minimum.  This inlcudes:
+Git is huge.  It currently has 154 commands and each command has a number of possible of options.  For example, the command `git add` has 13 options available.  So with 154 time whatever number of options it can get dense, quickly.  Luckily for us, we don't need to worry so much about everything that Git can do.  We just need the bare minimum.  This includes:
 
   - config
   - remote
@@ -145,7 +145,7 @@ For this exercise, we are going to get your global config set up with your use n
 ##More Git Basics
 
 ### Remote
-Git is distributed version contorl system.  This essentially means that we have repositories that are local (e.g., the copy of your repo that lives on your hard drive) or remote (e.g, the GitHub repo).  While we won't be doing much with remotes in these exercises, it is good to know about this.  One command that is useful is being able to list the remote info.  This can be done with:
+Git is distributed version control system.  This essentially means that we have repositories that are local (e.g., the copy of your repo that lives on your hard drive) or remote (e.g, the GitHub repo).  While we won't be doing much with remotes in these exercises, it is good to know about this.  One command that is useful is being able to list the remote info.  This can be done with:
 
 ```
 git remote -v
@@ -167,7 +167,7 @@ So, to do this pull you need to do:
 ```
 git pull
 ```
-Based on what we just learned about `remote` we know that it already has a URL and a name for `pull` (it was labled as "fetch"). Thus, `git pull` looks at this URL, compares that to what you have locally and pulls down any changes.  After updating your local version with `pull` you can now edit away.
+Based on what we just learned about `remote` we know that it already has a URL and a name for `pull` (it was labeled as "fetch"). Thus, `git pull` looks at this URL, compares that to what you have locally and pulls down any changes.  After updating your local version with `pull` you can now edit away.
 
 A quick note:  If you only ever work from one machine and do not have any collaborators on a project, `git pull` won't really do anything, as the GitHub version will never have changes that you don't already have locally.  Yet, I'd suggest still doing a `pull`.  Good practice.
 
@@ -210,7 +210,7 @@ git commit -m "My Changes"
 system("git commit -m 'My Changes'",intern = TRUE)
 ```
 
-The `-m` flag indicates that you will include a commit message on the command line.  If you do not use this flag, a text editor, which is set with `git config`, will open for the message.  For our purposes, we will use the `-m` flag.  It is good practice to keeps these messages relatively short, but meaningful.  It can help when trying to track down prior versions.  So, in the example above, that is not a good message!  For some thoughts on writing good messages look at this [post](http://chris.beams.io/posts/git-commit/) and for a more amusing view of the emotion embeded in commit messages look [here](http://geeksta.net/geeklog/exploring-expressions-emotions-github-commit-messages/).
+The `-m` flag indicates that you will include a commit message on the command line.  If you do not use this flag, a text editor, which is set with `git config`, will open for the message.  For our purposes, we will use the `-m` flag.  It is good practice to keeps these messages relatively short, but meaningful.  It can help when trying to track down prior versions.  So, in the example above, that is not a good message!  For some thoughts on writing good messages look at this [post](http://chris.beams.io/posts/git-commit/) and for a more amusing view of the emotion embedded in commit messages look [here](http://geeksta.net/geeklog/exploring-expressions-emotions-github-commit-messages/).
 
 **Push**
 
@@ -229,7 +229,7 @@ First thing is to make sure Git is installed.  It can be downloaded from the mai
 
 ![rstudio options](/iale_open_science/figure/rstudio_options.png)
 
-Just make sure you have the right path in the "Git exectuable" box.  If you want, you can also click on the checkbox to use Git Bash as you shell.
+Just make sure you have the right path in the "Git executable" box.  If you want, you can also click on the check box to use Git Bash as you shell.
 
 If you had to make changes to location of the executable, shut down and restart RStudio and you should be all set.
 
@@ -245,7 +245,7 @@ And there, select Git, which finally gets you to:
 
 ![new project 3](/iale_open_science/figure/rstudio_proj3.png)
 
-In the Repository URL all we have to do is point it to our GitHub repo.  The URL of that is going to be something like `https://github.com/username/reponame`.  Once you get that in and hit "Create Project" it will create the project and clone the repository.  You are now ready to add files, make edits, and push those changes up to GitHub.  We can do this via the command line (as we saw above) or we can use the Git integrations tools in RStudio.
+In the Repository URL all we have to do is point it to our GitHub repo.  The URL of that is going to be something like `https://github.com/username/reponame`.  Once you get that in and hit "Create Project" it will create the project and clone the repository.  You are now ready to add files, make edits, and push those changes up to GitHub.  We can do this via the command line (as we saw above) or we can use the Git integration tools in RStudio.
 
 To do this, go to the "Git" tab in RStudio.  It is most likely in the upper right pane:
 
@@ -255,7 +255,7 @@ Next, click on the boxes under "staged."  This is equivalent to a `git add`.
 
 ![rstudio_git2](/iale_open_science/figure/rstudio_git2.png)
 
-With that finished, click on hte "Commit" button.  That will bring up a new window that looks like:
+With that finished, click on the "Commit" button.  That will bring up a new window that looks like:
 
 ![rstudio_git3](/iale_open_science/figure/rstudio_git3.png)
 
@@ -266,8 +266,8 @@ We will now practice getting our GitHub repo talking with RStudio, making change
 
 1. Start a new RStudio project from your existing GitHub repo.
 2. Create a new file in the root of your project and save it as `index.html`.
-3. Add some text to this file.  If you speak `html` feel free to embelish a bit.  If not, plain texy will work fine.
+3. Add some text to this file.  If you speak `html` feel free to embellish a bit.  If not, plain text will work fine.
 4. With your edits saved, use either the command line or RStudio to add, commit, and push your changes to your GitHub repo.
-5. When you have your changes pushed, in a broswer go to http://yourusername.github.io.  You should now see what you saved in your file.  Free Web Hosting!!
+5. When you have your changes pushed, in a browser go to http://yourusername.github.io.  You should now see what you saved in your file.  Free Web Hosting!!
 
 
