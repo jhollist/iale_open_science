@@ -58,27 +58,27 @@ For each of the lessons there is a blog post that describes what we are doing, p
   - using `taxize` to access and parse taxonomic information
   - Coverting `spocc` output to `sp`
 
-### 2:00 pm - 3:00 pm: 
+### 2:00 pm - 2:45 pm: 
 
-**Lesson 05 - Reproducible Research with RStudio and Markdown:** Jeff
-
-  - Markdown
-  - Reproducible research presentations in RStudio
-  - Reproducible research documents in RStudio
-  - Rendering to pdf, HTML, and Word
-
-### 3:00 pm - 3:15 pm: 
-
-**Break**
-
-### 3:15 pm - 4::00pm:
-
-**Lesson 08 - Barebones Git and GitHub:** Jeff
+**Lesson 05 - Barebones Git and GitHub:** Jeff
 
   - What are Git and GitHub
   - GitHub specifics
   - Basic Git from the shell
   - Git from RStudio
+
+### 2:45 pm - 3:00 pm: 
+
+**Break**
+
+### 3:00 pm - 4::00pm:
+
+**Lesson 06 - Reproducible Research with RStudio and Markdown:** Jeff
+
+  - Markdown
+  - Reproducible research presentations in RStudio
+  - Reproducible research documents in RStudio
+  - Rendering to pdf, HTML, and Word
 
 ### 4:00 pm - 5:00 pm: 
 
