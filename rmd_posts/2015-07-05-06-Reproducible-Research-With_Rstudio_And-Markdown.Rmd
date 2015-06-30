@@ -28,7 +28,7 @@ One of the goals for reproducible research is to provide your work in such a way
 - Create a simple, reproducible document and presentation
 
 ##Markdown
-Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).
+Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).  RStudio also has some [great material](https://support.rstudio.com/hc/en-us/articles/205368677-R-Markdown-Dynamic-Documents-for-R) with a more specific `rmarkdown` flavor
 
 *note: this text borrowed liberally from another class [SciComp2014](http://scicomp2014.edc.uri.edu) and another [workshop](http://usepa.github.io/introR/2015/01/15/08-Repeat-Reproduce/)*
 
@@ -170,14 +170,18 @@ If you look near the top of the editor window you will see:
 
 Click this and behold the magic!
 
-## Exercise 1
-
-
-Spend some time playing around with this document.  Add in some other markdown, text and a code chunk then `knit()` it to see the outcome.  It should be easy to see how this could be used to write the text describing an analysis, embed the analysis and figure creation directly in the document, and render a final document.  You share the source and rendered document and anyone has access to your full record of that research!
+It should be easy to see how this could be used to write the text describing an analysis, embed the analysis and figure creation directly in the document, and render a final document.  You share the source and rendered document and anyone has access to your full record of that research!
 
 ###Create a Presentation
-Creating a presentation is not much different.  We just need a way to specify different slides.
+Creating a presentation is not much different.  We just need a way to specify different slides.  So, repeat the steps from above, but this time instead of selecting "Document", select "Presentation".  Only thing we need to know is that a second level header (i.e. `##`) is what specifies the title of the next slide.  Any thing you put after that goes on that slide.    
 
-Repeat the steps from above, but this time instead of selecting "Document", select "Presentation".  Only thing we need to know is that a second level header (i.e. `##`) is what specifies the title of the next slide.  Any thing you put after that goes on that slide.  Similar to before, play around with this, add a slide with some new text, new code and knit it.  There you have it, a reproducible presentation.  
+I know you will probably wonder if you can change the look and feel of this presentation, and the answer is yes.  It does require a bit of work and how you do it depends on which output format you choose.  You can control some of the basics via the YAML but more custom work will require digging into CSS for the HTML formats and customizing the Beamer outputs requires knowledge of LaTeX.  
 
-I know you will probably wonder can you change the look and feel of this presentation, and the answer is yes.  I have done that, but using a different method for creating slides by using the `slidify` package.  An example of that presentation is in a talk I gave on [Social Media and Blogging](http://jwhollister.com/epablogpresent).  It does take a bit more work to set this up.  I am also not familar with where RStudio is getting the styling for the presentation. In short, yes but requires a bit of work.
+You can find out more on each format from the RStudio documentation.  
+
+  - [ioSlides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html) 
+  - [Slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
+  - [Beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html) 
+
+##Exercise 1
+The exercise for this lesson is described in more detail in the [next lesson](http://jwhollister.com/iale_open_science/2015/07/05/07-Build-Your-Own/).  That lesson is all hands on with developing a Markdown document.  
