@@ -8,6 +8,6 @@ The final lesson for this workshop is a culmination of everything we have seen s
 
 
 ##Links
-  - [Download skelton Markdown file](/iale_open_science/figure/iale_open_science.Rmd)
+  - [Download skelton Markdown file](/iale_open_science/files/iale_open_science.Rmd)
   - [RStudio R Markdown documentation](http://rmarkdown.rstudio.com/)
 

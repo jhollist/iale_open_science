@@ -1,0 +1,18 @@
+---
+title: "Untitled"
+author: "Your Name"
+date: "6/30/2015"
+output: pdf_document
+---
+
+```{r setup}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
