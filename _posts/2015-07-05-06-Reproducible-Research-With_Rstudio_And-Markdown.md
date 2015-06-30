@@ -4,11 +4,6 @@ author: Jeffrey W. Hollister
 layout: post_page
 ---
 
----
-title: "08 - Repeat and Reproduce"
-author: Jeffrey W. Hollister
-layout: post_page
----
 
 
 One of the goals for reproducible research is to provide your work in such a way that others can not only understand what was done, but can repeat it exactly on their own machines. To do this effectively we need to understand how to create create reproducible reports.  This will be a very high level introduction to both concepts, but should hopefully give you a jumping off place for more learning.
@@ -22,7 +17,7 @@ One of the goals for reproducible research is to provide your work in such a way
 - Create a simple, reproducible document and presentation
 
 ##Markdown
-Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).  RStudio also has some [great material](https://support.rstudio.com/hc/en-us/articles/205368677-R-Markdown-Dynamic-Documents-for-R) with a more specific `rmarkdown` flavor
+Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).  RStudio also has some [great material](https://support.rstudio.com/hc/en-us/articles/205368677-R-Markdown-Dynamic-Documents-for-R) with a more specific R Markdown flavor
 
 *note: this text borrowed liberally from another class [SciComp2014](http://scicomp2014.edc.uri.edu) and another [workshop](http://usepa.github.io/introR/2015/01/15/08-Repeat-Reproduce/)*
 
@@ -102,11 +97,11 @@ By itself Markdown is pretty cool, but doesn't really provide any value added to
 
 In short, these three tools allow us to write up documents, embed code via "code chunks", run that code and render the final document with nicely formatted text, results, figures etc into a final format of our choosing.  We can create `.html`, `.docx`, `.pdf`, ...  The benefit of doing this is that all of our data and code are a part of the document.  I share my source document, then anyone can reproduce all of our calculations.  For instance, I can make a manuscript that looks like this:
 
-![Rendered Manuscript](/introR/figure/rendered.jpg)
+![Rendered Manuscript](/iale_open_science/figure/rendered.jpg)
 
 from a source markdown document that looks like:
 
-![Raw RMarkdown](/introR/figure/source.jpg)
+![Raw RMarkdown](/iale_open_science/figure/source.jpg)
 
 While we can't get to this level of detail with just the stock RStudio tools, we can still do some pretty cool stuff.  First, lets talk a bit about "code chunks."  
 
@@ -131,13 +126,29 @@ Alternatively, you might just want the output returned, as would be the case whe
     y<-jitter(x,1000)
     plot(x,y)
     ```
-Lastly, each of your code chunks can have a label.  That would be accomplished with something like:
+Each of your code chunks can have a label.  That would be accomplished with something like:
  
     ```{r myFigure, echo=FALSE}
     x<-rnorm(100)
     y<-jitter(x,1000)
     plot(x,y)
     ```
+We've seen `plot()` above, but you could also use `ggplot2`
+
+    ```{r }
+    x<-rnorm(100)
+    y<-jitter(x,1000)
+    ggplot(data.frame(x,y),aes(x=x,y=y)) +
+       geom_point()
+    ```
+Lastly, tables in markdown can be done by hand, but better yet you can use some functions and packages to output these.  Below is an example using `knitr::kable()`.  There are other packages that also do this (e.g. `xtable` and `pander`) and have a lot of flexibility, but `kable()` is the easiest.  You can do this with:
+
+
+    ```{r echo=FALSE,results="asis"}
+    knitr::kable(head(iris),format="markdown")
+    ```
+
+
 Now, lets get started and actually create a reproducible document
 
 ###Create a Document
@@ -156,9 +167,9 @@ In this document we can see a couple of things.  First at the top we see:
     output: pdf_document
     ---
 
-This is the YAML(YAML Ain't Markup Language) header or front-matter.  It is metadata about the document that can be very useful.  For our purposes we don't need to know anything more about this.  Below that you see text, code chunks, and if it were included some markdown.  At its core this is all we need for a reproducible document.  We can now take this document, pass it through `knitr::knit()` (remember this syntax from the first lesson?) and pandoc and get our output.  We can do this from the console and/or shell, or we can use RStudio.  
+This is the YAML(YAML Ain't Markup Language) header or front-matter.  It is metadata about the document that can be very useful.  For our purposes we don't need to know anything more about this.  Below that you see text, code chunks, and if it were included some markdown.  At its core this is all we need for a reproducible document.  We can now take this document, pass it through `knitr::knit()` and pandoc, through `rmarkdown::render()` or use RStudio to get our output. 
 
-If you look near the top of the editor window you will see:
+In RStudio, look near the top of the editor window you will see:
 
 ![knit it](/introR/figure/knit.jpg)
 
