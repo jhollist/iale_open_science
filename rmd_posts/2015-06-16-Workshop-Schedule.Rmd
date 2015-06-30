@@ -4,22 +4,20 @@ author: "Jeffrey W. Hollister, Betty Kreakie, Bryan Milstead, and Scott Chamberl
 layout: post_page
 ---
 
-In this workshop, we hope to introduce to some general concepts in open science and reproducible research and discuss relevant tools in R and RStudio.  
-
-For each of the lessons there is a blog post that describes what we are doing, provides some examples and also provides some hands-on exercises.  We have written these as blog posts for use after the workshop and less for use during the workshop.  It is our hope that this workshop will be some brief explanation, live coding, and as many hands-on exercises as we can fit in.  After the workshop you won't be an expert in R or reproducible research but should have a good starting place for using reproducible research and open science tools in your own research. 
+In this workshop, we hope to introduce some of the general concepts in open science and reproducible research and discuss relevant tools in R and RStudio.  For each of the lessons there is a blog post that describes what we are doing, provides examples and hands-on exercises.  We have written these as blog posts for use after the workshop. During the workshop, we will provide brief explanations, live coding, and as many hands-on exercises as we can fit in.  After the workshop you won't be an expert in R or reproducible research but should have a good starting place for using reproducible research and open science tools in your own research. 
 
 ##Tentative Schedule
 
 ### 9:00 am - 9:15 am: 
 
-**Introductions and Workshop Logistics:** Jeff
+[**Introductions and Workshop Logistics:**](http://jwhollister.com/iale_open_science/2015/06/16/Workshop-Schedule/) Jeff
 
   - Brief Introductions
   - Discuss Logistitcs
 
 ### 9:15 am - 9:30 am: 
 
-**Lesson 01 - Introduction to Open Science:** Jeff 
+[**Lesson 01 - Introduction to Open Science:**](http://jwhollister.com/iale_open_science/2015/07/05/01-Into-To-Open-Science/) Jeff 
 
   - What is open science?
   - What is reproducible research?
