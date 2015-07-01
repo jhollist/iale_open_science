@@ -1,14 +1,9 @@
 ---
-title: "05 - Reproducible Research with RStudio and Markdown"
+title: "06 - Reproducible Research with RStudio and Markdown"
 author: Jeffrey W. Hollister
 layout: post_page
 ---
 
----
-title: "08 - Repeat and Reproduce"
-author: Jeffrey W. Hollister
-layout: post_page
----
 ```{r setup, echo=FALSE, warning=FALSE, purl=FALSE, message=FALSE}
 options(repos="http://cran.rstudio.com/")
 if(!require("ggplot2")){
@@ -28,7 +23,7 @@ One of the goals for reproducible research is to provide your work in such a way
 - Create a simple, reproducible document and presentation
 
 ##Markdown
-Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).
+Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).  RStudio also has some [great material](https://support.rstudio.com/hc/en-us/articles/205368677-R-Markdown-Dynamic-Documents-for-R) with a more specific R Markdown flavor
 
 *note: this text borrowed liberally from another class [SciComp2014](http://scicomp2014.edc.uri.edu) and another [workshop](http://usepa.github.io/introR/2015/01/15/08-Repeat-Reproduce/)*
 
@@ -108,11 +103,11 @@ By itself Markdown is pretty cool, but doesn't really provide any value added to
 
 In short, these three tools allow us to write up documents, embed code via "code chunks", run that code and render the final document with nicely formatted text, results, figures etc into a final format of our choosing.  We can create `.html`, `.docx`, `.pdf`, ...  The benefit of doing this is that all of our data and code are a part of the document.  I share my source document, then anyone can reproduce all of our calculations.  For instance, I can make a manuscript that looks like this:
 
-![Rendered Manuscript](/introR/figure/rendered.jpg)
+![Rendered Manuscript](/iale_open_science/figure/rendered.jpg)
 
 from a source markdown document that looks like:
 
-![Raw RMarkdown](/introR/figure/source.jpg)
+![Raw RMarkdown](/iale_open_science/figure/source.jpg)
 
 While we can't get to this level of detail with just the stock RStudio tools, we can still do some pretty cool stuff.  First, lets talk a bit about "code chunks."  
 
@@ -137,13 +132,29 @@ Alternatively, you might just want the output returned, as would be the case whe
     y<-jitter(x,1000)
     plot(x,y)
     ```
-Lastly, each of your code chunks can have a label.  That would be accomplished with something like:
+Each of your code chunks can have a label.  That would be accomplished with something like:
  
     ```{r myFigure, echo=FALSE}`r ''`
     x<-rnorm(100)
     y<-jitter(x,1000)
     plot(x,y)
     ```
+We've seen `plot()` above, but you could also use `ggplot2`
+
+    ```{r }`r ''`
+    x<-rnorm(100)
+    y<-jitter(x,1000)
+    ggplot(data.frame(x,y),aes(x=x,y=y)) +
+       geom_point()
+    ```
+Lastly, tables in markdown can be done by hand, but better yet you can use some functions and packages to output these.  Below is an example using `knitr::kable()`.  There are other packages that also do this (e.g. `xtable` and `pander`) and have a lot of flexibility, but `kable()` is the easiest.  You can do this with:
+
+
+    ```{r echo=FALSE,results="asis"}`r ''`
+    knitr::kable(head(iris),format="markdown")
+    ```
+
+
 Now, lets get started and actually create a reproducible document
 
 ###Create a Document
@@ -162,22 +173,26 @@ In this document we can see a couple of things.  First at the top we see:
     output: pdf_document
     ---
 
-This is the YAML(YAML Ain't Markup Language) header or front-matter.  It is metadata about the document that can be very useful.  For our purposes we don't need to know anything more about this.  Below that you see text, code chunks, and if it were included some markdown.  At its core this is all we need for a reproducible document.  We can now take this document, pass it through `knitr::knit()` (remember this syntax from the first lesson?) and pandoc and get our output.  We can do this from the console and/or shell, or we can use RStudio.  
+This is the YAML(YAML Ain't Markup Language) header or front-matter.  It is metadata about the document that can be very useful.  For our purposes we don't need to know anything more about this.  Below that you see text, code chunks, and if it were included some markdown.  At its core this is all we need for a reproducible document.  We can now take this document, pass it through `knitr::knit()` and pandoc, through `rmarkdown::render()` or use RStudio to get our output. 
 
-If you look near the top of the editor window you will see:
+In RStudio, look near the top of the editor window you will see:
 
 ![knit it](/introR/figure/knit.jpg)
 
 Click this and behold the magic!
 
-## Exercise 1
-
-
-Spend some time playing around with this document.  Add in some other markdown, text and a code chunk then `knit()` it to see the outcome.  It should be easy to see how this could be used to write the text describing an analysis, embed the analysis and figure creation directly in the document, and render a final document.  You share the source and rendered document and anyone has access to your full record of that research!
+It should be easy to see how this could be used to write the text describing an analysis, embed the analysis and figure creation directly in the document, and render a final document.  You share the source and rendered document and anyone has access to your full record of that research!
 
 ###Create a Presentation
-Creating a presentation is not much different.  We just need a way to specify different slides.
+Creating a presentation is not much different.  We just need a way to specify different slides.  So, repeat the steps from above, but this time instead of selecting "Document", select "Presentation".  Only thing we need to know is that a second level header (i.e. `##`) is what specifies the title of the next slide.  Any thing you put after that goes on that slide.    
 
-Repeat the steps from above, but this time instead of selecting "Document", select "Presentation".  Only thing we need to know is that a second level header (i.e. `##`) is what specifies the title of the next slide.  Any thing you put after that goes on that slide.  Similar to before, play around with this, add a slide with some new text, new code and knit it.  There you have it, a reproducible presentation.  
+I know you will probably wonder if you can change the look and feel of this presentation, and the answer is yes.  It does require a bit of work and how you do it depends on which output format you choose.  You can control some of the basics via the YAML but more custom work will require digging into CSS for the HTML formats and customizing the Beamer outputs requires knowledge of LaTeX.  
 
-I know you will probably wonder can you change the look and feel of this presentation, and the answer is yes.  I have done that, but using a different method for creating slides by using the `slidify` package.  An example of that presentation is in a talk I gave on [Social Media and Blogging](http://jwhollister.com/epablogpresent).  It does take a bit more work to set this up.  I am also not familar with where RStudio is getting the styling for the presentation. In short, yes but requires a bit of work.
+You can find out more on each format from the RStudio documentation.  
+
+  - [ioSlides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html) 
+  - [Slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
+  - [Beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html) 
+
+##Exercise 1
+The exercise for this lesson is described in more detail in the [next lesson](http://jwhollister.com/iale_open_science/2015/07/05/07-Build-Your-Own/).  That lesson is all hands on with developing a Markdown document.  
