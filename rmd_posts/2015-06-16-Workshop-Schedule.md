@@ -25,7 +25,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 9:30 am - 10:30 am: 
 
-**Lesson 02 - Tidy Data and Data Manipulation in R:** Betty
+[**Lesson 02 - Tidy Data and Data Manipulation in R:**](http://jwhollister.com/iale_open_science/2015/07/05/02-Tidy-Data-And-Data-Manipulation/) Betty
 
   - What is tidy data?
   - Data manipulation with `tidyr` and `dplyr`
@@ -36,7 +36,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 10:45 am - 12:00 pm:
 
-**Lesson 03 - Spatial Data in R:** Bryan
+[**Lesson 03 - Spatial Data in R:**](http://jwhollister.com/iale_open_science/2015/07/05/03-Spatial-Data-In-R/) Bryan
 
   - Important packages
   - Reading in spatial data
@@ -49,7 +49,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 1:00 pm - 2:00 pm: 
 
-**Lesson 04 - Using Open Species Occurrence Data in R:** Scott
+[**Lesson 04 - Using Open Species Occurrence Data in R:**]() Scott
 
   - Intro to Open Data via APIs
   - using `spocc` to access species occurence data
@@ -58,7 +58,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 2:00 pm - 2:45 pm: 
 
-**Lesson 05 - Barebones Git and GitHub:** Jeff
+[**Lesson 05 - Barebones Git and GitHub:**](http://jwhollister.com/iale_open_science/2015/07/05/05-Barebone-Git-And-Github/) Jeff
 
   - What are Git and GitHub
   - GitHub specifics
@@ -71,7 +71,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 3:00 pm - 4::00pm:
 
-**Lesson 06 - Reproducible Research with RStudio and Markdown:** Jeff
+[**Lesson 06 - Reproducible Research with RStudio and Markdown:**](http://jwhollister.com/iale_open_science/2015/07/05/06-Reproducible-Research-With_Rstudio_And-Markdown/) Jeff
 
   - Markdown
   - Reproducible research presentations in RStudio
@@ -80,7 +80,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 4:00 pm - 5:00 pm: 
 
-**Lesson 07 - Hands-on: Build Your Own!:** All
+[**Lesson 07 - Hands-on: Build Your Own!:**](http://jwhollister.com/iale_open_science/2015/07/05/07-Build-Your-Own/) All
 
   - Start with a skeleton of a reproducible document
   - Get data, add analysis, create figures and tables
