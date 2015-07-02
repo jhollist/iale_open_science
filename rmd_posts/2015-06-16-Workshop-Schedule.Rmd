@@ -49,7 +49,7 @@ In this workshop, we hope to introduce some of the general concepts in open scie
 
 ### 1:00 pm - 2:00 pm: 
 
-[**Lesson 04 - Using Open Species Occurrence Data in R:**]() Scott
+[**Lesson 04 - Using Open Species Occurrence Data in R:**](http://jwhollister.com/iale_open_science/2015/07/05/04-Species-Occurrence/) Scott
 
   - Intro to Open Data via APIs
   - using `spocc` to access species occurence data
