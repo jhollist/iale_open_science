@@ -52,7 +52,8 @@ getClass("Spatial")
 ## #create SpatialPolygonsDataFrame Object
 ## #adds field "Info" as an attribute to the polygon.
 ## LocPolyDF<- SpatialPolygonsDataFrame(LocPoly,
-##                                      data.frame(ID=1,Info='PolygonAroundPDXhilton'))
+##                                      data.frame(ID=1,
+##                                                 Info='PolygonAroundPDXhilton'))
 ## 
 ## #write the spatial dataframe objects to shapefiles
 ## writeOGR(LocPtDF,'iale_workshop','LocPt',

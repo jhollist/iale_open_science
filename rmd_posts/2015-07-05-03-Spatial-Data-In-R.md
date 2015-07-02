@@ -26,7 +26,9 @@ Much of this lecture was adapted from a workshop given by Jeff Hollister.  You c
 
 
 ##Spatial Objects
+
 ###Overview of Classes and Methods
+
 - Class: object types
     - `class()`: gives the class type 
     - `typeof()`: information on how the object is stored
@@ -37,6 +39,7 @@ Much of this lecture was adapted from a workshop given by Jeff Hollister.  You c
     - `summary()`
 
 ###Subclasses of Spatial Objects
+
 - This is a big topic that we will only touch upon.  For more information see Bivand, R. S., Pebesma, E. J., & Gómez-Rubio, V. (2008). Applied spatial data analysis with R. New York: Springer.
 - We can use the "getClass()" command to view the subclasses of spatial objects.
 
@@ -96,7 +99,7 @@ For data visualization these packages may be useful:
 
 Lets start by making a shapefiles for our current location and a polygon around our location. We won't have time to go into how to do this but the code is included so you can see how it was done. 
 
-All of the files used in this lesson can be downloaded from: http://jwhollister.com/iale_open_science/files/SpatialData.zip
+All of the files used in this lesson can be downloaded from: [http://jwhollister.com/iale_open_science/files/SpatialData.zip](http://jwhollister.com/iale_open_science/files/SpatialData.zip)
 
 To download an upzip these with R:
 
@@ -151,7 +154,8 @@ LocPtDF<-SpatialPointsDataFrame(coordinates(Loc[,-3]),Loc,proj4string=WGS84)
 #create SpatialPolygonsDataFrame Object
 #adds field "Info" as an attribute to the polygon.
 LocPolyDF<- SpatialPolygonsDataFrame(LocPoly,
-                                     data.frame(ID=1,Info='PolygonAroundPDXhilton'))
+                                     data.frame(ID=1,
+                                                Info='PolygonAroundPDXhilton'))
 
 #write the spatial dataframe objects to shapefiles
 writeOGR(LocPtDF,'iale_workshop','LocPt', 
@@ -456,6 +460,7 @@ Poly@data #not much here but this is the attribute table
 {% endhighlight %}
 
 ##Exercise 1
+
 ###Getting spatial data into R
 
 1. Download the data for this and other excercises:  [SpatialData.zip](http://jwhollister.com/iale_open_science/files/SpatialData.zip)
@@ -509,8 +514,7 @@ Poly@data #not much here but this is the attribute table
 ![plot of chunk plot_ggmap]({{ site.url }}/figure/plot_ggmap-1.png) 
 
 - Nice image but not interactive
-- For interactive maps there are some new packages such as `leafletR` available (see https://rstudio.github.io/leaflet/)
-- A newer version of leaflet (leafletR) is now available on CRAN
+- For interactive maps there are some new packages such as `leaflet` available (see https://rstudio.github.io/leaflet/).  Now available on CRAN.
 - The first step is to setup the map and add a base map from "open street map"
 
 
@@ -521,8 +525,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-1895" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-1895">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]}]},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-135" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-135">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]}]},"evals":[]}</script><!--/html_preserve-->
 
 - Now we can add a marker with our current location
 
@@ -532,8 +536,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-5007" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-5007">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]}],"limits":{"lat":[45.517564,45.517564],"lng":[-122.68014,-122.68014]}},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-6607" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-6607">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]}],"limits":{"lat":[45.517564,45.517564],"lng":[-122.68014,-122.68014]}},"evals":[]}</script><!--/html_preserve-->
 
 - and finally we add the polygon around our location
 
@@ -543,8 +547,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-1776" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-1776">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]},{"method":"addPolygons","args":[[[{"lng":[-122.683461544862,-122.680281068949,-122.676631816156,-122.674481812434,-122.675904138992,-122.672769412589,-122.674485521254,-122.674828807098,-122.678202313853,-122.682541408927,-122.685670328434,-122.687996482959,-122.683461544862],"lat":[45.5230187040173,45.5213931392957,45.5235316111073,45.5216119799917,45.5192876717319,45.5190852959663,45.5167150399938,45.5138738461287,45.512619192088,45.5154464797329,45.5143352152495,45.5195152981109,45.5230187040173]}]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"#03F","weight":2,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null]}],"limits":{"lat":[45.512619192088,45.5235316111073],"lng":[-122.687996482959,-122.672769412589]}},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-7749" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-7749">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]},{"method":"addPolygons","args":[[[{"lng":[-122.683461544862,-122.680281068949,-122.676631816156,-122.674481812434,-122.675904138992,-122.672769412589,-122.674485521254,-122.674828807098,-122.678202313853,-122.682541408927,-122.685670328434,-122.687996482959,-122.683461544862],"lat":[45.5230187040173,45.5213931392957,45.5235316111073,45.5216119799917,45.5192876717319,45.5190852959663,45.5167150399938,45.5138738461287,45.512619192088,45.5154464797329,45.5143352152495,45.5195152981109,45.5230187040173]}]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"#03F","weight":2,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null]}],"limits":{"lat":[45.512619192088,45.5235316111073],"lng":[-122.687996482959,-122.672769412589]}},"evals":[]}</script><!--/html_preserve-->
 
 - leaflet maps can also be built with "pipes" (see code below)
 
