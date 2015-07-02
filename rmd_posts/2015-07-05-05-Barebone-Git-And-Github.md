@@ -28,7 +28,7 @@ Git is version control software.  It was originally built to manage the developm
 
 ###What is GitHub?
 
-GitHub is a website that facilitates sharing and collaborating on coding (and text) projects.  It serves as a centralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel,jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
+GitHub is a website that facilitates sharing and collaborating on coding (and text) projects.  It serves as a centralized location to store code, data, and files related to a project and also has a social component to it in that you can follow other users, star projects, etc.  It has grown tremendously in the last 5 years or so and houses some pretty big name projects (e.g. the Linux Kernel, jQuery) and, increasingly, is getting used more and more for hosting scientific projects.  It relies heavily on Git and much of the structure and functionality is an outgrowth of this reliance.
 
 ##Basics of Github
 There are a lot of great features built into GitHub.  We will only talk about the those needed to work with repositories locally with RStudio and only use GitHub a little to get an example up and running.
@@ -118,10 +118,9 @@ git config --global -l
 
 
 {% highlight text %}
-## [1] "user.name=Jeffrey W. Hollister"            
-## [2] "user.email=jeff.w.hollister@gmail.com"     
-## [3] "credential.helper=cache --timeout=10000000"
-## [4] "core.autocrlf=true"
+## [1] "user.email=jeff.w.hollister@gmail.com"    
+## [2] "user.name=Jeff Hollister"                 
+## [3] "credential.helper=cache --timeout=3600000"
 {% endhighlight %}
 
 We will get to the other concepts in a bit.  First, lets try to get our config set up.
