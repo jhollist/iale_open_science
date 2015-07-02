@@ -6,7 +6,7 @@ layout: post_page
 
 
 
-One of the goals for reproducible research is to provide your work in such a way that others can not only understand what was done, but can repeat it exactly on their own machines. To do this effectively we need to understand how to create create reproducible reports.  This will be a very high level introduction to both concepts, but should hopefully give you a jumping off place for more learning.
+One of the goals for reproducible research is to provide your work in such a way that others can not only understand what was done, but can repeat it exactly on their own machines. To do this effectively we need to understand how to create reproducible reports.  This will be a very high level introduction to both concepts, but should hopefully give you a jumping off place for more learning.
 
 ##Quick Links to Exercises and R code
 - [Exercise 1](#exercise-1): Create and render your own reproducible document
@@ -17,7 +17,7 @@ One of the goals for reproducible research is to provide your work in such a way
 - Create a simple, reproducible document and presentation
 
 ##Markdown
-Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio.  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).  RStudio also has some [great material](https://support.rstudio.com/hc/en-us/articles/205368677-R-Markdown-Dynamic-Documents-for-R) with a more specific R Markdown flavor
+Markdown has become an important additional tool in the R ecosystem as it can be used to create package vignettes, can be used on [GitHub](http://github.com), and forms the basis for several reproducible research tools in RStudio (e.g. `rmarkdown`, `knitr`).  Markdown is a tool that allows you to write simply formatted text that is converted to HTML/XHTML.  The primary goal of markdown is readibility of the raw file.  Over the last couple of years, Markdown has emerged as a key way to write up reproducible documents, create websites (this whole website was written in Markdown), and make presentations.  For the basics of markdown and general information look at [Daring Fireball](http://daringfireball.net/projects/markdown/basics).  RStudio also has some [great material](https://support.rstudio.com/hc/en-us/articles/205368677-R-Markdown-Dynamic-Documents-for-R) with a more specific R Markdown flavor
 
 *note: this text borrowed liberally from another class [SciComp2014](http://scicomp2014.edc.uri.edu) and another [workshop](http://usepa.github.io/introR/2015/01/15/08-Repeat-Reproduce/)*
 
@@ -93,9 +93,9 @@ The text you want linked goes in the `[]` and the link itself goes in the `()`. 
 The only difference is the use of the `!` at the beginning.  When parsed, the image itself will be included, and not just linked text.  As these will be on the web, the images need to also be available via the web.  You can link to local files, but will need to use a path relative to the root of the document you are working on.  Let's not worry about that. It's easy, but beyond the scope of this tutorial.
 
 ##Reproducible Documents and Presentations
-By itself Markdown is pretty cool, but doesn't really provide any value added to the way most of us already work.  However, when you add in a few other things, it, in my opinion, changes things dramatically.  Two tools in particular that, along with Markdown, have moved reproducible research forward (especially as it relates to R) are, the `knitr` package and a tool called pandoc.  We are not going to cover the details of these, but we will use them via RStudio.  
+By itself Markdown is pretty cool, but doesn't really provide any value added to the way most of us already work.  However, when you add in a few other things, it, in my opinion, changes things dramatically.  Three tools in particular that, along with Markdown, have moved reproducible research forward (especially as it relates to R) are, the `knitr` package, the `rmarkdown` package, and a tool called [pandoc](http://pandoc.org/).  We are not going to cover the details of these, but we will use them via RStudio.  
 
-In short, these three tools allow us to write up documents, embed code via "code chunks", run that code and render the final document with nicely formatted text, results, figures etc into a final format of our choosing.  We can create `.html`, `.docx`, `.pdf`, ...  The benefit of doing this is that all of our data and code are a part of the document.  I share my source document, then anyone can reproduce all of our calculations.  For instance, I can make a manuscript that looks like this:
+In short, these tools allow us to write up documents, embed code via "code chunks", run that code and render the final document with nicely formatted text, results, figures etc into a final format of our choosing.  We can create `.html`, `.docx`, `.pdf`, ...  The benefit of doing this is that all of our data and code are a part of the document.  I share my source document, then anyone can reproduce all of our calculations.  For instance, I can make a manuscript that looks like this:
 
 ![Rendered Manuscript](/iale_open_science/figure/rendered.jpg)
 
