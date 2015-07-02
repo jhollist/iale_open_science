@@ -280,9 +280,11 @@ Poly@data #not much here but this is the attribute table
         geom_path(data=Poly,aes(x=long, y=lat),size=2,colour='green')
 ```
 
+
 - Nice image but not interactive
 - For interactive maps there are some new packages such as `leaflet` available (see https://rstudio.github.io/leaflet/).  Now available on CRAN.
 - The first step is to setup the map and add a base map from "open street map"
+
 
 ```{r leaflet1, message=FALSE}  
 #build the map without "pipes"
@@ -291,42 +293,52 @@ Poly@data #not much here but this is the attribute table
   m
 ```
 
+
 - Now we can add a marker with our current location
+
 
 ```{r leaflet2, message=FALSE} 
   m<-addMarkers(m,lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here")  #add point location
   m
 ```
 
+
 - and finally we add the polygon around our location
+
 
 ```{r leaflet3, message=FALSE} 
   m<-addPolygons(m,data=Poly, weight=2) #add polygon  
   m
 ```
 
+
 - leaflet maps can also be built with "pipes" (see code below)
 
-```{r leafletPipe, message=FALSE, eval=FALSE}  
 
+```{r leafletPipe, message=FALSE, eval=FALSE}  
 #or build the map with "pipes"
-  leaflet() %>%   #setup map
-  addTiles() %>%  #add open street map data
-  addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here") %>%  #add point location 
-  addPolygons(data=Poly, weight=2) #add polygon
-  
+leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
+  addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>% 
+  addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>% 
+  addPolygons(data=Poly, weight=2,group='Poly') %>% 
+  addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"), 
+                 overlayGroups = c("Pt","Poly"))
+
 ```
+
 
 - Leaflet is great but does not currently work easily with projected data
 - Jeff Hollister is  developing an interactive map viewer that does work with projected data.  His package is called `quickmapr`.  It is not yet on CRAN, but availble from [GitHub](https://github.com/jhollist/quickmapr).  Jeff can demonstrate it later if there is time.
 - We can also view the files in GoogleEarth (if loaded on your computer).  But again this approach will not work with projected data.
 
+
 ```{r ge, eval=FALSE, message=FALSE}
-  shell.exec('LocPt.kml')  #Start GE and add Pt location
-  shell.exec('LocPoly.kml') #Now add the Polygon 
+shell.exec('LocPt.kml')  #Start GE and add Pt location
+shell.exec('LocPoly.kml') #Now add the Polygon 
 ```
 
 ##Exercise 2
+
 ###Visualizing spatial data in R
 
 1. Use the `plot` command to view "LocPt.shp" and "LocPoly.shp"
@@ -339,38 +351,47 @@ Poly@data #not much here but this is the attribute table
 - The 2011 NLCD Data were downloaded from http://gisdata.usgs.gov/TDDS/DownloadFile.php?TYPE=nlcd2011&FNAME=nlcd_2011_landcover_2011_edition_2014_10_10.zip.
 - This file was too large to work with effectively so the image was cropped to a 10km x 10km area around our current location. 
 - The cropped image was saved as "NLCDpdx.tif" and is include in http://jwhollister.com/iale_open_science/files/SpatialData.zip
+- To repeat the process of getting the full scene is below.  This is time consuming so we won't run this, but the steps are included if you'd like to working on thi on your own.
+
 
 ```{r cropNLCD, message=FALSE, echo=TRUE, eval=FALSE}  
-#get the NLCD grid data-to repeat this is time cosuming; the final raster is available on github
-  NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
+# get the NLCD grid data-to repeat this is time cosuming; 
+# the final raster is available on github
+NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
 
 #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
-    #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
-      #define extent based on bbox(PtAlb)+100km
-        B<-bbox(PtAlb)
-        Add<-10000 
-        Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
-      #Crop NLCD 
-        NLCDpdx<-crop(NLCD,Extent)
+#reproject Pt to match NLCD
+PtAlb<-spTransform(Pt,proj4string(NLCD))  
+
+#define extent based on bbox(PtAlb)+100km
+B<-bbox(PtAlb)
+Add<-10000 
+Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
+
+#Crop NLCD 
+NLCDpdx<-crop(NLCD,Extent)
 
 #add colortable
-  #get gex colors from Jeff's miscPackage
-    ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
-    ct <- read.csv(ct, stringsAsFactors = FALSE)
-  #add colors 1:256
-    ctbl <- rep("#000000", 256)
-  #update non-NULL colors
-    ctbl[ct$code + 1] <- ct$hex
-    NLCDpdx@legend@values <- ct$code
-    NLCD@legend@colortable <- ctbl
-    NLCD@legend@names <- ct$label
+#get gex colors from Jeff's miscPackage
+ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+ct <- read.csv(ct, stringsAsFactors = FALSE)
+
+#add colors 1:256
+ctbl <- rep("#000000", 256)
+
+#update non-NULL colors
+ctbl[ct$code + 1] <- ct$hex
+NLCDpdx@legend@values <- ct$code
+NLCD@legend@colortable <- ctbl
+NLCD@legend@names <- ct$label
 
 #export cropped NLCD as geotiff
-  writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
+writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
 ```
 
+
 - Let's get the raster data and look at it
+
 
 ```{r dataViewRaster}
 NLCD<-raster("iale_workshop/NLCDpdx.tif")  #simple read a raster image with the raster package.
@@ -378,19 +399,23 @@ NLCD<-raster("iale_workshop/NLCDpdx.tif")  #simple read a raster image with the 
 slotNames(raster) #get a list of the "slot" names for the object
 ```
 
+
 - We can use the `values` method to look at the raster data categories.
+
 
 ```{r dataViewRaster1}
 table(values(NLCD))
 ```
 
+
 - Need to interpret the codes
 - Fortunately we can translate the codes into the NLCD Land Use / Land Cover Categories
 - Jeff has a lookup table we'll use
 
+
 ```{r dataViewRaster2}
 #Load the look up table
-  ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+  ct <- "iale_workshop/nlcd_lookup.csv"
   ct <- read.csv(ct, stringsAsFactors = FALSE)
   ct  #view the table
 
@@ -520,7 +545,9 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 ```
 
 ##Exercise 3
+
 ###Working with rasters
+
 1. Use the command `raster` to load the NLCD data ("NLCDpdx.tif")
 2. Plot the data
 3. Add LocPt and LocPoly (you will need to reproject)

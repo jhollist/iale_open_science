@@ -513,9 +513,11 @@ Poly@data #not much here but this is the attribute table
 
 ![plot of chunk plot_ggmap]({{ site.url }}/figure/plot_ggmap-1.png) 
 
+
 - Nice image but not interactive
 - For interactive maps there are some new packages such as `leaflet` available (see https://rstudio.github.io/leaflet/).  Now available on CRAN.
 - The first step is to setup the map and add a base map from "open street map"
+
 
 
 {% highlight r %}
@@ -525,10 +527,12 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-4429" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-4429">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]}]},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-2533" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-2533">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]}]},"evals":[]}</script><!--/html_preserve-->
+
 
 - Now we can add a marker with our current location
+
 
 
 {% highlight r %}
@@ -536,10 +540,12 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2592" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2592">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]}],"limits":{"lat":[45.517564,45.517564],"lng":[-122.68014,-122.68014]}},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-2559" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-2559">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]}],"limits":{"lat":[45.517564,45.517564],"lng":[-122.68014,-122.68014]}},"evals":[]}</script><!--/html_preserve-->
+
 
 - and finally we add the polygon around our location
+
 
 
 {% highlight r %}
@@ -547,31 +553,38 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-7861" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-7861">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]},{"method":"addPolygons","args":[[[{"lng":[-122.683461544862,-122.680281068949,-122.676631816156,-122.674481812434,-122.675904138992,-122.672769412589,-122.674485521254,-122.674828807098,-122.678202313853,-122.682541408927,-122.685670328434,-122.687996482959,-122.683461544862],"lat":[45.5230187040173,45.5213931392957,45.5235316111073,45.5216119799917,45.5192876717319,45.5190852959663,45.5167150399938,45.5138738461287,45.512619192088,45.5154464797329,45.5143352152495,45.5195152981109,45.5230187040173]}]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"#03F","weight":2,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null]}],"limits":{"lat":[45.512619192088,45.5235316111073],"lng":[-122.687996482959,-122.672769412589]}},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-520" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-520">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]},{"method":"addPolygons","args":[[[{"lng":[-122.683461544862,-122.680281068949,-122.676631816156,-122.674481812434,-122.675904138992,-122.672769412589,-122.674485521254,-122.674828807098,-122.678202313853,-122.682541408927,-122.685670328434,-122.687996482959,-122.683461544862],"lat":[45.5230187040173,45.5213931392957,45.5235316111073,45.5216119799917,45.5192876717319,45.5190852959663,45.5167150399938,45.5138738461287,45.512619192088,45.5154464797329,45.5143352152495,45.5195152981109,45.5230187040173]}]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"#03F","weight":2,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null]}],"limits":{"lat":[45.512619192088,45.5235316111073],"lng":[-122.687996482959,-122.672769412589]}},"evals":[]}</script><!--/html_preserve-->
+
 
 - leaflet maps can also be built with "pipes" (see code below)
 
 
+
 {% highlight r %}
 #or build the map with "pipes"
-  leaflet() %>%   #setup map
-  addTiles() %>%  #add open street map data
-  addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here") %>%  #add point location 
-  addPolygons(data=Poly, weight=2) #add polygon
+leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
+  addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>% 
+  addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>% 
+  addPolygons(data=Poly, weight=2,group='Poly') %>% 
+  addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"), 
+                 overlayGroups = c("Pt","Poly"))
 {% endhighlight %}
+
 
 - Leaflet is great but does not currently work easily with projected data
 - Jeff Hollister is  developing an interactive map viewer that does work with projected data.  His package is called `quickmapr`.  It is not yet on CRAN, but availble from [GitHub](https://github.com/jhollist/quickmapr).  Jeff can demonstrate it later if there is time.
 - We can also view the files in GoogleEarth (if loaded on your computer).  But again this approach will not work with projected data.
 
 
+
 {% highlight r %}
-  shell.exec('LocPt.kml')  #Start GE and add Pt location
-  shell.exec('LocPoly.kml') #Now add the Polygon 
+shell.exec('LocPt.kml')  #Start GE and add Pt location
+shell.exec('LocPoly.kml') #Now add the Polygon 
 {% endhighlight %}
 
 ##Exercise 2
+
 ###Visualizing spatial data in R
 
 1. Use the `plot` command to view "LocPt.shp" and "LocPoly.shp"
@@ -584,39 +597,48 @@ Poly@data #not much here but this is the attribute table
 - The 2011 NLCD Data were downloaded from http://gisdata.usgs.gov/TDDS/DownloadFile.php?TYPE=nlcd2011&FNAME=nlcd_2011_landcover_2011_edition_2014_10_10.zip.
 - This file was too large to work with effectively so the image was cropped to a 10km x 10km area around our current location. 
 - The cropped image was saved as "NLCDpdx.tif" and is include in http://jwhollister.com/iale_open_science/files/SpatialData.zip
+- To repeat the process of getting the full scene is below.  This is time consuming so we won't run this, but the steps are included if you'd like to working on thi on your own.
+
 
 
 {% highlight r %}
-#get the NLCD grid data-to repeat this is time cosuming; the final raster is available on github
-  NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
+# get the NLCD grid data-to repeat this is time cosuming; 
+# the final raster is available on github
+NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
 
 #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
-    #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
-      #define extent based on bbox(PtAlb)+100km
-        B<-bbox(PtAlb)
-        Add<-10000 
-        Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
-      #Crop NLCD 
-        NLCDpdx<-crop(NLCD,Extent)
+#reproject Pt to match NLCD
+PtAlb<-spTransform(Pt,proj4string(NLCD))  
+
+#define extent based on bbox(PtAlb)+100km
+B<-bbox(PtAlb)
+Add<-10000 
+Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
+
+#Crop NLCD 
+NLCDpdx<-crop(NLCD,Extent)
 
 #add colortable
-  #get gex colors from Jeff's miscPackage
-    ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
-    ct <- read.csv(ct, stringsAsFactors = FALSE)
-  #add colors 1:256
-    ctbl <- rep("#000000", 256)
-  #update non-NULL colors
-    ctbl[ct$code + 1] <- ct$hex
-    NLCDpdx@legend@values <- ct$code
-    NLCD@legend@colortable <- ctbl
-    NLCD@legend@names <- ct$label
+#get gex colors from Jeff's miscPackage
+ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+ct <- read.csv(ct, stringsAsFactors = FALSE)
+
+#add colors 1:256
+ctbl <- rep("#000000", 256)
+
+#update non-NULL colors
+ctbl[ct$code + 1] <- ct$hex
+NLCDpdx@legend@values <- ct$code
+NLCD@legend@colortable <- ctbl
+NLCD@legend@names <- ct$label
 
 #export cropped NLCD as geotiff
-  writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
+writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
 {% endhighlight %}
 
+
 - Let's get the raster data and look at it
+
 
 
 {% highlight r %}
@@ -632,7 +654,9 @@ slotNames(raster) #get a list of the "slot" names for the object
 ## [6] "signature"  "default"    "skeleton"
 {% endhighlight %}
 
+
 - We can use the `values` method to look at the raster data categories.
+
 
 
 {% highlight r %}
@@ -649,42 +673,42 @@ table(values(NLCD))
 ##   2156   2805    453   1507   1737
 {% endhighlight %}
 
+
 - Need to interpret the codes
 - Fortunately we can translate the codes into the NLCD Land Use / Land Cover Categories
 - Jeff has a lookup table we'll use
 
 
+
 {% highlight r %}
 #Load the look up table
-  ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+  ct <- "iale_workshop/nlcd_lookup.csv"
   ct <- read.csv(ct, stringsAsFactors = FALSE)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Warning in file(file, "rt"): cannot open file 'iale_workshop/
+## nlcd_lookup.csv': No such file or directory
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in file(file, "rt"): cannot open the connection
+{% endhighlight %}
+
+
+
+{% highlight r %}
   ct  #view the table
 {% endhighlight %}
 
 
 
 {% highlight text %}
-##    code     hex                        label
-## 1    11 #5475A8                   Open Water
-## 2    12 #FFFFFF           Perennial Ice/Snow
-## 3    21 #E8D1D1        Developed, Open Space
-## 4    22 #E29E8C     Developed, Low Intensity
-## 5    23 #FF0000  Developed, Medium Intensity
-## 6    24 #B50000    Developed, High Intensity
-## 7    31 #D2CDC0 Barren Land (Rock/Sand/Clay)
-## 8    41 #85C77E             Deciduous Forest
-## 9    42 #38814E             Evergreen Forest
-## 10   43 #38814E                 Mixed Forest
-## 11   51 #AF963C                  Dwarf Scrub
-## 12   52 #DCCA8F                  Scrub/Shrub
-## 13   71 #FDE9AA         Grassland/Herbaceous
-## 14   72 #D1D182            Sedge/Herbaceuous
-## 15   73 #A3CC51                      Lichens
-## 16   74 #82BA9E                         Moss
-## 17   81 #FBF65D                  Pasture/Hay
-## 18   82 #CA9146             Cultivated Crops
-## 19   90 #C8E6F8               Woody Wetlands
-## 20   95 #64B3D5 Emergent Herbaceous Wetlands
+## [1] "iale_workshop/nlcd_lookup.csv"
 {% endhighlight %}
 
 
@@ -694,7 +718,17 @@ table(values(NLCD))
   codes<-data.frame(code=values(NLCD))
 #merge with the lookup table
   Values<-merge(codes,ct,by='code',all.x=T)
+{% endhighlight %}
 
+
+
+{% highlight text %}
+## Error in fix.by(by.y, y): 'by' must specify a uniquely valid column
+{% endhighlight %}
+
+
+
+{% highlight r %}
 #Now we can view the data
 table(Values$label,useNA='ifany')
 {% endhighlight %}
@@ -702,23 +736,7 @@ table(Values$label,useNA='ifany')
 
 
 {% highlight text %}
-## 
-## Barren Land (Rock/Sand/Clay)             Cultivated Crops 
-##                          926                          453 
-##             Deciduous Forest    Developed, High Intensity 
-##                         7345                        62889 
-##     Developed, Low Intensity  Developed, Medium Intensity 
-##                       131456                       125320 
-##        Developed, Open Space Emergent Herbaceous Wetlands 
-##                        36829                         1737 
-##             Evergreen Forest         Grassland/Herbaceous 
-##                        26794                         2156 
-##                 Mixed Forest                   Open Water 
-##                        22077                        20355 
-##                  Pasture/Hay                  Scrub/Shrub 
-##                         2805                         1573 
-##               Woody Wetlands 
-##                         1507
+## Error in table(Values$label, useNA = "ifany"): object 'Values' not found
 {% endhighlight %}
 
 - We'll use base graphics to plot this raster image
@@ -827,11 +845,20 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 {% highlight r %}
     plot(PtAlb,add=T,pch=4,col='white',cex=1.5,lwd=2) 
     plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
+{% endhighlight %}
+
+![plot of chunk legend1]({{ site.url }}/figure/legend1-2.png) 
+
+{% highlight r %}
   #add legend
     legend('topright',ct$label,fill=ct$hex)
 {% endhighlight %}
 
-![plot of chunk legend1]({{ site.url }}/figure/legend1-2.png) 
+
+
+{% highlight text %}
+## Error in ct$label: $ operator is invalid for atomic vectors
+{% endhighlight %}
 
 - Now let's do some real GIS
 - We have the spatial objects
@@ -912,7 +939,17 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 # finally, add the labels
     lulc<-merge(ct,lulc,by.x='code',by.y='value',all.y=TRUE)
+{% endhighlight %}
 
+
+
+{% highlight text %}
+## Error in fix.by(by.x, x): 'by' must specify a uniquely valid column
+{% endhighlight %}
+
+
+
+{% highlight r %}
 # what a surprise, it is mostly developed land around the hotel
     lulc 
 {% endhighlight %}
@@ -920,16 +957,18 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-##   code     hex                       label count proportion  areaM2
-## 1   11 #5475A8                  Open Water   279      0.081  251100
-## 2   21 #E8D1D1       Developed, Open Space    16      0.005   14400
-## 3   22 #E29E8C    Developed, Low Intensity   316      0.092  284400
-## 4   23 #FF0000 Developed, Medium Intensity   903      0.263  812700
-## 5   24 #B50000   Developed, High Intensity  1917      0.559 1725300
+##   value count proportion  areaM2
+## 1    11   279      0.081  251100
+## 2    21    16      0.005   14400
+## 3    22   316      0.092  284400
+## 4    23   903      0.263  812700
+## 5    24  1917      0.559 1725300
 {% endhighlight %}
 
 ##Exercise 3
+
 ###Working with rasters
+
 1. Use the command `raster` to load the NLCD data ("NLCDpdx.tif")
 2. Plot the data
 3. Add LocPt and LocPoly (you will need to reproject)

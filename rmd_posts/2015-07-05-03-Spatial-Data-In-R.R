@@ -154,46 +154,52 @@ Poly@data #not much here but this is the attribute table
   m
 
 ## ----leafletPipe, message=FALSE, eval=FALSE------------------------------
-## 
 ## #or build the map with "pipes"
-##   leaflet() %>%   #setup map
-##   addTiles() %>%  #add open street map data
-##   addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here") %>%  #add point location
-##   addPolygons(data=Poly, weight=2) #add polygon
+## leaflet() %>% addTiles(group = "OpenStreetMap") %>%
+##   addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>%
+##   addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>%
+##   addPolygons(data=Poly, weight=2,group='Poly') %>%
+##   addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"),
+##                  overlayGroups = c("Pt","Poly"))
 ## 
 
 ## ----ge, eval=FALSE, message=FALSE---------------------------------------
-##   shell.exec('LocPt.kml')  #Start GE and add Pt location
-##   shell.exec('LocPoly.kml') #Now add the Polygon
+## shell.exec('LocPt.kml')  #Start GE and add Pt location
+## shell.exec('LocPoly.kml') #Now add the Polygon
 
 ## ----cropNLCD, message=FALSE, echo=TRUE, eval=FALSE----------------------
-## #get the NLCD grid data-to repeat this is time cosuming; the final raster is available on github
-##   NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
+## # get the NLCD grid data-to repeat this is time cosuming;
+## # the final raster is available on github
+## NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
 ## 
 ## #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
-##     #reproject Pt to match NLCD
-##       PtAlb<-spTransform(Pt,proj4string(NLCD))
-##       #define extent based on bbox(PtAlb)+100km
-##         B<-bbox(PtAlb)
-##         Add<-10000
-##         Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
-##       #Crop NLCD
-##         NLCDpdx<-crop(NLCD,Extent)
+## #reproject Pt to match NLCD
+## PtAlb<-spTransform(Pt,proj4string(NLCD))
+## 
+## #define extent based on bbox(PtAlb)+100km
+## B<-bbox(PtAlb)
+## Add<-10000
+## Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
+## 
+## #Crop NLCD
+## NLCDpdx<-crop(NLCD,Extent)
 ## 
 ## #add colortable
-##   #get gex colors from Jeff's miscPackage
-##     ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
-##     ct <- read.csv(ct, stringsAsFactors = FALSE)
-##   #add colors 1:256
-##     ctbl <- rep("#000000", 256)
-##   #update non-NULL colors
-##     ctbl[ct$code + 1] <- ct$hex
-##     NLCDpdx@legend@values <- ct$code
-##     NLCD@legend@colortable <- ctbl
-##     NLCD@legend@names <- ct$label
+## #get gex colors from Jeff's miscPackage
+## ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+## ct <- read.csv(ct, stringsAsFactors = FALSE)
+## 
+## #add colors 1:256
+## ctbl <- rep("#000000", 256)
+## 
+## #update non-NULL colors
+## ctbl[ct$code + 1] <- ct$hex
+## NLCDpdx@legend@values <- ct$code
+## NLCD@legend@colortable <- ctbl
+## NLCD@legend@names <- ct$label
 ## 
 ## #export cropped NLCD as geotiff
-##   writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
+## writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
 
 ## ----dataViewRaster------------------------------------------------------
 NLCD<-raster("iale_workshop/NLCDpdx.tif")  #simple read a raster image with the raster package.
@@ -205,7 +211,7 @@ table(values(NLCD))
 
 ## ----dataViewRaster2-----------------------------------------------------
 #Load the look up table
-  ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+  ct <- "iale_workshop/nlcd_lookup.csv"
   ct <- read.csv(ct, stringsAsFactors = FALSE)
   ct  #view the table
 
