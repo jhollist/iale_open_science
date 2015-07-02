@@ -40,7 +40,11 @@ eopts <- list(county = "Alameda county")
     gbifopts = gopts, ecoengineopts = eopts, limit = 20))
 
 ## ------------------------------------------------------------------------
-# mapleaf(dat)
+library("spoccutils")
+map_ggplot(dat)
+
+## ------------------------------------------------------------------------
+map_leaflet(dat)
 
 ## ------------------------------------------------------------------------
 library("taxize")

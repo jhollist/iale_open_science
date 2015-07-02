@@ -30,13 +30,34 @@ geojson, etc.).
 
 ## Open data on the web
 
-_presentation..._
-
 * GUI interfaces (no scraping allowed/possible)
 * HTML (scraping)
 * CSV/TXT/TSV etc.
 * FTP
 * APIs (SOAP, RESTful)
+
+GUI interfaces are great!  That's where (nearly) everyone starts in their data search process. However, when you need to do more than a few queries/search tasks/etc., GUIs become very cumbersome. 
+
+Some websites allow you to scrape their content. That is, every web page has html code that defines that page. This is a structured language that you can collect in a programming lanugage like R, then parse out the exact things that you want. This is quite fragile though - that is, websites can update often, breaking any code you've written to scrape the site. In addition, html isn't the best way to move data around.
+
+> Tools for scraping: rvest, xml2
+
+Sometimes websites will provide data dumps in csv/text format. This is much better than scraping html, as it's easier for humans to understand, and we we can easily read in and manipulate the data. Always look for this type of data download as a better alternative to html scraping.
+
+> Tools for importing csv: base R functions read.table/etc., & readr, data.table::fread, readxl
+
+Data providers sometimes provide data via FTP (File Transfer Protocol). This is simply a file system that you can access data from. This is easy to use without a programming language - you can just go tot the FTP site and download data. But, as above, when dealing with more than a few files, it's best to write some code to automate download, data manipulation, etc. 
+
+> Tools for working with ftp: RCurl, curl, httr
+
+The best situation, in most cases, is that a data provider provides a RESTful API (Application Programming Interface). Think of APIs as a set of instructions for one computer to talk to another, or one script to talk to another. For example, when you log into a site using your Facebook credentials - that's using one of the Facebook APIs. 
+
+APIs lay out a series of routes that define what data is avaiable, parameters to use to construct queries, and so on. On top of APIs, any programming language can build a client to interact with the API. This is the bees knees. 
+
+Caveat: When you have very large data, APIs sometimes are not best. See FTP. 
+
+> Tools for working with APIs: RCurl, curl, httr, httsnap
+
 
 ## Occurrence data
 
@@ -273,7 +294,7 @@ out$gbif$meta #  metadata, your query parameters, time the call executed, etc.
 ## [1] "gbif"
 ## 
 ## $time
-## [1] "2015-07-01 15:15:39 PDT"
+## [1] "2015-07-02 15:32:04 PDT"
 ## 
 ## $found
 ## [1] 447905
@@ -336,19 +357,19 @@ head(df); tail(df)
 
 {% highlight text %}
 ##                   name  longitude latitude  prov                date
-## 95  Accipiter striatus -121.25120 36.55132 ebird 2015-06-27 11:44:00
-## 96  Accipiter striatus  -90.77153 47.62462 ebird 2015-06-27 11:38:00
-## 97  Accipiter striatus -108.22136 32.94686 ebird 2015-06-27 11:03:00
-## 98  Accipiter striatus  -73.33983 41.25290 ebird 2015-06-27 10:25:00
-## 99  Accipiter striatus -147.73195 64.86338 ebird 2015-06-27 10:00:00
-## 100 Accipiter striatus  -92.03152 46.84697 ebird 2015-06-27 07:35:00
+## 95  Accipiter striatus -110.82716 34.35849 ebird 2015-06-28 13:00:00
+## 96  Accipiter striatus -105.06987 40.43173 ebird 2015-06-28 13:00:00
+## 97  Accipiter striatus  -82.85271 39.76237 ebird 2015-06-28 11:12:00
+## 98  Accipiter striatus  -72.93387 43.53721 ebird 2015-06-28 11:00:00
+## 99  Accipiter striatus  -84.64035 44.65476 ebird 2015-06-28 10:50:00
+## 100 Accipiter striatus  -76.11814 42.51237 ebird 2015-06-28 10:37:00
 ##          key
-## 95  L3755918
-## 96  L1275909
-## 97  L3757197
-## 98   L934894
-## 99   L128537
-## 100  L268365
+## 95   L953412
+## 96  L3762402
+## 97   L580270
+## 98   L168227
+## 99  L2321078
+## 100 L3755767
 {% endhighlight %}
 
 There's a certain set of global parameters that work for all data resources, but other settings you can still pass separately to each resource. For example:
@@ -373,12 +394,33 @@ eopts <- list(county = "Alameda county")
 
 #### Make a map
 
-__FIX ME: replace mapleaflet with leaflet pkg from CRAN__
+Static map using ggplot2
 
 
 {% highlight r %}
-# mapleaf(dat)
+library("spoccutils")
+map_ggplot(dat)
 {% endhighlight %}
+
+![plot of chunk unnamed-chunk-11]({{ site.url }}/figure/../figure/unnamed-chunk-11-1.png) 
+
+Interactive map using leaflet
+
+
+{% highlight r %}
+map_leaflet(dat)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## 
+## File saved under ./data.geojson
+## 
+## Your leaflet map has been saved under /Users/sacmac/github/sac/iale_open_science/rmd_posts/map/map.html
+{% endhighlight %}
+
+![map](../leaflet_map.png)
 
 ## Exercise 1
 
