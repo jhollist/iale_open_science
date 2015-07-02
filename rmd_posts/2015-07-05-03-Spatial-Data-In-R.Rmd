@@ -291,12 +291,6 @@ Poly@data #not much here but this is the attribute table
   m
 ```
 
-```{r leaflet_hack1, echo=FALSE}
-htmlwidgets::saveWidget(m,"../_includes/leaflet_hack1.html",T)
-```
-
-{% include leaflet_hack1.html %}
-
 - Now we can add a marker with our current location
 
 ```{r leaflet2, message=FALSE} 

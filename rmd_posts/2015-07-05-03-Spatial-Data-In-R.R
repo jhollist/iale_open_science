@@ -145,9 +145,6 @@ Poly@data #not much here but this is the attribute table
   m<-addTiles(m) #add open street map data
   m
 
-## ----leaflet_hack1, echo=FALSE-------------------------------------------
-htmlwidgets::saveWidget(m,"../_includes/leaflet_hack1.html",T)
-
 ## ----leaflet2, message=FALSE---------------------------------------------
   m<-addMarkers(m,lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here")  #add point location
   m
