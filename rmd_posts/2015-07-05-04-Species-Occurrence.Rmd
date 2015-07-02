@@ -59,13 +59,34 @@ geojson, etc.).
 
 ## Open data on the web
 
-_presentation..._
-
 * GUI interfaces (no scraping allowed/possible)
 * HTML (scraping)
 * CSV/TXT/TSV etc.
 * FTP
 * APIs (SOAP, RESTful)
+
+GUI interfaces are great!  That's where (nearly) everyone starts in their data search process. However, when you need to do more than a few queries/search tasks/etc., GUIs become very cumbersome. 
+
+Some websites allow you to scrape their content. That is, every web page has html code that defines that page. This is a structured language that you can collect in a programming lanugage like R, then parse out the exact things that you want. This is quite fragile though - that is, websites can update often, breaking any code you've written to scrape the site. In addition, html isn't the best way to move data around.
+
+> Tools for scraping: rvest, xml2
+
+Sometimes websites will provide data dumps in csv/text format. This is much better than scraping html, as it's easier for humans to understand, and we we can easily read in and manipulate the data. Always look for this type of data download as a better alternative to html scraping.
+
+> Tools for importing csv: base R functions read.table/etc., & readr, data.table::fread, readxl
+
+Data providers sometimes provide data via FTP (File Transfer Protocol). This is simply a file system that you can access data from. This is easy to use without a programming language - you can just go tot the FTP site and download data. But, as above, when dealing with more than a few files, it's best to write some code to automate download, data manipulation, etc. 
+
+> Tools for working with ftp: RCurl, curl, httr
+
+The best situation, in most cases, is that a data provider provides a RESTful API (Application Programming Interface). Think of APIs as a set of instructions for one computer to talk to another, or one script to talk to another. For example, when you log into a site using your Facebook credentials - that's using one of the Facebook APIs. 
+
+APIs lay out a series of routes that define what data is avaiable, parameters to use to construct queries, and so on. On top of APIs, any programming language can build a client to interact with the API. This is the bees knees. 
+
+Caveat: When you have very large data, APIs sometimes are not best. See FTP. 
+
+> Tools for working with APIs: RCurl, curl, httr, httsnap
+
 
 ## Occurrence data
 
@@ -183,11 +204,20 @@ eopts <- list(county = "Alameda county")
 
 #### Make a map
 
-__FIX ME: replace mapleaflet with leaflet pkg from CRAN__
+Static map using ggplot2
 
 ```{r}
-# mapleaf(dat)
+library("spoccutils")
+map_ggplot(dat)
 ```
+
+Interactive map using leaflet
+
+```{r}
+map_leaflet(dat)
+```
+
+![map](../leaflet_map.png)
 
 ## Exercise 1
 
