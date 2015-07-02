@@ -7,26 +7,30 @@ layout: post_page
 ```{r setup, echo=FALSE, warning=FALSE, purl=FALSE, message=FALSE, include=FALSE}
 options(repos="http://cran.rstudio.com/")
 
-#Install packages from github if necessary
-  #devtools::install_github("rstudio/leaflet") 
-      library(leaflet)
-  #devtools::install_github("jhollist/miscPackage")
-      library(miscPackage)
+#Install packages from github if necessary - now on CRAN
+#if(!require(leaflet)){
+#  devtools::install_github("rstudio/leaflet")
+#}
+#library(leaflet)
+#if(!require(miscPacakge)){
+#  devtools::install_github("jhollist/miscPackage")
+#}
+library(miscPackage)
 
 #If libraries needed in post, load here.  include in code block later with 
 #eval = FALSE.  Cleaner that way.
-libs<-c("rgdal","sp","ggplot2","maptools","ggmap","raster","rgeos") #list of packages to load
+libs<-c("rgdal","sp","ggplot2","maptools","ggmap","raster","rgeos","leaflet") #list of packages to load
 
 installLoad<-function(pck){ #user defined function
-    if(!pck%in%installed.packages()){install.packages(pck)}
-    require(pck, character.only = TRUE)
+  if(!require(pck,character.only = TRUE)){
+    install.packages(pck)
   }
-lapply(libs,function(x) installLoad(x))  #Load/Install require packages
+  library(pck,character.only = TRUE)
+}
 
+lapply(libs,function(x) installLoad(x))  #Load/Install require packages
 ```
 
-Introduction
--------------------------
 Over the past few years there has been a rapid increase in the ability of R to handle spatial data. New packages are being added continuously and the functionality of R now rivals some of the big names in GIS software.  R can now handle both vector and raster data and has good options for geoprocessing. For most task we find that R runs faster than the commercial alternatives plus you have the added benefit of being able to script your analyses.  Interactive visualization of spatial data still needs improvement but we expect to see this last obstacle overcome soon.  As with any type of R analysis there is a steep learning curve but once you have mastered the basics you will find that R is a good solution for your spatial analyses.  
 
 In this part of the workshop we will go over the basics of using R for spatial analysis.  This is a big subject so we will only scratch the surface but the exercises will give you a good introduction of the capabilities of R in this area.
@@ -47,22 +51,29 @@ Much of this lecture was adapted from a workshop given by Jeff Hollister.  You c
 
 
 ##Spatial Objects
+
 ###Overview of Classes and Methods
+
 - Class: object types
-    - class(): gives the class type 
-    - typeof(): information on how the object is stored
-    - str(): how the object is structured
+    - `class()`: gives the class type 
+    - `typeof()`: information on how the object is stored
+    - `str()`: how the object is structured
 - Method: generic functions
-    - print(): 
-    - plot()
-    - summary()
+    - `print()`
+    - `plot()`
+    - `summary()`
 
 ###Subclasses of Spatial Objects
+
 - This is a big topic that we will only touch upon.  For more information see Bivand, R. S., Pebesma, E. J., & Gómez-Rubio, V. (2008). Applied spatial data analysis with R. New York: Springer.
 - We can use the "getClass()" command to view the subclasses of spatial objects.
 
-```{r spatialObj}
+```{r spatialObj,eval=FALSE}
 library(sp)
+getClass("Spatial")
+```
+
+```{r spatialObj_gc,echo=FALSE,eval=TRUE}
 getClass("Spatial")
 ```
 
@@ -87,65 +98,93 @@ For data visualization these packages may be useful:
 
 1. `ggplot2`: this package is used to produce elegant graphics and can handle most `sp` objects.
 2. `ggmap`: allows you to add google map imagery to `ggplot2` graphics
-3. `leafletR`: a new interactive map package.  Works great for unprojected spatial data.  This package is a great product that will certainly increase in functionality. 
-
+3. `leaflet`: a new interactive map package built off of the leaflet javascript library.  Works great for unprojected spatial data.  This package is a great product that will certainly increase in functionality. 
+4. `cartographer`:  Current functionality is similar to leaflet, but instead this package uses the D3 javascript library.  That has some really important advantages (we think) over leaflet.  Most notable D3 has projection support that could be used to support viz of projected data.
 
 ## Build the datasets for this exercise
 
 Lets start by making a shapefiles for our current location and a polygon around our location. We won't have time to go into how to do this but the code is included so you can see how it was done. 
 
-All of the files used in this lesson can be downloaded from: http://jwhollister.com/iale_open_science/files/SpatialData.zip
+All of the files used in this lesson can be downloaded from: [http://jwhollister.com/iale_open_science/files/SpatialData.zip](http://jwhollister.com/iale_open_science/files/SpatialData.zip)
+
+To download an upzip these with R:
+
+```{r get_sp_data, eval=FALSE}
+download.files("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
+               "SpatialData.zip",
+               method="auto",
+               mode="wb") 
+unzip("SpatialData.zip",exdir="iale_workshop")
+```
 
 
 ```{r locationData, echo=TRUE, eval=FALSE}
 #Our current location (from GoogleEarth) is:
-  Loc<-data.frame(lon=-122.68014,lat=45.517564,name='PDXhilton',ID=1)
+Loc<-data.frame(lon=-122.68014,lat=45.517564,name='PDXhilton',ID=1)
 
 #The Coordinate reference system for GoogleEarth is WGS84 Decimal Degrees
-  WGS84<-CRS("+proj=longlat +datum=WGS84")  #ESRI GCS_WGS_1984 
+WGS84<-CRS("+proj=longlat +datum=WGS84")  #ESRI GCS_WGS_1984 
 
 #From this we create `sp` object (Spatial Points Data Frame)
-  #A SpatialPoints object has the geographic information but no attributes
-    LocPt<-SpatialPoints(coordinates(Loc[,-3]),proj4string=WGS84)
-    
+#A SpatialPoints object has the geographic information but no attributes
+LocPt<-SpatialPoints(coordinates(Loc[,-3]),proj4string=WGS84)
+
 #Let's also create a random polygon around our location
-  #coordinates for the polygon
-    Poly<-data.frame(Lon=c(-122.683461544862,-122.687996482959,-122.685670328434,-122.682541408927,-122.678202313853,-122.674828807098,-122.674485521254,-122.672769412589,-122.675904138992,-122.674481812434,-122.676631816156,-122.680281068949,-122.683461544862),Lat=c(45.5230187040173,45.5195152981109,45.5143352152495,45.5154464797329,45.512619192088,45.5138738461287,45.5167150399938,45.5190852959663,45.5192876717319,45.5216119799917,45.5235316111073,45.5213931392957,45.5230187040173))  
+#coordinates for the polygon
+Poly<-data.frame(Lon=c(-122.683461544862,-122.687996482959,-122.685670328434,
+                       -122.682541408927,-122.678202313853,-122.674828807098,
+                       -122.674485521254,-122.672769412589,-122.675904138992,
+                       -122.674481812434,-122.676631816156,-122.680281068949,
+                       -122.683461544862),
+                 Lat=c(45.5230187040173,45.5195152981109,45.5143352152495,
+                       45.5154464797329,45.512619192088,45.5138738461287,
+                       45.5167150399938,45.5190852959663,45.5192876717319,
+                       45.5216119799917,45.5235316111073,45.5213931392957,
+                       45.5230187040173))  
 
 #create SpatialPolygons Object
-  p<-Polygon(Poly) #convert coords to polygon
-  p1<- Polygons(list(p), ID=1) #add id variable
-  LocPoly<- SpatialPolygons(list(p1),proj4string=WGS84) #create SpatialPolygons object
+#convert coords to polygon
+p<-Polygon(Poly) 
+
+#add id variable
+p1<- Polygons(list(p), ID=1) 
+
+#create SpatialPolygons object
+LocPoly<- SpatialPolygons(list(p1),proj4string=WGS84) 
 
 #A SpatialPointsDataFrame object has the geographic information plus attributes
-    LocPtDF<-SpatialPointsDataFrame(coordinates(Loc[,-3]),Loc,proj4string=WGS84)
+LocPtDF<-SpatialPointsDataFrame(coordinates(Loc[,-3]),Loc,proj4string=WGS84)
 
 #create SpatialPolygonsDataFrame Object
-  LocPolyDF<- SpatialPolygonsDataFrame(LocPoly,data.frame(ID=1,Info='PolygonAroundPDXhilton')) #add field "Info" as an attribute to the polygon.
-  
+#adds field "Info" as an attribute to the polygon.
+LocPolyDF<- SpatialPolygonsDataFrame(LocPoly,
+                                     data.frame(ID=1,
+                                                Info='PolygonAroundPDXhilton'))
+
 #write the spatial dataframe objects to shapefiles
-  writeOGR(LocPtDF,'../files','LocPt', driver="ESRI Shapefile",overwrite_layer=TRUE)
-  writeOGR(LocPolyDF,'../files','LocPoly', driver="ESRI Shapefile",overwrite_layer=TRUE)
+writeOGR(LocPtDF,'iale_workshop','LocPt', 
+         driver="ESRI Shapefile",overwrite_layer=TRUE)
+writeOGR(LocPolyDF,'iale_workshop','LocPoly', 
+         driver="ESRI Shapefile",overwrite_layer=TRUE)
 
 #create KML file of locations with the maptools package 
-  #point
-    kmlPoints(LocPtDF, 
-              kmlfile='../files/LocPt.kml', 
-              name="Hilton", 
-              description=paste("Our Current Location"),
-              icon="http://maps.google.com/mapfiles/kml/paddle/ltblu-stars.png",
-              kmlname="PDXhilton",
-              kmldescription="We R Here")
-    #open file in google earth
-      #shell.exec('LocPt.kml')
-  #polygon
-    kmlPolygon(LocPolyDF, 
-              kmlfile='../files/LocPoly.kml', 
-              name="HiltonPoly", 
-              description=paste("Random Polygon"),
-              lwd=5,border=2,
-              kmlname="HiltonPoly",
-              kmldescription="We R Here")
+#point
+kmlPoints(LocPtDF, 
+          kmlfile='iale_workshop/LocPt.kml', 
+          name="Hilton", 
+          description=paste("Our Current Location"),
+          icon="http://maps.google.com/mapfiles/kml/paddle/ltblu-stars.png",
+          kmlname="PDXhilton",
+          kmldescription="We R Here")
+
+#polygon
+kmlPolygon(LocPolyDF, 
+          kmlfile='iale_workshop/LocPoly.kml', 
+          name="HiltonPoly", 
+          description=paste("Random Polygon"),
+          lwd=5,border=2,
+          kmlname="HiltonPoly",
+          kmldescription="We R Here")
 ```
 
 ### Reading the spatial Data
@@ -154,26 +193,29 @@ The `rgdal` package is good for reading of vector spatial data into R. For Grid 
 
 
 ```{r readSpatialData} 
-# Using rgdal command - readOGR - we now read in the shapefiles for our current location in Portland.
-  #change working directory to file location
-    setwd('../files/')  #this is a relative path to the file location-you will need to change this
+# Using rgdal command - readOGR - we now read in the shapefiles for our current 
+# location in Portland.
 
-  #point location
-    Pt<-readOGR('.',"LocPt") 
-  #Polygon location
-    Poly<-readOGR('.',"LocPoly")
+#point location
+Pt<-readOGR('iale_workshop',"LocPt") 
+#Polygon location
+Poly<-readOGR('iale_workshop',"LocPoly")
 ```
 
 - Let us look at the data
 
 ```{r dataView}
-class(Pt) #class info for object
+#class info for object
+class(Pt) 
 
-typeof(Pt) #storage type
+#storage type
+typeof(Pt)
 
-str(Pt) # data structure for object
+# data structure for object
+str(Pt) 
 
-summary(Pt) #summary info for object
+#summary info for object
+summary(Pt) 
 
 class(Poly) #class info for object
 
@@ -182,24 +224,24 @@ coordinates(Pt) #coordinates of the point
 coordinates(Poly) #coordinates of polygon centroid
 
 #to see the vertices of the Polygon we need to explore the "slots"
-  slotNames(Poly) #get a list of the "slot" names for the object
-  
-  Poly@polygons  #will give info on each polygon
-        
-  Poly@bbox #bounding box of object; same as bbox(Poly)
+slotNames(Poly) #get a list of the "slot" names for the object
+
+Poly@polygons  #will give info on each polygon
       
-  Poly@proj4string #coordinate reference system for the object; same as proj4string(Poly)
-      
-  Poly@data #not much here but this is the attribute table
+Poly@bbox #bounding box of object; same as bbox(Poly)
+    
+Poly@proj4string #coordinate reference system for the object; same as proj4string(Poly)
+    
+Poly@data #not much here but this is the attribute table
 ```
 
 ##Exercise 1
+
 ###Getting spatial data into R
 
 1. Download the data for this and other excercises:  [SpatialData.zip](http://jwhollister.com/iale_open_science/files/SpatialData.zip)
 2. Unzip the data to a convenient location of you computer.
 3. Open R studio and start a new R script.
-4. (Optional) Set the working directory in R (setwd()) to the location of the files.
 5. Load the packages: `rgdal`,`sp`,`raster` and,`rgeos`.  You'll need some of these now and some later. 
 6. Use `readOGR` to load the shapefiles "LocPt.shp" and "LocPoly.shp"
 7. Explore the `sp` objects with: `class`, `typeof`, and `summary`
@@ -238,10 +280,11 @@ coordinates(Poly) #coordinates of polygon centroid
         geom_path(data=Poly,aes(x=long, y=lat),size=2,colour='green')
 ```
 
+
 - Nice image but not interactive
-- For interactive maps there are some new packages such as `leafletR` available (see https://rstudio.github.io/leaflet/)
-- A newer version of leaflet (leafletR) is now available on CRAN
+- For interactive maps there are some new packages such as `leaflet` available (see https://rstudio.github.io/leaflet/).  Now available on CRAN.
 - The first step is to setup the map and add a base map from "open street map"
+
 
 ```{r leaflet1, message=FALSE}  
 #build the map without "pipes"
@@ -250,42 +293,52 @@ coordinates(Poly) #coordinates of polygon centroid
   m
 ```
 
+
 - Now we can add a marker with our current location
+
 
 ```{r leaflet2, message=FALSE} 
   m<-addMarkers(m,lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here")  #add point location
   m
 ```
 
+
 - and finally we add the polygon around our location
+
 
 ```{r leaflet3, message=FALSE} 
   m<-addPolygons(m,data=Poly, weight=2) #add polygon  
   m
 ```
 
+
 - leaflet maps can also be built with "pipes" (see code below)
 
-```{r leafletPipe, message=FALSE, eval=FALSE}  
 
+```{r leafletPipe, message=FALSE, eval=FALSE}  
 #or build the map with "pipes"
-  leaflet() %>%   #setup map
-  addTiles() %>%  #add open street map data
-  addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here") %>%  #add point location 
-  addPolygons(data=Poly, weight=2) #add polygon
-  
+leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
+  addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>% 
+  addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>% 
+  addPolygons(data=Poly, weight=2,group='Poly') %>% 
+  addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"), 
+                 overlayGroups = c("Pt","Poly"))
+
 ```
 
+
 - Leaflet is great but does not currently work easily with projected data
-- Jeff Hollister is  developing an interactive map viewer that does work with projected data.  His package is called quickmapper and Jeff demonstrate it later if there is time.
+- Jeff Hollister is  developing an interactive map viewer that does work with projected data.  His package is called `quickmapr`.  It is not yet on CRAN, but availble from [GitHub](https://github.com/jhollist/quickmapr).  Jeff can demonstrate it later if there is time.
 - We can also view the files in GoogleEarth (if loaded on your computer).  But again this approach will not work with projected data.
 
+
 ```{r ge, eval=FALSE, message=FALSE}
-  shell.exec('LocPt.kml')  #Start GE and add Pt location
-  shell.exec('LocPoly.kml') #Now add the Polygon 
+shell.exec('LocPt.kml')  #Start GE and add Pt location
+shell.exec('LocPoly.kml') #Now add the Polygon 
 ```
 
 ##Exercise 2
+
 ###Visualizing spatial data in R
 
 1. Use the `plot` command to view "LocPt.shp" and "LocPoly.shp"
@@ -298,58 +351,71 @@ coordinates(Poly) #coordinates of polygon centroid
 - The 2011 NLCD Data were downloaded from http://gisdata.usgs.gov/TDDS/DownloadFile.php?TYPE=nlcd2011&FNAME=nlcd_2011_landcover_2011_edition_2014_10_10.zip.
 - This file was too large to work with effectively so the image was cropped to a 10km x 10km area around our current location. 
 - The cropped image was saved as "NLCDpdx.tif" and is include in http://jwhollister.com/iale_open_science/files/SpatialData.zip
+- To repeat the process of getting the full scene is below.  This is time consuming so we won't run this, but the steps are included if you'd like to working on thi on your own.
+
 
 ```{r cropNLCD, message=FALSE, echo=TRUE, eval=FALSE}  
-#get the NLCD grid data-to repeat this is time cosuming; the final raster is available on github
-  NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
+# get the NLCD grid data-to repeat this is time cosuming; 
+# the final raster is available on github
+NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd_2011_landcover_2011_edition_2014_10_10.img')  #change location to match your directory structure
 
 #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
-    #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
-      #define extent based on bbox(PtAlb)+100km
-        B<-bbox(PtAlb)
-        Add<-10000 
-        Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
-      #Crop NLCD 
-        NLCDpdx<-crop(NLCD,Extent)
+#reproject Pt to match NLCD
+PtAlb<-spTransform(Pt,proj4string(NLCD))  
+
+#define extent based on bbox(PtAlb)+100km
+B<-bbox(PtAlb)
+Add<-10000 
+Extent<-c(B[1,1]-Add,B[1,2]+Add,B[2,1]-Add,B[2,2]+Add)
+
+#Crop NLCD 
+NLCDpdx<-crop(NLCD,Extent)
 
 #add colortable
-  #get gex colors from Jeff's miscPackage
-    ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
-    ct <- read.csv(ct, stringsAsFactors = FALSE)
-  #add colors 1:256
-    ctbl <- rep("#000000", 256)
-  #update non-NULL colors
-    ctbl[ct$code + 1] <- ct$hex
-    NLCDpdx@legend@values <- ct$code
-    NLCD@legend@colortable <- ctbl
-    NLCD@legend@names <- ct$label
+#get gex colors from Jeff's miscPackage
+ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+ct <- read.csv(ct, stringsAsFactors = FALSE)
+
+#add colors 1:256
+ctbl <- rep("#000000", 256)
+
+#update non-NULL colors
+ctbl[ct$code + 1] <- ct$hex
+NLCDpdx@legend@values <- ct$code
+NLCD@legend@colortable <- ctbl
+NLCD@legend@names <- ct$label
 
 #export cropped NLCD as geotiff
-  writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
+writeRaster(NLCDpdx, filename="NLCDpdx.tif", format="GTiff", overwrite=TRUE)
 ```
+
 
 - Let's get the raster data and look at it
 
+
 ```{r dataViewRaster}
-NLCD<-raster("../files/NLCDpdx.tif")  #simple read a raster image with the raster package.
+NLCD<-raster("iale_workshop/NLCDpdx.tif")  #simple read a raster image with the raster package.
 
 slotNames(raster) #get a list of the "slot" names for the object
 ```
 
+
 - We can use the `values` method to look at the raster data categories.
+
 
 ```{r dataViewRaster1}
 table(values(NLCD))
 ```
 
+
 - Need to interpret the codes
 - Fortunately we can translate the codes into the NLCD Land Use / Land Cover Categories
 - Jeff has a lookup table we'll use
 
+
 ```{r dataViewRaster2}
 #Load the look up table
-  ct <- system.file("extdata/nlcd_lookup.csv", package = "miscPackage")
+  ct <- "iale_workshop/nlcd_lookup.csv"
   ct <- read.csv(ct, stringsAsFactors = FALSE)
   ct  #view the table
 
@@ -479,7 +545,9 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 ```
 
 ##Exercise 3
+
 ###Working with rasters
+
 1. Use the command `raster` to load the NLCD data ("NLCDpdx.tif")
 2. Plot the data
 3. Add LocPt and LocPoly (you will need to reproject)
