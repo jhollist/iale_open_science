@@ -292,7 +292,7 @@ Poly@data #not much here but this is the attribute table
 ```
 
 ```{r leaflet_hack1, echo=FALSE}
-htmlwidgets::saveWidget(m,"leaflet_hack1.html",T)
+htmlwidgets::saveWidget(m,"../_includes/leaflet_hack1.html",T)
 ```
 
 {% include leaflet_hack1.html %}
