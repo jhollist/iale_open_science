@@ -527,8 +527,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-4550" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-4550">{ "x": {
+<!--html_preserve--><div id="htmlwidget-2816" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-2816">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -571,8 +571,8 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-3395" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-3395">{ "x": {
+<!--html_preserve--><div id="htmlwidget-4639" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-4639">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -643,8 +643,8 @@ null
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2257" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2257">{ "x": {
+<!--html_preserve--><div id="htmlwidget-6894" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-6894">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -753,6 +753,130 @@ m <- leaflet() %>% addTiles(group = "OpenStreetMap") %>%
                  overlayGroups = c("Pt","Poly"))
 m
 {% endhighlight %}
+
+<!--html_preserve--><div id="htmlwidget-3977" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3977">{ "x": {
+ "calls": [
+ {
+ "method": "addTiles",
+"args": [
+ "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
+"OpenStreetMap",
+{
+ "minZoom":                 0,
+"maxZoom":                18,
+"maxNativeZoom": null,
+"tileSize":               256,
+"subdomains": "abc",
+"errorTileUrl": "",
+"tms": false,
+"continuousWorld": false,
+"noWrap": false,
+"zoomOffset":                 0,
+"zoomReverse": false,
+"opacity":                 1,
+"zIndex": null,
+"unloadInvisibleTiles": null,
+"updateWhenIdle": null,
+"detectRetina": false,
+"reuseTiles": false,
+"attribution": "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>" 
+} 
+] 
+},
+{
+ "method": "addProviderTiles",
+"args": [
+ "Stamen.Watercolor",
+null,
+"Watercolor",
+{
+ "errorTileUrl": "",
+"noWrap": false,
+"zIndex": null,
+"unloadInvisibleTiles": null,
+"updateWhenIdle": null,
+"detectRetina": false,
+"reuseTiles": false 
+} 
+] 
+},
+{
+ "method": "addMarkers",
+"args": [
+         45.517564,
+       -122.68014,
+null,
+null,
+"Pt",
+{
+ "clickable": true,
+"draggable": false,
+"keyboard": true,
+"title": "",
+"alt": "",
+"zIndexOffset":                 0,
+"opacity":                 1,
+"riseOnHover": false,
+"riseOffset":               250 
+},
+"We R Here",
+null,
+null 
+] 
+},
+{
+ "method": "addPolygons",
+"args": [
+ [
+ [
+ {
+ "lng": [ -122.683461544862, -122.680281068949, -122.676631816156, -122.674481812434, -122.675904138992, -122.672769412589, -122.674485521254, -122.674828807098, -122.678202313853, -122.682541408927, -122.685670328434, -122.687996482959, -122.683461544862 ],
+"lat": [  45.5230187040173,  45.5213931392957,  45.5235316111073,  45.5216119799917,  45.5192876717319,  45.5190852959663,  45.5167150399938,  45.5138738461287,   45.512619192088,  45.5154464797329,  45.5143352152495,  45.5195152981109,  45.5230187040173 ] 
+} 
+] 
+],
+null,
+"Poly",
+{
+ "lineCap": null,
+"lineJoin": null,
+"clickable": true,
+"pointerEvents": null,
+"className": "",
+"stroke": true,
+"color": "#03F",
+"weight":                 2,
+"opacity":               0.5,
+"fill": true,
+"fillColor": "#03F",
+"fillOpacity":               0.2,
+"dashArray": null,
+"smoothFactor":                 1,
+"noClip": false 
+},
+null 
+] 
+},
+{
+ "method": "addLayersControl",
+"args": [
+ [ "OpenStreetMap", "Watercolor" ],
+[ "Pt", "Poly" ],
+{
+ "collapsed": true,
+"autoZIndex": true,
+"position": "topright" 
+} 
+] 
+} 
+],
+"limits": {
+ "lat": [   45.512619192088,  45.5235316111073 ],
+"lng": [ -122.687996482959, -122.672769412589 ] 
+} 
+},"evals": [  ] }</script><!--/html_preserve-->
 
 
 - Leaflet is great but does not currently work easily with projected data
