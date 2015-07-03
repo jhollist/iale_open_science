@@ -527,8 +527,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-1106" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-1106">{ "x": {
+<!--html_preserve--><div id="htmlwidget-4550" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-4550">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -571,8 +571,8 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-3218" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-3218">{ "x": {
+<!--html_preserve--><div id="htmlwidget-3395" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3395">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -643,8 +643,8 @@ null
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2179" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2179">{ "x": {
+<!--html_preserve--><div id="htmlwidget-2257" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-2257">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -745,12 +745,13 @@ null
 
 {% highlight r %}
 #or build the map with "pipes"
-leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
+m <- leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
   addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>% 
   addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>% 
   addPolygons(data=Poly, weight=2,group='Poly') %>% 
   addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"), 
                  overlayGroups = c("Pt","Poly"))
+m
 {% endhighlight %}
 
 

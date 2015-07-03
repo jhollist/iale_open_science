@@ -155,13 +155,13 @@ Poly@data #not much here but this is the attribute table
 
 ## ----leafletPipe, message=FALSE, eval=FALSE------------------------------
 ## #or build the map with "pipes"
-## leaflet() %>% addTiles(group = "OpenStreetMap") %>%
+## m <- leaflet() %>% addTiles(group = "OpenStreetMap") %>%
 ##   addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>%
 ##   addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>%
 ##   addPolygons(data=Poly, weight=2,group='Poly') %>%
 ##   addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"),
 ##                  overlayGroups = c("Pt","Poly"))
-## 
+## m
 
 ## ----ge, eval=FALSE, message=FALSE---------------------------------------
 ## shell.exec('LocPt.kml')  #Start GE and add Pt location
