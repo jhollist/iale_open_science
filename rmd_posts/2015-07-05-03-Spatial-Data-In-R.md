@@ -527,13 +527,14 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-4051" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-4051">{ "x": {
+<!--html_preserve--><div id="htmlwidget-1106" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1106">{ "x": {
  "calls": [
  {
  "method": "addTiles",
 "args": [
  "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
 null,
 {
  "minZoom":                 0,
@@ -570,13 +571,14 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-4190" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-4190">{ "x": {
+<!--html_preserve--><div id="htmlwidget-3218" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3218">{ "x": {
  "calls": [
  {
  "method": "addTiles",
 "args": [
  "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
 null,
 {
  "minZoom":                 0,
@@ -607,6 +609,7 @@ null,
        -122.68014,
 null,
 null,
+null,
 {
  "clickable": true,
 "draggable": false,
@@ -618,7 +621,9 @@ null,
 "riseOnHover": false,
 "riseOffset":               250 
 },
-"We R Here" 
+"We R Here",
+null,
+null 
 ] 
 } 
 ],
@@ -638,13 +643,14 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-9312" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-9312">{ "x": {
+<!--html_preserve--><div id="htmlwidget-2179" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-2179">{ "x": {
  "calls": [
  {
  "method": "addTiles",
 "args": [
  "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
 null,
 {
  "minZoom":                 0,
@@ -675,6 +681,7 @@ null,
        -122.68014,
 null,
 null,
+null,
 {
  "clickable": true,
 "draggable": false,
@@ -686,7 +693,9 @@ null,
 "riseOnHover": false,
 "riseOffset":               250 
 },
-"We R Here" 
+"We R Here",
+null,
+null 
 ] 
 },
 {
@@ -700,6 +709,7 @@ null,
 } 
 ] 
 ],
+null,
 null,
 {
  "lineCap": null,
