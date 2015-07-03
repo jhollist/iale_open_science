@@ -277,7 +277,7 @@ str(Pt)
 ##   .. .. ..$ : chr [1:2] "coords.x1" "coords.x2"
 ##   .. .. ..$ : chr [1:2] "min" "max"
 ##   ..@ proj4string:Formal class 'CRS' [package "sp"] with 1 slot
-##   .. .. ..@ projargs: chr "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0"
+##   .. .. ..@ projargs: chr "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
 {% endhighlight %}
 
 
@@ -297,7 +297,7 @@ summary(Pt)
 ## coords.x2   45.51756   45.51756
 ## Is projected: FALSE 
 ## proj4string :
-## [+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0]
+## [+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0]
 ## Number of points: 1
 ## Data attributes:
 ##       lon              lat               name         ID   
@@ -443,7 +443,7 @@ Poly@proj4string #coordinate reference system for the object; same as proj4strin
 
 {% highlight text %}
 ## CRS arguments:
-##  +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0
+##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 {% endhighlight %}
 
 
@@ -527,8 +527,38 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2533" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2533">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]}]},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-4051" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-4051">{ "x": {
+ "calls": [
+ {
+ "method": "addTiles",
+"args": [
+ "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
+{
+ "minZoom":                 0,
+"maxZoom":                18,
+"maxNativeZoom": null,
+"tileSize":               256,
+"subdomains": "abc",
+"errorTileUrl": "",
+"tms": false,
+"continuousWorld": false,
+"noWrap": false,
+"zoomOffset":                 0,
+"zoomReverse": false,
+"opacity":                 1,
+"zIndex": null,
+"unloadInvisibleTiles": null,
+"updateWhenIdle": null,
+"detectRetina": false,
+"reuseTiles": false,
+"attribution": "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>" 
+} 
+] 
+} 
+] 
+},"evals": [  ] }</script><!--/html_preserve-->
 
 
 - Now we can add a marker with our current location
@@ -540,8 +570,63 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2559" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2559">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]}],"limits":{"lat":[45.517564,45.517564],"lng":[-122.68014,-122.68014]}},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-4190" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-4190">{ "x": {
+ "calls": [
+ {
+ "method": "addTiles",
+"args": [
+ "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
+{
+ "minZoom":                 0,
+"maxZoom":                18,
+"maxNativeZoom": null,
+"tileSize":               256,
+"subdomains": "abc",
+"errorTileUrl": "",
+"tms": false,
+"continuousWorld": false,
+"noWrap": false,
+"zoomOffset":                 0,
+"zoomReverse": false,
+"opacity":                 1,
+"zIndex": null,
+"unloadInvisibleTiles": null,
+"updateWhenIdle": null,
+"detectRetina": false,
+"reuseTiles": false,
+"attribution": "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>" 
+} 
+] 
+},
+{
+ "method": "addMarkers",
+"args": [
+         45.517564,
+       -122.68014,
+null,
+null,
+{
+ "clickable": true,
+"draggable": false,
+"keyboard": true,
+"title": "",
+"alt": "",
+"zIndexOffset":                 0,
+"opacity":                 1,
+"riseOnHover": false,
+"riseOffset":               250 
+},
+"We R Here" 
+] 
+} 
+],
+"limits": {
+ "lat": [         45.517564,         45.517564 ],
+"lng": [        -122.68014,        -122.68014 ] 
+} 
+},"evals": [  ] }</script><!--/html_preserve-->
 
 
 - and finally we add the polygon around our location
@@ -553,8 +638,95 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-520" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-520">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"}]},{"method":"addMarkers","args":[45.517564,-122.68014,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"We R Here",null,null]},{"method":"addPolygons","args":[[[{"lng":[-122.683461544862,-122.680281068949,-122.676631816156,-122.674481812434,-122.675904138992,-122.672769412589,-122.674485521254,-122.674828807098,-122.678202313853,-122.682541408927,-122.685670328434,-122.687996482959,-122.683461544862],"lat":[45.5230187040173,45.5213931392957,45.5235316111073,45.5216119799917,45.5192876717319,45.5190852959663,45.5167150399938,45.5138738461287,45.512619192088,45.5154464797329,45.5143352152495,45.5195152981109,45.5230187040173]}]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"#03F","weight":2,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null]}],"limits":{"lat":[45.512619192088,45.5235316111073],"lng":[-122.687996482959,-122.672769412589]}},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-9312" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-9312">{ "x": {
+ "calls": [
+ {
+ "method": "addTiles",
+"args": [
+ "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+null,
+{
+ "minZoom":                 0,
+"maxZoom":                18,
+"maxNativeZoom": null,
+"tileSize":               256,
+"subdomains": "abc",
+"errorTileUrl": "",
+"tms": false,
+"continuousWorld": false,
+"noWrap": false,
+"zoomOffset":                 0,
+"zoomReverse": false,
+"opacity":                 1,
+"zIndex": null,
+"unloadInvisibleTiles": null,
+"updateWhenIdle": null,
+"detectRetina": false,
+"reuseTiles": false,
+"attribution": "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>" 
+} 
+] 
+},
+{
+ "method": "addMarkers",
+"args": [
+         45.517564,
+       -122.68014,
+null,
+null,
+{
+ "clickable": true,
+"draggable": false,
+"keyboard": true,
+"title": "",
+"alt": "",
+"zIndexOffset":                 0,
+"opacity":                 1,
+"riseOnHover": false,
+"riseOffset":               250 
+},
+"We R Here" 
+] 
+},
+{
+ "method": "addPolygons",
+"args": [
+ [
+ [
+ {
+ "lng": [ -122.683461544862, -122.680281068949, -122.676631816156, -122.674481812434, -122.675904138992, -122.672769412589, -122.674485521254, -122.674828807098, -122.678202313853, -122.682541408927, -122.685670328434, -122.687996482959, -122.683461544862 ],
+"lat": [  45.5230187040173,  45.5213931392957,  45.5235316111073,  45.5216119799917,  45.5192876717319,  45.5190852959663,  45.5167150399938,  45.5138738461287,   45.512619192088,  45.5154464797329,  45.5143352152495,  45.5195152981109,  45.5230187040173 ] 
+} 
+] 
+],
+null,
+{
+ "lineCap": null,
+"lineJoin": null,
+"clickable": true,
+"pointerEvents": null,
+"className": "",
+"stroke": true,
+"color": "#03F",
+"weight":                 2,
+"opacity":               0.5,
+"fill": true,
+"fillColor": "#03F",
+"fillOpacity":               0.2,
+"dashArray": null,
+"smoothFactor":                 1,
+"noClip": false 
+},
+null 
+] 
+} 
+],
+"limits": {
+ "lat": [   45.512619192088,  45.5235316111073 ],
+"lng": [ -122.687996482959, -122.672769412589 ] 
+} 
+},"evals": [  ] }</script><!--/html_preserve-->
 
 
 - leaflet maps can also be built with "pipes" (see code below)
@@ -684,31 +856,33 @@ table(values(NLCD))
 #Load the look up table
   ct <- "iale_workshop/nlcd_lookup.csv"
   ct <- read.csv(ct, stringsAsFactors = FALSE)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in file(file, "rt"): cannot open file 'iale_workshop/
-## nlcd_lookup.csv': No such file or directory
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in file(file, "rt"): cannot open the connection
-{% endhighlight %}
-
-
-
-{% highlight r %}
   ct  #view the table
 {% endhighlight %}
 
 
 
 {% highlight text %}
-## [1] "iale_workshop/nlcd_lookup.csv"
+##    code     hex                        label
+## 1    11 #5475A8                   Open Water
+## 2    12 #FFFFFF           Perennial Ice/Snow
+## 3    21 #E8D1D1        Developed, Open Space
+## 4    22 #E29E8C     Developed, Low Intensity
+## 5    23 #FF0000  Developed, Medium Intensity
+## 6    24 #B50000    Developed, High Intensity
+## 7    31 #D2CDC0 Barren Land (Rock/Sand/Clay)
+## 8    41 #85C77E             Deciduous Forest
+## 9    42 #38814E             Evergreen Forest
+## 10   43 #38814E                 Mixed Forest
+## 11   51 #AF963C                  Dwarf Scrub
+## 12   52 #DCCA8F                  Scrub/Shrub
+## 13   71 #FDE9AA         Grassland/Herbaceous
+## 14   72 #D1D182            Sedge/Herbaceuous
+## 15   73 #A3CC51                      Lichens
+## 16   74 #82BA9E                         Moss
+## 17   81 #FBF65D                  Pasture/Hay
+## 18   82 #CA9146             Cultivated Crops
+## 19   90 #C8E6F8               Woody Wetlands
+## 20   95 #64B3D5 Emergent Herbaceous Wetlands
 {% endhighlight %}
 
 
@@ -718,17 +892,7 @@ table(values(NLCD))
   codes<-data.frame(code=values(NLCD))
 #merge with the lookup table
   Values<-merge(codes,ct,by='code',all.x=T)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in fix.by(by.y, y): 'by' must specify a uniquely valid column
-{% endhighlight %}
-
-
-
-{% highlight r %}
 #Now we can view the data
 table(Values$label,useNA='ifany')
 {% endhighlight %}
@@ -736,7 +900,23 @@ table(Values$label,useNA='ifany')
 
 
 {% highlight text %}
-## Error in table(Values$label, useNA = "ifany"): object 'Values' not found
+## 
+## Barren Land (Rock/Sand/Clay)             Cultivated Crops 
+##                          926                          453 
+##             Deciduous Forest    Developed, High Intensity 
+##                         7345                        62889 
+##     Developed, Low Intensity  Developed, Medium Intensity 
+##                       131456                       125320 
+##        Developed, Open Space Emergent Herbaceous Wetlands 
+##                        36829                         1737 
+##             Evergreen Forest         Grassland/Herbaceous 
+##                        26794                         2156 
+##                 Mixed Forest                   Open Water 
+##                        22077                        20355 
+##                  Pasture/Hay                  Scrub/Shrub 
+##                         2805                         1573 
+##               Woody Wetlands 
+##                         1507
 {% endhighlight %}
 
 - We'll use base graphics to plot this raster image
@@ -776,7 +956,7 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-## [1] "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs"
+## [1] "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
 {% endhighlight %}
 
 
@@ -789,7 +969,7 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-## [1] "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0"
+## [1] "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
 {% endhighlight %}
 
 
@@ -802,7 +982,7 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-## [1] "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0"
+## [1] "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
 {% endhighlight %}
 
 - We could change to the raster to WGS84 or 
@@ -845,20 +1025,11 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 {% highlight r %}
     plot(PtAlb,add=T,pch=4,col='white',cex=1.5,lwd=2) 
     plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
-{% endhighlight %}
-
-![plot of chunk legend1]({{ site.url }}/figure/legend1-2.png) 
-
-{% highlight r %}
   #add legend
     legend('topright',ct$label,fill=ct$hex)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in ct$label: $ operator is invalid for atomic vectors
-{% endhighlight %}
+![plot of chunk legend1]({{ site.url }}/figure/legend1-2.png) 
 
 - Now let's do some real GIS
 - We have the spatial objects
@@ -912,7 +1083,7 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
   plot(bufNLCD)
 {% endhighlight %}
 
-![plot of chunk analysis]({{ site.url }}/figure/analysis-3.png) ![plot of chunk analysis]({{ site.url }}/figure/analysis-4.png) 
+![plot of chunk analysis]({{ site.url }}/figure/analysis-3.png) 
 
 {% highlight r %}
 # this will not affect the analysis but it doesn't look right so we can fix it
@@ -922,7 +1093,7 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
   plot(bufNLCD)
 {% endhighlight %}
 
-![plot of chunk analysis]({{ site.url }}/figure/analysis-5.png) ![plot of chunk analysis]({{ site.url }}/figure/analysis-6.png) 
+![plot of chunk analysis]({{ site.url }}/figure/analysis-4.png) ![plot of chunk analysis]({{ site.url }}/figure/analysis-5.png) 
 
 {% highlight r %}
 #Now calcualte total proportion of each LULC and save to a data.frame
@@ -939,17 +1110,7 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 # finally, add the labels
     lulc<-merge(ct,lulc,by.x='code',by.y='value',all.y=TRUE)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in fix.by(by.x, x): 'by' must specify a uniquely valid column
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # what a surprise, it is mostly developed land around the hotel
     lulc 
 {% endhighlight %}
@@ -957,12 +1118,12 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-##   value count proportion  areaM2
-## 1    11   279      0.081  251100
-## 2    21    16      0.005   14400
-## 3    22   316      0.092  284400
-## 4    23   903      0.263  812700
-## 5    24  1917      0.559 1725300
+##   code     hex                       label count proportion  areaM2
+## 1   11 #5475A8                  Open Water   279      0.081  251100
+## 2   21 #E8D1D1       Developed, Open Space    16      0.005   14400
+## 3   22 #E29E8C    Developed, Low Intensity   316      0.092  284400
+## 4   23 #FF0000 Developed, Medium Intensity   903      0.263  812700
+## 5   24 #B50000   Developed, High Intensity  1917      0.559 1725300
 {% endhighlight %}
 
 ##Exercise 3
