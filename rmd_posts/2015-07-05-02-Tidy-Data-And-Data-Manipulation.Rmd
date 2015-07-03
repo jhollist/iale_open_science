@@ -4,10 +4,7 @@ author: Betty J. Kreakie
 layout: post_page
 ---
 
-While I give brief introduction to the principles of tidy data, please install `tidyr` and `dplyr`.
-
-
-
+While I give brief introduction to the principles of tidy data, please install `tidyr` and `dplyr`.  If you run into problems with this, use the stickie pads and Scott, Jeff, or Bryan will be by to help.
 
 **Principles of Tidy Data**
 

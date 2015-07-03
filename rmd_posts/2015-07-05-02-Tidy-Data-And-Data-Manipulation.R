@@ -1,4 +1,4 @@
-## ------------------------------------------------------------------------
+## ---- echo=TRUE, eval=TRUE, message=FALSE--------------------------------
 library('magrittr')
 str1<- "Facts are stubborn"
 str2<-"but statistics are more pliable"
@@ -16,7 +16,7 @@ str1 %>% paste(str2) %>% toupper()
 
 
 
-## ------------------------------------------------------------------------
+## ---- echo=TRUE, eval=TRUE, message=FALSE--------------------------------
 library(tidyr)
 messy<-data.frame(site=c("pawcatuck"," pettaquamscutt","pawtuxet"," pocasset","ponaganset"), a=c(56,76,43,25,21),b=c(123,234,187,198,23))
 
@@ -27,16 +27,17 @@ messy %>%
 
 
 
-## ------------------------------------------------------------------------
-df <- data.frame(x = c("a.b", "a.d", "b.c"))
+## ---- echo=TRUE, eval=TRUE, message=FALSE--------------------------------
+df <- data.frame(x = c("a.b", "a.d", "b.c"))%>% print()
+
 df %>% separate(x, c("A", "B"))%>% print()
 
-df <- data.frame(x = c("x: 123", "y: error: 7"))
+df <- data.frame(x = c("x: 123", "y: error: 7"))%>% print()
 df %>% separate(x, c("key", "value"), ": ", extra = "merge") %>% print()
 
 
 
-## ------------------------------------------------------------------------
+## ---- echo=TRUE, eval=TRUE, message=FALSE--------------------------------
 library(dplyr)
 glimpse(iris)
 
@@ -54,7 +55,8 @@ iris%>%mutate(Sepal.Length.mm=Sepal.Length*10)%>%head()
 iris%>%summarize(sepalMean=mean(Sepal.Length,na.rm=TRUE))
 
 
-## ------------------------------------------------------------------------
+
+## ---- echo=TRUE, eval=TRUE, message=FALSE--------------------------------
 group_by(iris,Species)%>%
   summarize(mean(Sepal.Length),
             mean(Sepal.Width),
@@ -63,17 +65,17 @@ group_by(iris,Species)%>%
 
 
 
-## ------------------------------------------------------------------------
-###Use for #1-3
-set.seed(10)
-messy <- data.frame(
-  id = 1:4,
-  trt = sample(rep(c('control', 'treatment'), each = 2)),
-  work.T1 = runif(4),
-  home.T1 = runif(4),
-  work.T2 = runif(4),
-  home.T2 = runif(4)
-)
-
-
+## ---- echo=TRUE, eval=FALSE, message=FALSE-------------------------------
+## ###Use for #1-3
+## set.seed(10)
+## messy <- data.frame(
+##   id = 1:4,
+##   trt = sample(rep(c('control', 'treatment'), each = 2)),
+##   work.T1 = runif(4),
+##   home.T1 = runif(4),
+##   work.T2 = runif(4),
+##   home.T2 = runif(4)
+## )
+## 
+## 
 
