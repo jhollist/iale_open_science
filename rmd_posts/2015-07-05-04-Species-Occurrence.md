@@ -420,7 +420,7 @@ Interactive map using leaflet
 map_leaflet(dat)
 {% endhighlight %}
 
-![map](../figure/leaflet_map.png)
+![leaflet]({{ site.url }}/figure/../figure/leaflet_map.png)
 
 ## Exercise 1
 
