@@ -24,7 +24,7 @@ library("spocc")
 out <- occ(query = 'Accipiter striatus', from = 'gbif', limit = 50)
 out$gbif # GBIF data w/ metadata
 out$ebird$data # empty
-out$gbif$meta #  metadata, your query parameters, time the call executed, etc. 
+out$gbif$meta #  metadata, your query parameters, time the call executed, etc.
 
 ## ------------------------------------------------------------------------
 out <- occ(query = 'Accipiter striatus', from = c('gbif', 'ebird'), limit = 50)
@@ -36,15 +36,18 @@ head(df); tail(df)
 ## ------------------------------------------------------------------------
 gopts <- list(country = 'US')
 eopts <- list(county = "Alameda county")
-(dat <- occ(query = 'Accipiter striatus', from = c('gbif', 'ecoengine'), 
-    gbifopts = gopts, ecoengineopts = eopts, limit = 20))
+(dat <- occ(query = 'Accipiter striatus', from = c('gbif', 'ecoengine'),
+    gbifopts = gopts, ecoengineopts = eopts, limit = 100))
 
 ## ------------------------------------------------------------------------
 library("spoccutils")
 map_ggplot(dat)
 
 ## ------------------------------------------------------------------------
-map_leaflet(dat)
+map_plot(dat)
+
+## ----eval = FALSE--------------------------------------------------------
+## map_leaflet(dat)
 
 ## ------------------------------------------------------------------------
 library("taxize")
@@ -80,8 +83,8 @@ head(spdf)
 ## ------------------------------------------------------------------------
 library("rgdal")
 file <- tempfile()
-dir.create("~/esrishape", showWarnings = FALSE)
-writeOGR(spdf, "/Users/sacmac/esrishape/out.shp", "", "ESRI Shapefile")
+dir.create("esrishape", showWarnings = FALSE)
+writeOGR(spdf, "esrishape/out.shp", "", "ESRI Shapefile")
 
 ## ------------------------------------------------------------------------
 library("geojsonio")
