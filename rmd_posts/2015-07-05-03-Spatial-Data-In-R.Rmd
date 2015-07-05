@@ -315,15 +315,15 @@ Poly@data #not much here but this is the attribute table
 - leaflet maps can also be built with "pipes" (see code below)
 
 
-```{r leafletPipe, message=FALSE, eval=FALSE}  
+```{r leafletPipe, message=FALSE, eval=TRUE}  
 #or build the map with "pipes"
-leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
+m <- leaflet() %>% addTiles(group = "OpenStreetMap") %>% 
   addProviderTiles("Stamen.Watercolor",group = "Watercolor") %>% 
   addMarkers(lng=Pt@data$lon, lat=Pt@data$lat, popup="We R Here",group='Pt') %>% 
   addPolygons(data=Poly, weight=2,group='Poly') %>% 
   addLayersControl(baseGroups = c("OpenStreetMap","Watercolor"), 
                  overlayGroups = c("Pt","Poly"))
-
+m
 ```
 
 
