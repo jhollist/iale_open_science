@@ -72,7 +72,7 @@ For others we'll need `devtools`
 
 
 {% highlight r %}
-devtools::install_github("ropensci/spocc")
+install.packages("spocc")
 {% endhighlight %}
 
 
