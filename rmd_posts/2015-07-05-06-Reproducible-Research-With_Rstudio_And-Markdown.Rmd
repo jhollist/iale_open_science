@@ -168,7 +168,7 @@ Now, lets get started and actually create a reproducible document
 ###Create a Document
 To create your document, go to File: New File : R Markdown.  You should get a window that looks something like:
 
-![New RMarkdown](/introR/figure/newrmarkdown.jpg)
+![New RMarkdown](/iale_open_science/figure/newrmarkdown.jpg)
 
 Add title and author, select "HTML" as the output and click "OK".  RStudio will open a new tab in the editor and in it will be your new document, with some very useful examples.
 
@@ -185,7 +185,7 @@ This is the YAML(YAML Ain't Markup Language) header or front-matter.  It is meta
 
 In RStudio, look near the top of the editor window you will see:
 
-![knit it](/introR/figure/knit.jpg)
+![knit it](/iale_open_science/figure/knit.jpg)
 
 Click this and behold the magic!
 
