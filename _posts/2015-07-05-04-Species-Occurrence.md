@@ -58,6 +58,23 @@ Caveat: When you have very large data, APIs sometimes are not best. See FTP.
 
 > Tools for working with APIs: RCurl, curl, httr, httsnap
 
+## Installation
+
+Some packages you'll need install directly from CRAN (you may need special instructions for `rgdal`)
+
+
+{% highlight r %}
+install.packages("rgdal")
+install.packages(c("rgbif","taxize","geojsonio"))
+{% endhighlight %}
+
+For others we'll need `devtools`
+
+
+{% highlight r %}
+devtools::install_github("ropensci/spocc")
+devtools::install_github("ropensci/spoccutils")
+{% endhighlight %}
 
 ## Occurrence data
 
@@ -294,7 +311,7 @@ out$gbif$meta #  metadata, your query parameters, time the call executed, etc.
 ## [1] "gbif"
 ## 
 ## $time
-## [1] "2015-07-04 08:04:13 PDT"
+## [1] "2015-07-04 23:56:28 PDT"
 ## 
 ## $found
 ## [1] 447905
@@ -356,20 +373,20 @@ head(df); tail(df)
 
 
 {% highlight text %}
-##                   name  longitude latitude  prov                date
-## 95  Accipiter striatus  -72.42252 44.13177 ebird 2015-06-30 08:45:00
-## 96  Accipiter striatus -114.21799 47.33045 ebird 2015-06-30 08:10:00
-## 97  Accipiter striatus -122.67021 45.42064 ebird 2015-06-30 08:00:00
-## 98  Accipiter striatus  -93.13477 36.22393 ebird 2015-06-30 08:00:00
-## 99  Accipiter striatus  -74.86745 41.23996 ebird 2015-06-30 06:45:00
-## 100 Accipiter striatus -111.73842 40.57160 ebird 2015-06-29 20:12:00
+##                   name longitude latitude  prov                date
+## 95  Accipiter striatus -120.4686 46.56399 ebird 2015-07-02 06:30:00
+## 96  Accipiter striatus -122.9198 48.05832 ebird 2015-07-02 06:27:00
+## 97  Accipiter striatus -108.9252 46.32603 ebird 2015-07-02 05:00:00
+## 98  Accipiter striatus -115.0225 36.10069 ebird 2015-07-01 19:30:00
+## 99  Accipiter striatus -122.3741 48.32464 ebird 2015-07-01 19:26:00
+## 100 Accipiter striatus  -72.9885 41.39525 ebird 2015-07-01 19:00:00
 ##          key
-## 95  L3760689
-## 96  L1180802
-## 97   L139547
-## 98  L3635131
-## 99  L2202852
-## 100 L2967042
+## 95   L452865
+## 96  L1406877
+## 97  L3764188
+## 98   L160294
+## 99   L476174
+## 100 L1769850
 {% endhighlight %}
 
 There's a certain set of global parameters that work for all data resources, but other settings you can still pass separately to each resource. For example:
@@ -402,7 +419,7 @@ library("spoccutils")
 map_ggplot(dat)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-11]({{ site.url }}/figure/../figure/unnamed-chunk-11-1.png) 
+![plot of chunk unnamed-chunk-13]({{ site.url }}/figure/../figure/unnamed-chunk-13-1.png) 
 
 Static map using base R maps
 
@@ -411,7 +428,7 @@ Static map using base R maps
 map_plot(dat)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-12]({{ site.url }}/figure/../figure/unnamed-chunk-12-1.png) 
+![plot of chunk unnamed-chunk-14]({{ site.url }}/figure/../figure/unnamed-chunk-14-1.png) 
 
 Interactive map using leaflet
 
