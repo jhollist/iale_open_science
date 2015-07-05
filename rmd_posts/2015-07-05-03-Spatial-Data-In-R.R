@@ -6,7 +6,7 @@
 getClass("Spatial")
 
 ## ----get_sp_data, eval=FALSE---------------------------------------------
-## download.files("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
+## download.file("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
 ##                "SpatialData.zip",
 ##                method="auto",
 ##                mode="wb")
