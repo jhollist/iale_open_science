@@ -100,7 +100,26 @@ For others we'll need `devtools`
 
 ```{r eval=FALSE}
 devtools::install_github("ropensci/spocc")
+```
+
+```{r eval=FALSE}
+install.packages(c("ggmap","grid","sp","rworldmap","RColorBrewer","httr","leafletR","gistr","maptools"))
 devtools::install_github("ropensci/spoccutils")
+```
+
+Or install from binary
+
+Download:
+
+* Mac - https://github.com/ropensci/spoccutils/releases/download/v0.1.0/spoccutils_0.1.0.tgz
+* Windows - https://github.com/ropensci/spoccutils/releases/download/v0.1.0/spoccutils_0.1.0.zip
+
+Then install
+
+```{r eval=FALSE}
+install.packages("spoccutils_0.1.0.tgz", repos = NULL)
+# OR
+install.packages("spoccutils_0.1.0.zip", repos = NULL)
 ```
 
 ## Occurrence data

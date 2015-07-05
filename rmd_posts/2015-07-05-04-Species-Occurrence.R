@@ -4,7 +4,15 @@
 
 ## ----eval=FALSE----------------------------------------------------------
 ## devtools::install_github("ropensci/spocc")
+
+## ----eval=FALSE----------------------------------------------------------
+## install.packages(c("ggmap","grid","sp","rworldmap","RColorBrewer","httr","leafletR","gistr","maptools"))
 ## devtools::install_github("ropensci/spoccutils")
+
+## ----eval=FALSE----------------------------------------------------------
+## install.packages("spoccutils_0.1.0.tgz", repos = NULL)
+## # OR
+## install.packages("spoccutils_0.1.0.zip", repos = NULL)
 
 ## ------------------------------------------------------------------------
 library("rgbif")
