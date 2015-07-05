@@ -527,8 +527,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-8008" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-8008">{ "x": {
+<!--html_preserve--><div id="htmlwidget-7455" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-7455">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -571,8 +571,8 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2309" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2309">{ "x": {
+<!--html_preserve--><div id="htmlwidget-1200" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1200">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -641,8 +641,8 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-6381" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-6381">{ "x": {
+<!--html_preserve--><div id="htmlwidget-8138" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-8138">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -750,8 +750,8 @@ m <- leaflet() %>% addTiles(group = "OpenStreetMap") %>%
 m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-8237" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-8237">{ "x": {
+<!--html_preserve--><div id="htmlwidget-1297" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1297">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -909,7 +909,7 @@ NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd
 
 #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
 #reproject Pt to match NLCD
-PtAlb<-spTransform(Pt,proj4string(NLCD))  
+PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))   
 
 #define extent based on bbox(PtAlb)+100km
 B<-bbox(PtAlb)
@@ -1121,26 +1121,9 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 {% highlight r %}
   #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in spTransform(Pt, proj4string(NLCD)): second argument needs to be of class CRS
-{% endhighlight %}
-
-
-
-{% highlight r %}
+      PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))  
   #reproject Polyg to match NLCD
-      PolyAlb<-spTransform(Poly,proj4string(NLCD)) 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in spTransform(Poly, proj4string(NLCD)): second argument needs to be of class CRS
+      PolyAlb<-spTransform(Poly,CRSobj = CRS(proj4string(NLCD)))  
 {% endhighlight %}
 
 - now we can add PtAlb and PolyAlb to the NLCD plot
@@ -1150,29 +1133,14 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 plot(NLCD)
 {% endhighlight %}
 
-![plot of chunk plotNLCD3]({{ site.url }}/figure/plotNLCD3-1.png) ![plot of chunk plotNLCD3]({{ site.url }}/figure/plotNLCD3-2.png) 
+![plot of chunk plotNLCD3]({{ site.url }}/figure/plotNLCD3-1.png) 
 
 {% highlight r %}
 plot(PtAlb,add=T,pch=4,col='white',cex=1.5,lwd=2) 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in plot(PtAlb, add = T, pch = 4, col = "white", cex = 1.5, lwd = 2): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'PtAlb' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in plot(PolyAlb, add = T, lwd = 3, col = NA, border = "black"): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'PolyAlb' not found
-{% endhighlight %}
+![plot of chunk plotNLCD3]({{ site.url }}/figure/plotNLCD3-2.png) 
 
 - add a legend (we'll use the same lookup table we used above) 
 
@@ -1185,29 +1153,7 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 {% highlight r %}
     plot(PtAlb,add=T,pch=4,col='white',cex=1.5,lwd=2) 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in plot(PtAlb, add = T, pch = 4, col = "white", cex = 1.5, lwd = 2): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'PtAlb' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
     plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in plot(PolyAlb, add = T, lwd = 3, col = NA, border = "black"): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'PolyAlb' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
   #add legend
     legend('topright',ct$label,fill=ct$hex)
 {% endhighlight %}
@@ -1228,17 +1174,6 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 #add a buffer around our current location
   bufWidth<-1000 #in meters
   PtBuffer<-gBuffer(PtAlb,width=bufWidth,id=PtAlb[["ID"]])
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in is.projected(spgeom): error in evaluating the argument 'obj' in selecting a method for function 'is.projected': Error: object 'PtAlb' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
     #this is a SpatialPolygons object
       class(PtBuffer)
 {% endhighlight %}
@@ -1246,7 +1181,9 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-## Error in eval(expr, envir, enclos): object 'PtBuffer' not found
+## [1] "SpatialPolygons"
+## attr(,"package")
+## [1] "sp"
 {% endhighlight %}
 
 
@@ -1254,174 +1191,55 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 {% highlight r %}
 #If we want to add attributes later we will need to convert it to a SpatialPolygonsDataFrame.  We'll add the attributes from PtAlb
   PtBuffer<-SpatialPolygonsDataFrame(PtBuffer,PtAlb@data)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in stopifnot(length(Sr@polygons) == nrow(data)): object 'PtBuffer' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 #Now we can add data if we want just like any other data frame
   PtBuffer@data$BufferWidthM[1]<-bufWidth
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in PtBuffer@data$BufferWidthM[1] <- bufWidth: object 'PtBuffer' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # we can use the crop command to clip the NLCD data to the buffer
   bufNLCD<-crop(NLCD,PtBuffer)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in .local(x, y, ...): Cannot get an Extent object from argument y
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # when we plot the data we notice that the resulting raster is square rather than round as we expected. 
   plot(bufNLCD)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in plot(bufNLCD): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'bufNLCD' not found
-{% endhighlight %}
-
-
+![plot of chunk analysis]({{ site.url }}/figure/analysis-1.png) ![plot of chunk analysis]({{ site.url }}/figure/analysis-2.png) 
 
 {% highlight r %}
 # to limit the NLCD data to the circular buffer we change use a mask to assign the values outside the buffer to NA (missing)
   bufNLCD<-mask(crop(NLCD,PtBuffer),PtBuffer)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in mask(crop(NLCD, PtBuffer), PtBuffer): error in evaluating the argument 'x' in selecting a method for function 'mask': Error in .local(x, y, ...) : Cannot get an Extent object from argument y
-## Calls: crop -> crop -> .local
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # now the shape is correct but we lost the color table
   plot(bufNLCD)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in plot(bufNLCD): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'bufNLCD' not found
-{% endhighlight %}
-
-
+![plot of chunk analysis]({{ site.url }}/figure/analysis-3.png) 
 
 {% highlight r %}
 # this will not affect the analysis but it doesn't look right so we can fix it
   bufNLCD@legend@colortable<-NLCD@legend@colortable
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in bufNLCD@legend@colortable <- NLCD@legend@colortable: object 'bufNLCD' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # success
   plot(bufNLCD)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in plot(bufNLCD): error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'bufNLCD' not found
-{% endhighlight %}
-
-
+![plot of chunk analysis]({{ site.url }}/figure/analysis-4.png) ![plot of chunk analysis]({{ site.url }}/figure/analysis-5.png) 
 
 {% highlight r %}
 #Now calcualte total proportion of each LULC and save to a data.frame
   lulc<-freq(bufNLCD)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in freq(bufNLCD): error in evaluating the argument 'x' in selecting a method for function 'freq': Error: object 'bufNLCD' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 #clean it up by removing the NA values
   lulc<-as.data.frame(lulc[!is.na(lulc[,1]),])
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in as.data.frame(lulc[!is.na(lulc[, 1]), ]): error in evaluating the argument 'x' in selecting a method for function 'as.data.frame': Error: object 'lulc' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 #calculate the proportions in each class
   lulc$proportion<-round(lulc$count/sum(lulc$count),3)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in eval(expr, envir, enclos): object 'lulc' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # calculate the total area of each class based on 30m x 30m grid cell size
   lulc$areaM2<-lulc$count*30*30
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in eval(expr, envir, enclos): object 'lulc' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # finally, add the labels
     lulc<-merge(ct,lulc,by.x='code',by.y='value',all.y=TRUE)
-{% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in merge(ct, lulc, by.x = "code", by.y = "value", all.y = TRUE): error in evaluating the argument 'y' in selecting a method for function 'merge': Error: object 'lulc' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 # what a surprise, it is mostly developed land around the hotel
     lulc 
 {% endhighlight %}
@@ -1429,7 +1247,12 @@ plot(PolyAlb,add=T,lwd=3,col=NA,border='black')
 
 
 {% highlight text %}
-## Error in eval(expr, envir, enclos): object 'lulc' not found
+##   code     hex                       label count proportion  areaM2
+## 1   11 #5475A8                  Open Water   279      0.081  251100
+## 2   21 #E8D1D1       Developed, Open Space    16      0.005   14400
+## 3   22 #E29E8C    Developed, Low Intensity   316      0.092  284400
+## 4   23 #FF0000 Developed, Medium Intensity   903      0.263  812700
+## 5   24 #B50000   Developed, High Intensity  1917      0.559 1725300
 {% endhighlight %}
 
 ##Exercise 3

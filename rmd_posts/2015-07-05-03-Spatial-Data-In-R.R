@@ -174,7 +174,7 @@ m
 ## 
 ## #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
 ## #reproject Pt to match NLCD
-## PtAlb<-spTransform(Pt,proj4string(NLCD))
+## PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))
 ## 
 ## #define extent based on bbox(PtAlb)+100km
 ## B<-bbox(PtAlb)
@@ -241,9 +241,9 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 ## ----reproject-----------------------------------------------------------
   #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
+      PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))  
   #reproject Polyg to match NLCD
-      PolyAlb<-spTransform(Poly,proj4string(NLCD)) 
+      PolyAlb<-spTransform(Poly,CRSobj = CRS(proj4string(NLCD)))  
 
 ## ----plotNLCD3, message=FALSE--------------------------------------------
 plot(NLCD)
