@@ -16,7 +16,7 @@ One of the goals for reproducible research is to provide your work in such a way
 
 ##Quick Links to Exercises and R code
 - [Exercise 1](#exercise-1): Create and render your own reproducible document
-- [Exercise 2](#exercise-2): Create and render your own reproducible presentation
+
 
 ##Lesson Goals
 - Gain familiarity with Markdown and `knitr`
@@ -105,9 +105,12 @@ In short, these tools allow us to write up documents, embed code via "code chunk
 
 ![Rendered Manuscript](/iale_open_science/figure/rendered.jpg)
 
+
 from a source markdown document that looks like:
 
+
 ![Raw RMarkdown](/iale_open_science/figure/source.jpg)
+
 
 While we can't get to this level of detail with just the stock RStudio tools, we can still do some pretty cool stuff.  First, lets talk a bit about "code chunks."  
 
@@ -118,6 +121,7 @@ Since we are talking about markdown and R, our documents will all be R Markdown 
     x<-rnorm(100)
     x
     ```
+    
 This identifies what is known as a code chunk.  When written like it is above, it will echo the code to your final document, evalute the code with R and echo the results to the final document.  There are some cases where you might not want all of this to happen.  You may want just the code returned and not have it evalutated by R.  This is accomplished with:
 
     ```{r eval=FALSE}`r ''`
@@ -132,6 +136,7 @@ Alternatively, you might just want the output returned, as would be the case whe
     y<-jitter(x,1000)
     plot(x,y)
     ```
+
 Each of your code chunks can have a label.  That would be accomplished with something like:
  
     ```{r myFigure, echo=FALSE}`r ''`
@@ -139,7 +144,9 @@ Each of your code chunks can have a label.  That would be accomplished with some
     y<-jitter(x,1000)
     plot(x,y)
     ```
+
 We've seen `plot()` above, but you could also use `ggplot2`
+
 
     ```{r }`r ''`
     x<-rnorm(100)
@@ -147,6 +154,7 @@ We've seen `plot()` above, but you could also use `ggplot2`
     ggplot(data.frame(x,y),aes(x=x,y=y)) +
        geom_point()
     ```
+
 Lastly, tables in markdown can be done by hand, but better yet you can use some functions and packages to output these.  Below is an example using `knitr::kable()`.  There are other packages that also do this (e.g. `xtable` and `pander`) and have a lot of flexibility, but `kable()` is the easiest.  You can do this with:
 
 
