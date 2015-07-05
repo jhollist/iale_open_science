@@ -87,6 +87,21 @@ Caveat: When you have very large data, APIs sometimes are not best. See FTP.
 
 > Tools for working with APIs: RCurl, curl, httr, httsnap
 
+## Installation
+
+Some packages you'll need install directly from CRAN (you may need special instructions for `rgdal`)
+
+```{r eval=FALSE}
+install.packages("rgdal")
+install.packages(c("rgbif","taxize","geojsonio"))
+```
+
+For others we'll need `devtools`
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/spocc")
+devtools::install_github("ropensci/spoccutils")
+```
 
 ## Occurrence data
 

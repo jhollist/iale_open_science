@@ -1,3 +1,11 @@
+## ----eval=FALSE----------------------------------------------------------
+## install.packages("rgdal")
+## install.packages(c("rgbif","taxize","geojsonio"))
+
+## ----eval=FALSE----------------------------------------------------------
+## devtools::install_github("ropensci/spocc")
+## devtools::install_github("ropensci/spoccutils")
+
 ## ------------------------------------------------------------------------
 library("rgbif")
 
