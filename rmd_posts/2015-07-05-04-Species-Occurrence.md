@@ -6,12 +6,12 @@ layout: post_page
 
 
 
-Species occurrence data is available in increasingly large quantities, as open data, available on the web. 
+Species occurrence data is available in increasingly large quantities, as open data, available on the web.
 Accessing the data is not always straight-forward. Potential problems arise due to dependence on an internet
 connection, data size (especially over slow internet connections), dirty data, species name conflicts, and more.
 
-This lesson will go through some ways to collect open species occurrence data in R, and wrap up with 
-demos of how to get species occurrence data back into familiar data formats (e.g., Spatial R objects, 
+This lesson will go through some ways to collect open species occurrence data in R, and wrap up with
+demos of how to get species occurrence data back into familiar data formats (e.g., Spatial R objects,
 geojson, etc.).
 
 ## Lesson Goals
@@ -36,7 +36,7 @@ geojson, etc.).
 * FTP
 * APIs (SOAP, RESTful)
 
-GUI interfaces are great!  That's where (nearly) everyone starts in their data search process. However, when you need to do more than a few queries/search tasks/etc., GUIs become very cumbersome. 
+GUI interfaces are great!  That's where (nearly) everyone starts in their data search process. However, when you need to do more than a few queries/search tasks/etc., GUIs become very cumbersome.
 
 Some websites allow you to scrape their content. That is, every web page has html code that defines that page. This is a structured language that you can collect in a programming lanugage like R, then parse out the exact things that you want. This is quite fragile though - that is, websites can update often, breaking any code you've written to scrape the site. In addition, html isn't the best way to move data around.
 
@@ -46,22 +46,60 @@ Sometimes websites will provide data dumps in csv/text format. This is much bett
 
 > Tools for importing csv: base R functions read.table/etc., & readr, data.table::fread, readxl
 
-Data providers sometimes provide data via FTP (File Transfer Protocol). This is simply a file system that you can access data from. This is easy to use without a programming language - you can just go tot the FTP site and download data. But, as above, when dealing with more than a few files, it's best to write some code to automate download, data manipulation, etc. 
+Data providers sometimes provide data via FTP (File Transfer Protocol). This is simply a file system that you can access data from. This is easy to use without a programming language - you can just go tot the FTP site and download data. But, as above, when dealing with more than a few files, it's best to write some code to automate download, data manipulation, etc.
 
 > Tools for working with ftp: RCurl, curl, httr
 
-The best situation, in most cases, is that a data provider provides a RESTful API (Application Programming Interface). Think of APIs as a set of instructions for one computer to talk to another, or one script to talk to another. For example, when you log into a site using your Facebook credentials - that's using one of the Facebook APIs. 
+The best situation, in most cases, is that a data provider provides a RESTful API (Application Programming Interface). Think of APIs as a set of instructions for one computer to talk to another, or one script to talk to another. For example, when you log into a site using your Facebook credentials - that's using one of the Facebook APIs.
 
-APIs lay out a series of routes that define what data is avaiable, parameters to use to construct queries, and so on. On top of APIs, any programming language can build a client to interact with the API. This is the bees knees. 
+APIs lay out a series of routes that define what data is avaiable, parameters to use to construct queries, and so on. On top of APIs, any programming language can build a client to interact with the API. This is the bees knees.
 
-Caveat: When you have very large data, APIs sometimes are not best. See FTP. 
+Caveat: When you have very large data, APIs sometimes are not best. See FTP.
 
 > Tools for working with APIs: RCurl, curl, httr, httsnap
 
+## Installation
+
+Some packages you'll need install directly from CRAN (you may need special instructions for `rgdal`)
+
+
+{% highlight r %}
+install.packages("rgdal")
+install.packages(c("rgbif","taxize","geojsonio"))
+{% endhighlight %}
+
+For others we'll need `devtools`
+
+
+{% highlight r %}
+devtools::install_github("ropensci/spocc")
+{% endhighlight %}
+
+
+{% highlight r %}
+install.packages(c("ggmap","grid","sp","rworldmap","RColorBrewer","httr","leafletR","gistr","maptools"))
+devtools::install_github("ropensci/spoccutils")
+{% endhighlight %}
+
+Or install from binary
+
+Download:
+
+* Mac - https://github.com/ropensci/spoccutils/releases/download/v0.1.0/spoccutils_0.1.0.tgz
+* Windows - https://github.com/ropensci/spoccutils/releases/download/v0.1.0/spoccutils_0.1.0.zip
+
+Then install
+
+
+{% highlight r %}
+install.packages("spoccutils_0.1.0.tgz", repos = NULL)
+# OR
+install.packages("spoccutils_0.1.0.zip", repos = NULL)
+{% endhighlight %}
 
 ## Occurrence data
 
-GBIF has probably the biggest collection of species occurrence data available on the web, and so we'll cover the `rgbif` R client first. 
+GBIF has probably the biggest collection of species occurrence data available on the web, and so we'll cover the `rgbif` R client first.
 
 ### rgbif
 
@@ -207,7 +245,7 @@ library("spocc")
 
 #### Get data
 
-There are many other sources of species occurrence data of course. Working with many sources has overhead in terms of learning new interfaces to each dataset, caveats, data types, taxonomies, etc. Thus, we've been working on a client for working with many sources of species occurrence data - with a single interface to all of them. It's called `spocc`. 
+There are many other sources of species occurrence data of course. Working with many sources has overhead in terms of learning new interfaces to each dataset, caveats, data types, taxonomies, etc. Thus, we've been working on a client for working with many sources of species occurrence data - with a single interface to all of them. It's called `spocc`.
 
 `spocc` unifies access to biodiversity data across sources. First, we'll get data from just one resource: `GBIF`.
 
@@ -284,7 +322,7 @@ out$ebird$data # empty
 
 
 {% highlight r %}
-out$gbif$meta #  metadata, your query parameters, time the call executed, etc. 
+out$gbif$meta #  metadata, your query parameters, time the call executed, etc.
 {% endhighlight %}
 
 
@@ -294,7 +332,7 @@ out$gbif$meta #  metadata, your query parameters, time the call executed, etc.
 ## [1] "gbif"
 ## 
 ## $time
-## [1] "2015-07-02 15:32:04 PDT"
+## [1] "2015-07-05 12:19:01 PDT"
 ## 
 ## $found
 ## [1] 447905
@@ -319,7 +357,7 @@ out$gbif$meta #  metadata, your query parameters, time the call executed, etc.
 ## list()
 {% endhighlight %}
 
-And you can search across many data sources easily by passing many values to the `from` parameter. 
+And you can search across many data sources easily by passing many values to the `from` parameter.
 
 
 {% highlight r %}
@@ -356,20 +394,20 @@ head(df); tail(df)
 
 
 {% highlight text %}
-##                   name  longitude latitude  prov                date
-## 95  Accipiter striatus -110.82716 34.35849 ebird 2015-06-28 13:00:00
-## 96  Accipiter striatus -105.06987 40.43173 ebird 2015-06-28 13:00:00
-## 97  Accipiter striatus  -82.85271 39.76237 ebird 2015-06-28 11:12:00
-## 98  Accipiter striatus  -72.93387 43.53721 ebird 2015-06-28 11:00:00
-## 99  Accipiter striatus  -84.64035 44.65476 ebird 2015-06-28 10:50:00
-## 100 Accipiter striatus  -76.11814 42.51237 ebird 2015-06-28 10:37:00
+##                   name longitude latitude  prov                date
+## 95  Accipiter striatus -122.2299 37.16132 ebird 2015-07-02 06:42:00
+## 96  Accipiter striatus -120.4686 46.56399 ebird 2015-07-02 06:30:00
+## 97  Accipiter striatus -122.9198 48.05832 ebird 2015-07-02 06:27:00
+## 98  Accipiter striatus -108.9252 46.32603 ebird 2015-07-02 05:00:00
+## 99  Accipiter striatus -115.0225 36.10069 ebird 2015-07-01 19:30:00
+## 100 Accipiter striatus -122.3741 48.32464 ebird 2015-07-01 19:26:00
 ##          key
-## 95   L953412
-## 96  L3762402
-## 97   L580270
-## 98   L168227
-## 99  L2321078
-## 100 L3755767
+## 95  L2053470
+## 96   L452865
+## 97  L1406877
+## 98  L3764188
+## 99   L160294
+## 100  L476174
 {% endhighlight %}
 
 There's a certain set of global parameters that work for all data resources, but other settings you can still pass separately to each resource. For example:
@@ -378,18 +416,18 @@ There's a certain set of global parameters that work for all data resources, but
 {% highlight r %}
 gopts <- list(country = 'US')
 eopts <- list(county = "Alameda county")
-(dat <- occ(query = 'Accipiter striatus', from = c('gbif', 'ecoengine'), 
-    gbifopts = gopts, ecoengineopts = eopts, limit = 20))
+(dat <- occ(query = 'Accipiter striatus', from = c('gbif', 'ecoengine'),
+    gbifopts = gopts, ecoengineopts = eopts, limit = 100))
 {% endhighlight %}
 
 
 
 {% highlight text %}
 ## Searched: gbif, ecoengine
-## Occurrences - Found: 387,166, Returned: 40
+## Occurrences - Found: 387,166, Returned: 122
 ## Search type: Scientific
-##   gbif: Accipiter striatus (20)
-##   ecoengine: Accipiter striatus (20)
+##   gbif: Accipiter striatus (100)
+##   ecoengine: Accipiter striatus (22)
 {% endhighlight %}
 
 #### Make a map
@@ -402,7 +440,16 @@ library("spoccutils")
 map_ggplot(dat)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-11]({{ site.url }}/figure/../figure/unnamed-chunk-11-1.png) 
+![plot of chunk unnamed-chunk-15]({{ site.url }}/figure/../figure/unnamed-chunk-15-1.png) 
+
+Static map using base R maps
+
+
+{% highlight r %}
+map_plot(dat)
+{% endhighlight %}
+
+![plot of chunk unnamed-chunk-16]({{ site.url }}/figure/../figure/unnamed-chunk-16-1.png) 
 
 Interactive map using leaflet
 
@@ -411,23 +458,14 @@ Interactive map using leaflet
 map_leaflet(dat)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## 
-## File saved under ./data.geojson
-## 
-## Your leaflet map has been saved under /Users/sacmac/github/sac/iale_open_science/rmd_posts/map/map.html
-{% endhighlight %}
-
-![map](../leaflet_map.png)
+![leaflet]({{ site.url }}/figure/../figure/leaflet_map.png)
 
 ## Exercise 1
 
 Make a map!
 
-1. Pick your favorite single species (or more than one), or favorite taxon group. 
-2. Search for occurrence data using `spocc` from at least __2__ data sources. 
+1. Pick your favorite single species (or more than one), or favorite taxon group.
+2. Search for occurrence data using `spocc` from at least __2__ data sources.
 3. Make a map of the occurrence data.
 
 
@@ -435,9 +473,9 @@ Make a map!
 
 ## taxize
 
-When dealing with spatial data, we're often dealing with biological specimens. Whenver that's the case, taxonomic names are a huge area of potential frustration. 
+When dealing with spatial data, we're often dealing with biological specimens. Whenver that's the case, taxonomic names are a huge area of potential frustration.
 
-`taxize` aims to solve your problems by giving you access to as many taxonomic name datasets as possible, all in one R package. 
+`taxize` aims to solve your problems by giving you access to as many taxonomic name datasets as possible, all in one R package.
 
 
 {% highlight r %}
@@ -645,10 +683,9 @@ We can do alot more with `taxize` - let's dig into an excercise to epxlore the p
 
 Take dirty names, clean them, then get additional taxonomic information, and output a table.
 
-1. Get set of dirty names from XYZ
-2. x
-3. x
-4. x
+1. Get some taxonomic names - (hint: `names_list()`).
+2. Get taxonomic identifiers for the names from a single data source (e.g., NCBI).
+3. With the identifiers, get additional data on each taxon.
 
 
 
@@ -656,7 +693,7 @@ Take dirty names, clean them, then get additional taxonomic information, and out
 
 ### sp & friends
 
-`rgdal` has `writeOGR` and `readOGR`. These are your friends for reading and writing spatial data. 
+`rgdal` has `writeOGR` and `readOGR`. These are your friends for reading and writing spatial data.
 
 #### Convert data.frame to spatial classes
 
@@ -702,13 +739,13 @@ Then you can go from there to lots of other things. For example, use the `Spatia
 {% highlight r %}
 library("rgdal")
 file <- tempfile()
-dir.create("~/esrishape", showWarnings = FALSE)
-writeOGR(spdf, "/Users/sacmac/esrishape/out.shp", "", "ESRI Shapefile")
+dir.create("esrishape", showWarnings = FALSE)
+writeOGR(spdf, "esrishape/out.shp", "", "ESRI Shapefile")
 {% endhighlight %}
 
 ### GeoJSON/TopoJSON
 
-`geojsonio` helps you convert R objects to GeoJSON and GeoJSON to nearly any of the `sp` spatial classes by parsing JSON then serializing into spatial classes, and back to GeoJSON (done right now via `rgdal`). 
+`geojsonio` helps you convert R objects to GeoJSON and GeoJSON to nearly any of the `sp` spatial classes by parsing JSON then serializing into spatial classes, and back to GeoJSON (done right now via `rgdal`).
 
 For example, convert a `data.frame` to GeoJSON...
 
@@ -822,7 +859,7 @@ Part A)
 
 1. Get occurrence data via `rgbif` or `spocc`
 2. Creat a single `data.frame` from all occurrence data
-3. Create 
+3. Create a shapefile with that data.
 
 Part B)
 

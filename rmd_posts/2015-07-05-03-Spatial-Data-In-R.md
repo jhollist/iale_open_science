@@ -105,7 +105,7 @@ To download an upzip these with R:
 
 
 {% highlight r %}
-download.files("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
+download.file("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
                "SpatialData.zip",
                method="auto",
                mode="wb") 
@@ -527,8 +527,8 @@ Poly@data #not much here but this is the attribute table
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-2816" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2816">{ "x": {
+<!--html_preserve--><div id="htmlwidget-7455" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-7455">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -571,8 +571,8 @@ null,
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-4639" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-4639">{ "x": {
+<!--html_preserve--><div id="htmlwidget-1200" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1200">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -621,9 +621,7 @@ null,
 "riseOnHover": false,
 "riseOffset":               250 
 },
-"We R Here",
-null,
-null 
+"We R Here" 
 ] 
 } 
 ],
@@ -643,8 +641,8 @@ null
   m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-6894" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-6894">{ "x": {
+<!--html_preserve--><div id="htmlwidget-8138" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-8138">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -693,9 +691,7 @@ null,
 "riseOnHover": false,
 "riseOffset":               250 
 },
-"We R Here",
-null,
-null 
+"We R Here" 
 ] 
 },
 {
@@ -754,8 +750,8 @@ m <- leaflet() %>% addTiles(group = "OpenStreetMap") %>%
 m
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-3977" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-3977">{ "x": {
+<!--html_preserve--><div id="htmlwidget-1297" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1297">{ "x": {
  "calls": [
  {
  "method": "addTiles",
@@ -821,9 +817,7 @@ null,
 "riseOnHover": false,
 "riseOffset":               250 
 },
-"We R Here",
-null,
-null 
+"We R Here" 
 ] 
 },
 {
@@ -915,7 +909,7 @@ NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd
 
 #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
 #reproject Pt to match NLCD
-PtAlb<-spTransform(Pt,proj4string(NLCD))  
+PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))   
 
 #define extent based on bbox(PtAlb)+100km
 B<-bbox(PtAlb)
@@ -1127,9 +1121,9 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 {% highlight r %}
   #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
+      PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))  
   #reproject Polyg to match NLCD
-      PolyAlb<-spTransform(Poly,proj4string(NLCD)) 
+      PolyAlb<-spTransform(Poly,CRSobj = CRS(proj4string(NLCD)))  
 {% endhighlight %}
 
 - now we can add PtAlb and PolyAlb to the NLCD plot

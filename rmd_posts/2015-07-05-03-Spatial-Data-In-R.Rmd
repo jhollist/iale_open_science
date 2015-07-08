@@ -110,7 +110,7 @@ All of the files used in this lesson can be downloaded from: [http://jwhollister
 To download an upzip these with R:
 
 ```{r get_sp_data, eval=FALSE}
-download.files("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
+download.file("http://jwhollister.com/iale_open_science/files/SpatialData.zip",
                "SpatialData.zip",
                method="auto",
                mode="wb") 
@@ -361,7 +361,7 @@ NLCD<-raster('C:/Bryan/EPA/Data/nlcd_2011_landcover_2011_edition_2014_10_10/nlcd
 
 #NLCD includes all lower 48 states.  Reduce to bbox(Pt) + 10km
 #reproject Pt to match NLCD
-PtAlb<-spTransform(Pt,proj4string(NLCD))  
+PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))   
 
 #define extent based on bbox(PtAlb)+100km
 B<-bbox(PtAlb)
@@ -460,9 +460,9 @@ plot(Poly,add=T,lwd=3,col=NA,border='black')
 
 ```{r reproject}
   #reproject Pt to match NLCD
-      PtAlb<-spTransform(Pt,proj4string(NLCD))  
+      PtAlb<-spTransform(Pt,CRSobj = CRS(proj4string(NLCD)))  
   #reproject Polyg to match NLCD
-      PolyAlb<-spTransform(Poly,proj4string(NLCD)) 
+      PolyAlb<-spTransform(Poly,CRSobj = CRS(proj4string(NLCD)))  
 ```
 
 - now we can add PtAlb and PolyAlb to the NLCD plot
