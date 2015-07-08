@@ -1,10 +1,10 @@
 ---
 title: "08 - Install spatial libraries"
-author: "Scott Chamberlain"
+author: "Scott Chamberlain and Jeff Hollister"
 layout: post_page
 ---
   
-Installing `rgdal` and `rgeos`
+Installing `rgdal` and `rgeos` can be a bit problematic, especially from Mac and Linux.  Using the instructions below should ease that on the Mac side.  Linux users, we will assume you can track down the issues on your own.  Windows users you get the benefits of the binaries for all these being built and available by default.
 
 __rgdal__
 
